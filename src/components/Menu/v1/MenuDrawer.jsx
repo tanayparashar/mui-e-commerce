@@ -85,7 +85,7 @@ const lists = [
   { id: 20, name: "Toys and Games" },
 ];
 
-export default function Menu() {
+export default function MenuDrawer() {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [isOpening, setIsOpening] = useState(false);
   const [activeSection, setActiveSection] = useState(null);

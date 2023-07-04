@@ -18,6 +18,7 @@ import styled from "@emotion/styled";
 import SearchIconClick from "../../Search/SearchIcon";
 import { useMediaQuery } from "@mui/material";
 import CartIcon from "../../Cart/CartIcon";
+import MenuDrawer from "../../Menu/v1/MenuDrawer";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
@@ -28,6 +29,8 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   //   justifyContent: "center",
   // },
 }));
+
+const MOBILE_WIDTH = 280;
 
 export default function Header() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -49,6 +52,10 @@ export default function Header() {
     setAnchorEl(event.currentTarget);
   };
 
+  const handleCartMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
   const handleMobileMenuClose = () => {
     setMobileMoreAnchorEl(null);
   };
@@ -63,6 +70,8 @@ export default function Header() {
   };
 
   const menuId = "primary-search-account-menu";
+  const cartId = "primary-cart-menu";
+
   const renderMenu = (
     <Menu
       anchorEl={anchorEl}
@@ -79,6 +88,7 @@ export default function Header() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
+      <Box sx={{ width: MOBILE_WIDTH }} />
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
       <MenuItem onClick={handleMenuClose}>My account</MenuItem>
     </Menu>
@@ -101,6 +111,8 @@ export default function Header() {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
+      <Box sx={{ width: MOBILE_WIDTH }} />
+
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
@@ -140,7 +152,10 @@ export default function Header() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <StyledToolbar>
-          <Logo />
+          <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
+            <Logo />
+            <MenuDrawer />
+          </Box>
 
           {isMobile ? null : <SearchBar />}
 
@@ -156,7 +171,13 @@ export default function Header() {
           >
             {/* <Box sx={{ flexGrow: 1 }} /> */}
             {isMobile ? <SearchIconClick /> : null}
-            {isMobile ? <CartIcon /> : null}
+            {isMobile ? (
+              <CartIcon
+                badgeCount={4}
+                onClick={handleCartMenuOpen}
+                cartId={cartId}
+              />
+            ) : null}
 
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
               <IconButton
@@ -178,7 +199,11 @@ export default function Header() {
                 </Badge>
               </IconButton>
 
-              <CartIcon />
+              <CartIcon
+                badgeCount={4}
+                onClick={handleCartMenuOpen}
+                cartId={cartId}
+              />
 
               <IconButton
                 size="large"

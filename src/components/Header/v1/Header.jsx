@@ -24,6 +24,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
+  backgroundColor: theme.palette.secondary.main,
   // [theme.breakpoints.down("sm")]: {
   //   flexDirection: "column",
   //   justifyContent: "center",

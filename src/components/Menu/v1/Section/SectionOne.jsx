@@ -21,7 +21,7 @@ const SectionOne = ({ title, categories, onClose, isOpening }) => {
     if (!isOpening) {
       const timeout = setTimeout(() => {
         onClose();
-      }, 200);
+      }, 400);
       return () => clearTimeout(timeout);
     }
   }, [onClose, isOpening]);
@@ -31,7 +31,7 @@ const SectionOne = ({ title, categories, onClose, isOpening }) => {
       <Box
         sx={{
           backgroundColor: "#f0f0f0",
-          height: "100%",
+          height: "100vw",
           flexGrow: 1,
           top: "0",
           width: "100%",

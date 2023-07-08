@@ -1,13 +1,23 @@
-import SliderImg from "./components/SlideImg/v1/SliderImg";
+import { Container } from "@mui/material";
+import ProductSlider from "./components/SlideImg/v1/ProductSlider";
+import Slider from "./components/SlideImg/v1/SliderImg";
 import Layout from "./layout/GlobalLayout/Layout";
+import SlideShow from "./components/SlideImg/v1/SlideShow";
+import Product from "./components/Product/v1/Product";
+import ViewProduct from "./components/Product/v1/ViewProduct";
 
 function App() {
   return (
     <>
       <Layout>
-        <SliderImg />
-        <h1>Welcome to my app</h1>
-        <p>This is the main content of my app.</p>
+        <Slider />
+        <Container>
+          <ProductSlider />
+          <Product />
+          <ViewProduct />
+          <h1>Welcome to my app</h1>
+          <p>This is the main content of my app.</p>
+        </Container>
       </Layout>
     </>
   );

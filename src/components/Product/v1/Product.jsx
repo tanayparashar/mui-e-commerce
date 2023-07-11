@@ -10,7 +10,7 @@ export const productData = [
     price: 19.99,
     currency: "USD",
     image:
-      "https://static-01.daraz.com.bd/p/mdc/180c8b06034c543c8fd2798bbb9ea952.jpg_400x400q75-product.jpg_.webp",
+      "https://static-01.daraz.com.bd/p/b994318f0b20d67ada83f6e620ea37a2.jpg_400x400q75-product.jpg_.webp",
     category: "Electronics",
     brand: "Example Brand",
     rating: 4.5,
@@ -24,7 +24,7 @@ export const productData = [
     price: 19.99,
     currency: "USD",
     image:
-      "https://static-01.daraz.com.bd/p/mdc/180c8b06034c543c8fd2798bbb9ea952.jpg_400x400q75-product.jpg_.webp",
+      "https://static-01.daraz.com.bd/p/fd574b5a64d4494c8093d2d0cd5ac48f.jpg_400x400q75-product.jpg_.webp",
     category: "Electronics",
     brand: "Example Brand",
     rating: 4.5,
@@ -92,9 +92,11 @@ export const productData = [
 function Product() {
   const theme = useTheme();
   return (
-    <Paper sx={{ p: 2, mt: 5 }}>
+    <Paper sx={{ p: 2, mt: 5 }} elevation={10}>
       <Box>
-        <Typography>Just for you</Typography>
+        <Typography variant="h6" mb={2}>
+          Just for you
+        </Typography>
         <Grid container spacing={1}>
           {productData.map((data) => (
             <Grid item xs={6} sm={6} md={3} lg={12 / 5} xl={2} key={data.id}>

@@ -1,4 +1,4 @@
-.react-multiple-carousel__arrow {
+.long-slider .react-multiple-carousel__arrow {
   position: absolute;
   outline: 0;
   transition: all 0.5s;
@@ -6,12 +6,47 @@
   z-index: 1000;
   border: 0;
   background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
   min-width: 30px;
   min-height: 30px;
   opacity: 1;
   cursor: pointer;
 }
 
-.react-multiple-carousel__arrow::before {
+.long-slider .react-multiple-carousel__arrow::before {
   font-size: 12px;
+}
+
+.long-slider .react-multiple-carousel__arrow--left {
+  left: calc(0% + 1px);
+}
+.long-slider .react-multiple-carousel__arrow--right {
+  right: calc(0% + 1px);
+}
+
+/* slide-show  */
+.slide-show .react-multiple-carousel__arrow {
+  position: absolute;
+  outline: 0;
+  transition: all 0.5s;
+  border-radius: 35px;
+  z-index: 1000;
+  border: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(6px);
+  min-width: 30px;
+  min-height: 30px;
+  opacity: 1;
+  cursor: pointer;
+}
+
+.slide-show .react-multiple-carousel__arrow::before {
+  font-size: 12px;
+}
+
+.slide-show .react-multiple-carousel__arrow--left {
+  left: calc(0% + 1px);
+}
+.slide-show .react-multiple-carousel__arrow--right {
+  right: calc(0% + 1px);
 }

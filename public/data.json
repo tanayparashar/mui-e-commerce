@@ -1,0 +1,41 @@
+[
+  {
+    "id": 1,
+    "name": "heavy embroideried party wear style dress gown salwar kameez for ladies",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "price": 100,
+    "category": "Women fashion",
+    "image": "https://s.alicdn.com/@sc04/kf/Ucf82e654dfc84bccb6b5d88050bc4920S.jpg_250x250xz.jpg",
+    "rating": 4.5,
+    "reviews": 10,
+    "features": [
+      "Feature 1",
+      "Feature 2",
+      "Feature 3",
+      "Feature 4",
+      "Feature 5"
+    ],
+    "specifications": {
+      "color": "Black",
+      "weight": "500g",
+      "dimensions": "10x10x10 cm"
+    }
+  },
+  {
+    "id": 2,
+    "name": "Product 2",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "price": 19.99,
+    "category": "Clothing",
+    "brand": "Brand 2",
+    "image": "https://example.com/product2.jpg",
+    "rating": 3.8,
+    "reviews": 5,
+    "features": ["Feature 1", "Feature 2", "Feature 3"],
+    "specifications": {
+      "color": "Blue",
+      "weight": "300g",
+      "dimensions": "8x8x8 cm"
+    }
+  }
+]

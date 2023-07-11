@@ -88,105 +88,15 @@ export const productData = [
     reviews: 10,
     availability: true,
   },
-
-  {
-    id: 7,
-    name: "Example Product",
-    description: "This is an example product description.",
-    price: 19.99,
-    currency: "USD",
-    image:
-      "https://s.alicdn.com/@sc04/kf/H153bbd39e57e46c09e6445ae5ab55704w.jpg_480x480.jpg",
-    category: "Electronics",
-    brand: "Example Brand",
-    rating: 4.5,
-    reviews: 10,
-    availability: true,
-  },
-
-  {
-    id: 8,
-    name: "Example Product",
-    description: "This is an example product description.",
-    price: 19.99,
-    currency: "USD",
-    image:
-      "https://s.alicdn.com/@sc04/kf/H153bbd39e57e46c09e6445ae5ab55704w.jpg_480x480.jpg",
-    category: "Electronics",
-    brand: "Example Brand",
-    rating: 4.5,
-    reviews: 10,
-    availability: true,
-  },
-
-  {
-    id: 9,
-    name: "Example Product",
-    description: "This is an example product description.",
-    price: 19.99,
-    currency: "USD",
-    image:
-      "https://s.alicdn.com/@sc04/kf/H153bbd39e57e46c09e6445ae5ab55704w.jpg_480x480.jpg",
-    category: "Electronics",
-    brand: "Example Brand",
-    rating: 4.5,
-    reviews: 10,
-    availability: true,
-  },
-
-  {
-    id: 10,
-    name: "Example Product",
-    description: "This is an example product description.",
-    price: 19.99,
-    currency: "USD",
-    image:
-      "https://s.alicdn.com/@sc04/kf/H153bbd39e57e46c09e6445ae5ab55704w.jpg_480x480.jpg",
-    category: "Electronics",
-    brand: "Example Brand",
-    rating: 4.5,
-    reviews: 10,
-    availability: true,
-  },
-
-  {
-    id: 11,
-    name: "Example Product",
-    description: "This is an example product description.",
-    price: 19.99,
-    currency: "USD",
-    image:
-      "https://s.alicdn.com/@sc04/kf/H153bbd39e57e46c09e6445ae5ab55704w.jpg_480x480.jpg",
-    category: "Electronics",
-    brand: "Example Brand",
-    rating: 4.5,
-    reviews: 10,
-    availability: true,
-  },
-
-  {
-    id: 12,
-    name: "Example Product",
-    description: "This is an example product description.",
-    price: 19.99,
-    currency: "USD",
-    image:
-      "https://static-01.daraz.com.bd/p/581c57d9da4adde7be0660410bf054cb.jpg",
-    category: "Electronics",
-    brand: "Example Brand",
-    rating: 4.5,
-    reviews: 10,
-    availability: true,
-  },
 ];
 
-function Product() {
+function BrowseHistory() {
   const theme = useTheme();
   return (
     <Paper sx={{ p: 2, mt: 5 }} elevation={10}>
       <Box>
         <Typography variant="h6" mb={2}>
-          Just for you
+          Browse History
         </Typography>
         <Grid container spacing={1}>
           {productData.map((data) => (
@@ -207,7 +117,7 @@ function Product() {
                     alt={data.name}
                   />
                   <Typography>{data.name}</Typography>
-                  <Typography fontWeight={"bold"}>${data.price}</Typography>
+                  {/* <Typography>${data.price}</Typography> */}
                   <Stack spacing={1}>
                     <Rating
                       name="half-rating-read"
@@ -226,4 +136,4 @@ function Product() {
   );
 }
 
-export default Product;
+export default BrowseHistory;

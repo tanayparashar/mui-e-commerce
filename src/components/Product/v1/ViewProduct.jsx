@@ -21,8 +21,6 @@ const items = [
   },
 ];
 
-// https://images-na.ssl-images-amazon.com/images/G/01/AMAZON_FASHION/2022/SITE_FLIPS/SPR_22/GW/DQC/DQC_APR_TBYB_W_BOTTOMS_2x._SY232_CB624172947_.jpg
-
 function ViewProduct() {
   return (
     <Box sx={{ mt: 5 }}>

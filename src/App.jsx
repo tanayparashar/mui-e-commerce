@@ -6,6 +6,7 @@ import SlideShow from "./components/SlideImg/v1/SlideShow";
 import Product from "./components/Product/v1/Product";
 import ViewProduct from "./components/Product/v1/ViewProduct";
 import CustomCarousel from "./components/SlideImg/v1/CustomCarousel";
+import BrowseHistory from "./components/BrowesHistory/v1/BrowseHistory";
 
 function App() {
   return (
@@ -17,8 +18,8 @@ function App() {
           <Product />
           <ViewProduct />
           <CustomCarousel />
-          <h1>Welcome to my app</h1>
-          <p>This is the main content of my app.</p>
+
+          <BrowseHistory />
         </Container>
       </Layout>
     </>

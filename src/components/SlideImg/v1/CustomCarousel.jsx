@@ -40,6 +40,12 @@ const items = [
     image:
       "https://s.alicdn.com/@sc04/kf/UTB8FWWWExHEXKJk43Jeq6yeeXXan.jpg_250x250xz.jpg",
   },
+  {
+    description: "React Carousel with Server Side Rendering Support – Part 2",
+    headline: "w3js.com - web front-end studio",
+    image:
+      "https://static-01.daraz.com.bd/p/733b5b814c1780aa022677e206dfe2f9.jpg_400x400q75-product.jpg_.webp",
+  },
 ];
 
 function CustomCarousel() {

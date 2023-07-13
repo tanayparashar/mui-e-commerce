@@ -50,69 +50,42 @@ function SliderImg() {
       rewindWithAnimation={false}
       rtl={false}
       shouldResetAutoplay
-      showDots
+      showDots={false}
       sliderClass=""
       slidesToSlide={1}
       swipeable
     >
       <img
-        src="https://wallpapercave.com/wp/wp3537545.jpg"
+        src="https://onlineaid.netlify.app/public/images/slider/slider2.jpg"
         style={{
           display: "block",
           height: "90vh",
           margin: "auto",
           width: "100%",
+          objectFit: "cover",
         }}
       />
       <img
-        src="https://images.unsplash.com/photo-1549396535-c11d5c55b9df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=60"
+        src="https://i.ibb.co/q9shsrw/240-F-229742070-UOUl-BZt-Od-QBz-YDa-Ph-Dy-H9hbpftb-K9in-T.png"
         style={{
           display: "block",
           height: "90vh",
           margin: "auto",
           width: "100%",
+          objectFit: "cover",
         }}
       />
       <img
-        src="https://images.unsplash.com/photo-1550133730-695473e544be?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
+        src="https://i.ibb.co/t2hjQFd/240-F-156896021-y-CTTXnn-YBXto4q-X3c0-Mu-HYa-Q8-KENwu2l.png"
         style={{
           display: "block",
           height: "90vh",
           margin: "auto",
           width: "100%",
+          objectFit: "cover",
         }}
+        alt="Your Image"
       />
-      <img
-        src="https://images.unsplash.com/photo-1550167164-1b67c2be3973?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-        style={{
-          display: "block",
-          height: "90vh",
-          margin: "auto",
-          width: "100%",
-        }}
-      />
-      <img
-        src="https://images.unsplash.com/photo-1550338861-b7cfeaf8ffd8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60"
-        style={{
-          display: "block",
-          height: "90vh",
-          margin: "auto",
-          width: "100%",
-        }}
-      />
-      {/* <div>
-        <img
-          src="https://d3njjcbhbojbot.cloudfront.net/api/utilities/v1/imageproxy/https://images.ctfassets.net/wp1lcwdav1p1/5HX85I2zLsXYSSruC8670C/93ccb22b55d7638fc4109b118a7fd630/GettyImages-1313131428.jpg?w=1500&h=680&q=60&fit=fill&f=faces&fm=jpg&fl=progressive&auto=format%2Ccompress&dpr=1&w=1000&h="
-          alt=""
-        />
-      </div>
-      <div>
-        <img
-          src="https://wallpapercave.com/wp/wp3537545.jpg"
-          alt=""
-          style={{ width: "100%" }}
-        />
-      </div> */}
     </Carousel>
   );
 }

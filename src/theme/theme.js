@@ -1,4 +1,4 @@
-import { createTheme } from "@mui/material/styles";
+import { alpha, createTheme } from "@mui/material/styles";
 
 function remToPx(value) {
   return Math.round(parseFloat(value) * 16);
@@ -151,6 +151,20 @@ export const theme = createTheme({
       contrastText: "#ffffff",
     },
     grey: GREY,
+  },
+  MuiOutlinedInput: {
+    styleOverrides: {
+      root: {
+        "& .MuiOutlinedInput-notchedOutline": {
+          borderColor: alpha(theme.palette.grey[500], 0.32),
+        },
+        "&.Mui-disabled": {
+          "& .MuiOutlinedInput-notchedOutline": {
+            borderColor: theme.palette.action.disabledBackground,
+          },
+        },
+      },
+    },
   },
   shape: {
     borderRadius: 8,

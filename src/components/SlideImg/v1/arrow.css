@@ -50,3 +50,28 @@
 .slide-show .react-multiple-carousel__arrow--right {
   right: calc(0% + 1px);
 }
+
+.carousel .thumbs-wrapper {
+  margin: 0px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.carousel .thumb.selected,
+.carousel .thumb:hover {
+  border: 2px solid #26eb0b !important;
+}
+
+.carousel.carousel-slider .control-arrow {
+  top: 50% !important;
+  color: #fff;
+  font-size: 26px;
+  padding: 5px;
+  height: 100px;
+  transform: translateY(-50%);
+}
+
+.carousel .control-prev.control-arrow {
+  left: 0;
+  height: 100px;
+}

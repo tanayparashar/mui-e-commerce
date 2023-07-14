@@ -1,5 +1,5 @@
 import React from "react";
-import Layout from "../layout/GlobalLayout/Layout";
+import Layout from "../../layout/GlobalLayout/Layout";
 import {
   Box,
   Container,
@@ -15,10 +15,12 @@ import {
   Button,
 } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import ProductDetailSlider from "../components/SlideImg/v1/ProductDetailSlider";
+import ProductDetailSlider from "../../components/SlideImg/v1/ProductDetailSlider";
 import Counter from "./Counter";
 import ColorComponent from "./ColorComponent";
-import WhatWeProvide from "../components/Commitment/v1/WhatWeProvide";
+import WhatWeProvide from "../../components/Commitment/v1/WhatWeProvide";
+import BasicTabs from "../../components/Tab/v1/ProductTab";
+import RelatedProduct from "../../components/RelatedProduct/v1/RelatedProduct";
 
 export default function ProductDetails() {
   const theme = useTheme();
@@ -127,6 +129,9 @@ export default function ProductDetails() {
           </Grid>
 
           <WhatWeProvide />
+          <BasicTabs />
+
+          <RelatedProduct />
         </Container>
       </Layout>
     </div>

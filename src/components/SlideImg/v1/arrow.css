@@ -60,6 +60,7 @@
 .carousel .thumb.selected,
 .carousel .thumb:hover {
   border: 2px solid #26eb0b !important;
+  border-radius: 5px;
 }
 
 .carousel.carousel-slider .control-arrow {

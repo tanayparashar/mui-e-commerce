@@ -4,6 +4,7 @@ import {
   Chip,
   FormControl,
   IconButton,
+  Paper,
   Typography,
   useTheme,
 } from "@mui/material";
@@ -34,22 +35,25 @@ const Counter = () => {
       }}
     >
       <Typography>Quantity</Typography>
-      <Box
-        sx={{
-          display: "flex",
-          alignItems: "center",
-          gap: 0.5,
-          m: 1,
-        }}
-      >
-        <IconButton onClick={handleDecrement}>
-          <RemoveCircleRoundedIcon />
-        </IconButton>
-        <Typography>{count}</Typography>
-        <IconButton onClick={handleIncrement}>
-          <AddCircleRoundedIcon />
-        </IconButton>
-      </Box>
+
+      <Paper sx={{ m: 1 }}>
+        <Box
+          sx={{
+            display: "flex",
+            alignItems: "center",
+            gap: 0.5,
+            // m: 1,
+          }}
+        >
+          <IconButton onClick={handleDecrement}>
+            <RemoveCircleRoundedIcon />
+          </IconButton>
+          <Typography>{count}</Typography>
+          <IconButton onClick={handleIncrement}>
+            <AddCircleRoundedIcon />
+          </IconButton>
+        </Box>
+      </Paper>
     </Box>
   );
 };

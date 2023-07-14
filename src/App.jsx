@@ -14,7 +14,7 @@ function App() {
   return (
     <>
       <Helmet>
-        <title>🚀 Buy Black Friday</title>
+        <title>🚀Buy Black Friday</title>
         <meta name="description" content="Your page description" />
         {/* Add any other meta tags or custom styles here */}
       </Helmet>

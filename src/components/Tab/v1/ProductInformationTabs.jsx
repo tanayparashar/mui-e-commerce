@@ -1,11 +1,9 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import Tabs from "@mui/material/Tabs";
-import Tab from "@mui/material/Tab";
-import Typography from "@mui/material/Typography";
-import Box from "@mui/material/Box";
-import { Paper } from "@mui/material";
+import { Tab, Paper, Tabs, Box, Typography, useTheme } from "@mui/material";
 import Description from "./Description";
+import Reviews from "./Reviews";
+import SwipeableViews from "react-swipeable-views";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -40,9 +38,9 @@ function a11yProps(index) {
   };
 }
 
-export default function BasicTabs() {
+export default function ProductInformationTabs() {
   const [value, setValue] = React.useState(0);
-
+  const theme = useTheme();
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
@@ -62,8 +60,6 @@ export default function BasicTabs() {
               sx={{
                 fontWeight: "normal",
                 p: 0,
-                // display: "flex",
-                // alignItems: "flex-start",
               }}
               label="Description"
               {...a11yProps(0)}
@@ -73,8 +69,6 @@ export default function BasicTabs() {
               sx={{
                 fontWeight: "normal",
                 p: 0,
-                // display: "flex",
-                // alignItems: "flex-start",
               }}
               label={`Reviews (${0})`}
               {...a11yProps(1)}
@@ -82,12 +76,19 @@ export default function BasicTabs() {
             />
           </Tabs>
         </Box>
-        <CustomTabPanel value={value} index={0}>
-          <Description />
-        </CustomTabPanel>
-        <CustomTabPanel value={value} index={1}>
-          Item Two
-        </CustomTabPanel>
+
+        <SwipeableViews
+          axis={theme.direction === "rtl" ? "x-reverse" : "x"}
+          index={value}
+          onChangeIndex={handleChange}
+        >
+          <CustomTabPanel value={value} index={0} dir={theme.direction}>
+            <Description />
+          </CustomTabPanel>
+          <CustomTabPanel value={value} index={1} dir={theme.direction}>
+            <Reviews />
+          </CustomTabPanel>
+        </SwipeableViews>
       </Paper>
     </Box>
   );

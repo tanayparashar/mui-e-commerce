@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 import Layout from "../../layout/GlobalLayout/Layout";
 import {
   Box,
@@ -16,11 +17,12 @@ import {
 } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import ProductDetailSlider from "../../components/SlideImg/v1/ProductDetailSlider";
+import WhatWeProvide from "../../components/Commitment/v1/WhatWeProvide";
+import ProductInformationTabs from "../../components/Tab/v1/ProductInformationTabs";
+import ReusableProduct from "../../components/ReusableProduct/RelatedProduct";
+
 import Counter from "./Counter";
 import ColorComponent from "./ColorComponent";
-import WhatWeProvide from "../../components/Commitment/v1/WhatWeProvide";
-import BasicTabs from "../../components/Tab/v1/ProductTab";
-import ReusableProduct from "../../components/ReusableProduct/RelatedProduct";
 
 export default function ProductDetails() {
   const theme = useTheme();
@@ -30,7 +32,13 @@ export default function ProductDetails() {
     setAge(event.target.value);
   };
   return (
-    <div>
+    <>
+      <Helmet>
+        <title>📄 Product Details</title>
+        <meta name="description" content="Your page description" />
+        {/* Add any other meta tags or custom styles here */}
+      </Helmet>
+
       <Layout>
         <Container>
           <Grid container spacing={2}>
@@ -129,12 +137,12 @@ export default function ProductDetails() {
           </Grid>
 
           <WhatWeProvide />
-          <BasicTabs />
+          <ProductInformationTabs />
 
-            {/* YOU can use your custom product api data JUST use props data={api} */}
+          {/* YOU can use your custom product api data JUST use props data={api} */}
           <ReusableProduct sectionTitle={"Related Product"} />
         </Container>
       </Layout>
-    </div>
+    </>
   );
 }

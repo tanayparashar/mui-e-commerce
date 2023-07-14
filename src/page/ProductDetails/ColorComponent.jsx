@@ -1,14 +1,18 @@
 import React, { useState } from "react";
-import { Box, Button, ButtonBase, IconButton } from "@mui/material";
+import { Box, IconButton, Zoom } from "@mui/material";
 import CheckIcon from "@mui/icons-material/Check";
 
 const ColorComponent = () => {
   const [selectedColor, setSelectedColor] = useState(null);
+  const [checked, setChecked] = useState(false); // Update the checked state
+
   const colors = ["red", "blue", "green", "yellow"];
 
   const handleColorClick = (color) => {
     setSelectedColor(color);
+    setChecked(true); // Set checked to true when color is clicked
   };
+
   return (
     <Box sx={{ display: "flex", alignItems: "center", m: 1, gap: 2 }}>
       {colors.map((color, index) => (
@@ -18,8 +22,6 @@ const ColorComponent = () => {
             background: color,
             height: "24px",
             width: "24px",
-            // height: selectedColor === color ? "23px" : "20px",
-            // width: selectedColor === color ? "23px" : "20px",
             borderRadius: "50%",
             border: selectedColor === color ? "2px solid black" : "",
             position: "relative",
@@ -29,6 +31,10 @@ const ColorComponent = () => {
           onClick={() => handleColorClick(color)}
         >
           {selectedColor === color && (
+            // <Zoom
+            //   in={checked}
+            //   style={{ transitionDelay: checked ? "500ms" : "0ms" }}
+            // >
             <IconButton
               sx={{
                 position: "absolute",
@@ -39,6 +45,7 @@ const ColorComponent = () => {
             >
               <CheckIcon sx={{ color: "white" }} />
             </IconButton>
+            // </Zoom>
           )}
         </Box>
       ))}

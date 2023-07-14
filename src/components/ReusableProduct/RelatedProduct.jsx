@@ -90,13 +90,13 @@ export const productData = [
   },
 ];
 
-function RelatedProduct() {
+function ReusableProduct({ sectionTitle }) {
   const theme = useTheme();
   return (
     <Paper sx={{ p: 2, mt: 5 }} elevation={10}>
       <Box>
         <Typography variant="h6" mb={2}>
-          Related Product
+          {sectionTitle}
         </Typography>
         <Grid container spacing={1}>
           {productData.map((data) => (
@@ -136,4 +136,4 @@ function RelatedProduct() {
   );
 }
 
-export default RelatedProduct;
+export default ReusableProduct;

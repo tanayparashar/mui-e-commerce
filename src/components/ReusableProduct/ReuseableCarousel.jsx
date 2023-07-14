@@ -1,12 +1,8 @@
 import React from "react";
-// import Carousel from "react-material-ui-carousel";
 import { Paper, Box, Typography, Grid, Button } from "@mui/material";
-import "./arrow.css";
+import "../../components/SlideImg/v1/arrow.css";
 
 import Carousel from "react-multi-carousel";
-// import "react-multi-carousel/lib/styles.css";
-import ArrowCircleLeftIcon from "@mui/icons-material/ArrowCircleLeft";
-import ArrowCircleRightIcon from "@mui/icons-material/ArrowCircleRight";
 import { Link } from "react-router-dom";
 const items = [
   {
@@ -48,7 +44,7 @@ const items = [
   },
 ];
 
-function CustomCarousel() {
+function ReuseableCarousel({ sectionTitle }) {
   return (
     <Paper elevation={10}>
       <Box sx={{ mt: 5, p: 1 }}>
@@ -61,7 +57,7 @@ function CustomCarousel() {
           }}
         >
           <Typography variant="h6" px={1}>
-            Shop under $20
+            {sectionTitle}
           </Typography>
           <Button variant="contained">View all</Button>
         </Box>
@@ -72,8 +68,6 @@ function CustomCarousel() {
           centerMode={false}
           className="long-slider"
           containerClass="container"
-          // customLeftArrow={<ArrowCircleLeftIcon />}
-          // customRightArrow={<ArrowCircleRightIcon />}
           dotListClass=""
           draggable
           focusOnSelect={false}
@@ -152,4 +146,4 @@ function CustomCarousel() {
   );
 }
 
-export default CustomCarousel;
+export default ReuseableCarousel;

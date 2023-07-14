@@ -19,6 +19,7 @@ import SearchIconClick from "../../Search/SearchIcon";
 import { useMediaQuery } from "@mui/material";
 import CartIcon from "../../Cart/CartIcon";
 import MenuDrawer from "../../Menu/v1/MenuDrawer";
+import { Link } from "react-router-dom";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
@@ -200,11 +201,9 @@ export default function Header() {
                 </Badge>
               </IconButton>
 
-              <CartIcon
-                badgeCount={4}
-                onClick={handleCartMenuOpen}
-                cartId={cartId}
-              />
+              <Box component={Link} to="/addtocart" color="inherit">
+                <CartIcon badgeCount={14} />
+              </Box>
 
               <IconButton
                 size="large"

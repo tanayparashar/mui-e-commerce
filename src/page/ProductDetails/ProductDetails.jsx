@@ -20,7 +20,7 @@ import Counter from "./Counter";
 import ColorComponent from "./ColorComponent";
 import WhatWeProvide from "../../components/Commitment/v1/WhatWeProvide";
 import BasicTabs from "../../components/Tab/v1/ProductTab";
-import RelatedProduct from "../../components/RelatedProduct/v1/RelatedProduct";
+import ReusableProduct from "../../components/ReusableProduct/RelatedProduct";
 
 export default function ProductDetails() {
   const theme = useTheme();
@@ -131,7 +131,8 @@ export default function ProductDetails() {
           <WhatWeProvide />
           <BasicTabs />
 
-          <RelatedProduct />
+            {/* YOU can use your custom product api data JUST use props data={api} */}
+          <ReusableProduct sectionTitle={"Related Product"} />
         </Container>
       </Layout>
     </div>

@@ -1,6 +1,6 @@
 import { useTheme } from "@emotion/react";
 import { Box, Grid, Paper, Rating, Stack, Typography } from "@mui/material";
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 
 export const productData = [
@@ -92,6 +92,12 @@ export const productData = [
 
 function ReusableProduct({ sectionTitle }) {
   const theme = useTheme();
+
+  const productRef = useRef();
+
+  const handleProductClick = () => {
+    productRef.current.scrollTo(0, 0); // Scroll to the top before navigating
+  };
   return (
     <Paper sx={{ p: 2, mt: 5 }} elevation={10}>
       <Box>
@@ -106,6 +112,7 @@ function ReusableProduct({ sectionTitle }) {
                   sx={{ textDecoration: "none", color: "inherit" }}
                   component={Link}
                   to={`/product-details/${data.id}`}
+                  onClick={handleProductClick}
                 >
                   <Box
                     component="img"

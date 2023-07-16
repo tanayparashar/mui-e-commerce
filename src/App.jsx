@@ -15,19 +15,17 @@ import Loading from "./components/Loading/Loading";
 function App() {
   const [loading, setLoading] = React.useState(false);
 
-  // React.useEffect(() => {
-  //   // Simulate a delay of 2 seconds to demonstrate the loading component
-  //   setTimeout(() => {
-  //     setLoading(false);
-  //   }, 2000);
-  // }, []);
+  React.useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
 
   return (
     <>
       <Helmet>
         <title>🚀Buy Black Friday</title>
         <meta name="description" content="Your page description" />
-        {/* Add any other meta tags or custom styles here */}
       </Helmet>
 
       {/* Show the loading component while loading */}

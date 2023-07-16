@@ -34,7 +34,7 @@ const ProductDetailSlider = () => {
       onClickThumb={onClickThumb}
     >
       {image.map((img, index) => (
-        <div>
+        <div key={index}>
           <img style={{ borderRadius: "5px" }} src={img} alt="Slide " />
         </div>
       ))}

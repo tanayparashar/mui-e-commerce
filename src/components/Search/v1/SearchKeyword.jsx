@@ -30,10 +30,14 @@ const SearchKeyword = ({ isOpen, onClose, keywords, anchorEl }) => {
         <Paper>
           <List>
             {keywords.map((keyword, index) => (
-              <ListItem key={index}>
-                <Link to="/lol">
+              <ListItem key={index} sx={{ display: "block" }}>
+                <Box
+                  component={Link}
+                  to="/lol"
+                  sx={{ textDecoration: "none", color: "inherit" }}
+                >
                   <ListItemText primary={keyword} />
-                </Link>
+                </Box>
               </ListItem>
             ))}
           </List>

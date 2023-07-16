@@ -44,8 +44,9 @@ function ViewProduct() {
                   gap: 2,
                 }}
               >
-                {items.map((catalog) => (
+                {items.map((catalog, index) => (
                   <Box
+                    key={index}
                     component={Link}
                     to="somewhere"
                     sx={{ textDecoration: "none", color: "inherit" }}
@@ -93,8 +94,9 @@ function ViewProduct() {
                   gap: 2,
                 }}
               >
-                {items.map((catalog) => (
+                {items.map((catalog, index) => (
                   <Box
+                    key={index}
                     component={Link}
                     to="somewhere"
                     sx={{ textDecoration: "none", color: "inherit" }}
@@ -142,8 +144,9 @@ function ViewProduct() {
                   gap: 2,
                 }}
               >
-                {items.map((catalog) => (
+                {items.map((catalog, index) => (
                   <Box
+                    key={index}
                     component={Link}
                     to="somewhere"
                     sx={{ textDecoration: "none", color: "inherit" }}

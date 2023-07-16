@@ -14,11 +14,11 @@ import ThemeProvider from "./theme/index.jsx";
 import { HelmetProvider } from "react-helmet-async";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <HelmetProvider>
-      <ThemeProvider>
-        <RouterProvider router={router} />
-      </ThemeProvider>
-    </HelmetProvider>
-  </React.StrictMode>
+  // <React.StrictMode>
+  <HelmetProvider>
+    <ThemeProvider>
+      <RouterProvider router={router} />
+    </ThemeProvider>
+  </HelmetProvider>
+  // </React.StrictMode>
 );

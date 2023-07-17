@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Box,
   Grid,
@@ -6,10 +7,10 @@ import {
   useMediaQuery,
   useTheme,
 } from "@mui/material";
-import React from "react";
-import "./arrow.css";
 import SlideShow from "./SlideShow";
 import { Link } from "react-router-dom";
+
+import "./arrow.css";
 
 export const products = [
   {

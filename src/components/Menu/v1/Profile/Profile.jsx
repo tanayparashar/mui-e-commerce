@@ -1,5 +1,5 @@
-import { Avatar, Box, Chip, Divider } from "@mui/material";
 import React from "react";
+import { Avatar, Box, Chip, Divider } from "@mui/material";
 
 export default function Profile() {
   return (

@@ -1,15 +1,8 @@
 import React from "react";
+import { Badge, Button, IconButton } from "@mui/material";
 import ShoppingCartSharpIcon from "@mui/icons-material/ShoppingCartSharp";
-import { Badge, Button, IconButton, Menu, MenuItem } from "@mui/material";
 
-const CartIcon = ({ badgeCount, onClick, cartId }) => {
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const isMenuOpen = Boolean(anchorEl);
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
-
+const CartIcon = ({ badgeCount, cartId, onClick }) => {
   return (
     <>
       <IconButton
@@ -25,29 +18,6 @@ const CartIcon = ({ badgeCount, onClick, cartId }) => {
           <ShoppingCartSharpIcon />
         </Badge>
       </IconButton>
-      <Menu
-        anchorEl={anchorEl}
-        anchorOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
-        id={cartId}
-        keepMounted
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "right",
-        }}
-        open={isMenuOpen}
-        onClose={handleMenuClose}
-      >
-        <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-        <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-
-        {/* To do  */}
-        <MenuItem>
-          <Button>Checkout</Button>
-        </MenuItem>
-      </Menu>
     </>
   );
 };

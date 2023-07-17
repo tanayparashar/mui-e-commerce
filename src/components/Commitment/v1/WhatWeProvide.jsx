@@ -1,9 +1,8 @@
 import React from "react";
-import { Box, Grid, Paper, Typography } from "@mui/material";
+import { Box, Grid, Paper, Typography, useTheme } from "@mui/material";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import WatchLaterIcon from "@mui/icons-material/WatchLater";
 import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
-import { useTheme } from "@emotion/react";
 
 function WhatWeProvide() {
   const theme = useTheme();

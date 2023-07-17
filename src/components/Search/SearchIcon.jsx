@@ -1,7 +1,8 @@
 import React from "react";
-import SearchIcon from "@mui/icons-material/Search";
 import { Link } from "react-router-dom";
 import { Box, IconButton } from "@mui/material";
+
+import SearchIcon from "@mui/icons-material/Search";
 
 function SearchIconClick() {
   return (

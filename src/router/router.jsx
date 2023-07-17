@@ -1,6 +1,6 @@
 import App from "../App.jsx";
 import SearchPage from "../page/SearchPage.jsx";
-import ProductDetails from "../page/ProductDetails/ProductDetails.jsx";
+import ProductDetails from "../page/ProductDetails/v1/ProductDetails.jsx";
 import AddToCart from "../page/AddToCart/v1/AddToCart.jsx";
 import Shop from "../page/Shop/v1/Shop.jsx";
 

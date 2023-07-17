@@ -1,10 +1,5 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Switch from "@mui/material/Switch";
-import Paper from "@mui/material/Paper";
-import Slide from "@mui/material/Slide";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import { Button } from "@mui/material";
+import React, { useState } from "react";
+import { Box, Button, Paper, Slide } from "@mui/material";
 
 const icon = (
   <Paper sx={{ m: 1 }} elevation={4}>
@@ -23,7 +18,7 @@ const icon = (
 );
 
 export default function SimpleSlide() {
-  const [checked, setChecked] = React.useState(false);
+  const [checked, setChecked] = useState(false);
 
   const handleChange = () => {
     setChecked((prev) => !prev);

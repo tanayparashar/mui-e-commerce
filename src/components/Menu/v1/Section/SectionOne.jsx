@@ -11,9 +11,9 @@ import {
   ListItemText,
   Tooltip,
   Typography,
+  Slide,
 } from "@mui/material";
 import List01 from "../List/List01";
-import Slide from "@mui/material/Slide";
 import { Link } from "react-router-dom";
 
 const SectionOne = ({ title, categories, onClose, isOpening }) => {

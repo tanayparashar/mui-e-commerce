@@ -1,5 +1,5 @@
-import { Box } from "@mui/material";
 import React from "react";
+import { Box } from "@mui/material";
 import Carousel from "react-multi-carousel";
 import { Link } from "react-router-dom";
 // import { LazyLoadImage } from "react-lazy-load-image-component";

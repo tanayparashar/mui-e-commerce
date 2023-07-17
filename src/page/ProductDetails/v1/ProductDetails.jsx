@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
-import Layout from "../../layout/GlobalLayout/Layout";
+import Layout from "../../../layout/GlobalLayout/Layout";
 import {
   Box,
   Container,
@@ -16,14 +16,13 @@ import {
   Button,
 } from "@mui/material";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import ProductDetailSlider from "../../components/SlideImg/v1/ProductDetailSlider";
-import WhatWeProvide from "../../components/Commitment/v1/WhatWeProvide";
-import ProductInformationTabs from "../../components/Tab/v1/ProductInformationTabs";
-import ReusableProduct from "../../components/ReusableProduct/RelatedProduct";
+import ProductDetailSlider from "../../../components/SlideImg/v1/ProductDetailSlider";
+import WhatWeProvide from "../../../components/Commitment/v1/WhatWeProvide";
+import ProductInformationTabs from "../../../components/Tab/v1/ProductInformationTabs";
+import ReusableProduct from "../../../components/ReusableProduct/RelatedProduct";
 
 import Counter from "./Counter";
 import ColorComponent from "./ColorComponent";
-import Loading from "../../components/Loading/Loading";
 import ProductDetailsSkelton from "./ProductDetailsSkelton";
 
 export default function ProductDetails() {

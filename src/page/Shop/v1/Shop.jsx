@@ -1,4 +1,4 @@
-import React, { useRef, useState, useEffect, useMemo } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   Box,
   Container,
@@ -11,20 +11,20 @@ import {
   Toolbar,
   Typography,
   useMediaQuery,
-  useTheme,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
 import Layout from "../../../layout/GlobalLayout/Layout";
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 
 import ViewModuleIcon from "@mui/icons-material/ViewModule";
 import ViewListIcon from "@mui/icons-material/ViewList";
+import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 
 import SortingSelect from "./SortingSelect";
 import ShopPagination from "./ShopPagination";
+import ShowGridProduct from "./ShowGridProduct";
+import ShowFlatProduct from "./ShowFlatProduct";
 
-export const productData = [
+const productData = [
   {
     id: 1,
     name: "Example Product",
@@ -210,12 +210,6 @@ function Shop() {
   const [viewMode, setViewMode] = useState(
     localStorage.getItem("viewMode") || "grid"
   );
-  const productRef = useRef();
-  const theme = useTheme();
-
-  const handleProductClick = () => {
-    productRef.current.scrollTo(0, 0); // Scroll to the top before navigating
-  };
 
   useEffect(() => {
     localStorage.setItem("viewMode", viewMode);
@@ -232,6 +226,7 @@ function Shop() {
   const toggleNav = () => {
     setOpenNav((prevOpen) => !prevOpen);
   };
+
   return (
     <>
       <Helmet>
@@ -241,159 +236,86 @@ function Shop() {
       <Layout>
         <Container>
           <Grid container spacing={2}>
-            <Grid item md={3} mt={5}>
-              {isMobile && (
-                <>
-                  <Toolbar>
-                    <IconButton
-                      edge="start"
-                      color="inherit"
-                      onClick={toggleNav}
-                    >
-                      <MenuIcon /> Filter
-                    </IconButton>
-                  </Toolbar>
-                  <Drawer
-                    open={openNav}
-                    onClose={() => setOpenNav(false)}
-                    ModalProps={{
-                      keepMounted: true,
-                    }}
-                    PaperProps={{
-                      sx: { width: NAV_WIDTH },
-                    }}
-                  >
-                    {/* Drawer Content Here */}
-                    <Typography variant="h6" component="div" sx={{ p: 2 }}>
-                      Drawer Content
-                    </Typography>
-                  </Drawer>
-                </>
-              )}
-              {!isMobile && <Box>Hi</Box>}
-            </Grid>
+            {!isMobile && (
+              <Grid item md={3} mt={5}>
+                <Box>Hi</Box>
+              </Grid>
+            )}
             <Grid item md={9} mt={5}>
-              <Box
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  my: 3,
-                }}
-              >
-                <Stack direction="row" spacing={1} alignItems="center">
-                  <IconButton
-                    onClick={handleViewModeChange}
-                    color={viewMode === "grid" ? "primary" : "default"}
-                  >
-                    {viewMode === "grid" ? (
-                      <ViewModuleIcon />
-                    ) : (
-                      <ViewListIcon />
+              <Paper>
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "space-between",
+                    mb: 3,
+                    py: 1,
+                    px: 1,
+                  }}
+                >
+                  <Stack direction="row" spacing={1} alignItems="center">
+                    {isMobile && (
+                      <>
+                        <Toolbar sx={{ p: 0, ml: 2 }}>
+                          <IconButton
+                            edge="start"
+                            color="inherit"
+                            onClick={toggleNav}
+                          >
+                            <MenuOpenIcon />
+                          </IconButton>
+                        </Toolbar>
+                        <Drawer
+                          open={openNav}
+                          onClose={() => setOpenNav(false)}
+                          ModalProps={{
+                            keepMounted: true,
+                          }}
+                          PaperProps={{
+                            sx: { width: NAV_WIDTH },
+                          }}
+                        >
+                          {/* Drawer Content Here */}
+                          <Typography
+                            variant="h6"
+                            component="div"
+                            sx={{ p: 2 }}
+                          >
+                            Drawer Content
+                          </Typography>
+                        </Drawer>
+                      </>
                     )}
-                  </IconButton>
-                </Stack>
+                    <IconButton
+                      onClick={handleViewModeChange}
+                      color={viewMode === "grid" ? "primary" : "default"}
+                    >
+                      {viewMode === "grid" ? (
+                        <ViewModuleIcon />
+                      ) : (
+                        <ViewListIcon color="primary" />
+                      )}
+                    </IconButton>
+                  </Stack>
 
-                {/* Rendering the SortingSelect component */}
-                <SortingSelect
-                  productData={productData}
-                  onSort={handleSortingChange}
-                />
-              </Box>
+                  {/* Rendering the SortingSelect component */}
+                  <SortingSelect
+                    productData={productData}
+                    onSort={handleSortingChange}
+                  />
+                </Box>
+              </Paper>
 
               {viewMode === "grid" ? ( // Conditional rendering based on viewMode
                 <Grid container spacing={2}>
-                  {productData.map((data) => (
-                    <Grid
-                      item
-                      xs={6}
-                      sm={6}
-                      md={3}
-                      lg={12 / 5}
-                      xl={2}
-                      key={data.id}
-                    >
-                      <Paper sx={{ p: 0.5 }}>
-                        <Box
-                          sx={{ textDecoration: "none", color: "inherit" }}
-                          component={Link}
-                          to={`/product-details/${data.id}`}
-                          onClick={handleProductClick}
-                        >
-                          <Box
-                            component="img"
-                            sx={{ width: "100%", borderRadius: theme.shape }}
-                            src={data.image}
-                            alt={data.name}
-                          />
-                          <Typography>{data.name}</Typography>
-                          <Typography fontWeight="bold">
-                            ${data.price}
-                          </Typography>
-                          <Stack spacing={1}>
-                            <Rating
-                              name="half-rating-read"
-                              defaultValue={data.rating}
-                              precision={0.5}
-                              readOnly
-                            />
-                          </Stack>
-                        </Box>
-                      </Paper>
-                    </Grid>
-                  ))}
+                  <ShowGridProduct productData={productData} />
                 </Grid>
               ) : (
-                <Stack spacing={2}>
-                  {productData.map((data) => (
-                    <Paper key={data.id} sx={{ p: 0.5 }}>
-                      <Box
-                        sx={{
-                          textDecoration: "none",
-                          color: "inherit",
-                          display: "flex",
-                          alignItems: "center",
-                          gap: 3,
-                        }}
-                        component={Link}
-                        to={`/product-details/${data.id}`}
-                        onClick={handleProductClick}
-                      >
-                        <Box
-                          component="img"
-                          sx={{
-                            width: "150px",
-                            height: "150px",
-                            borderRadius: theme.shape,
-                            objectFit: "cover",
-                          }}
-                          src={data.image}
-                          alt={data.name}
-                        />
-                        <Box>
-                          <Typography>{data.category}</Typography>
-                          <Typography>{data.name}</Typography>
-                          <Stack spacing={1}>
-                            <Rating
-                              name="half-rating-read"
-                              defaultValue={data.rating}
-                              precision={0.5}
-                              readOnly
-                            />
-                          </Stack>
-                          <Typography>{data.description}</Typography>
-                          <Typography fontWeight="bold">
-                            ${data.price}
-                          </Typography>
-                        </Box>
-                      </Box>
-                    </Paper>
-                  ))}
-                </Stack>
+                <ShowFlatProduct productData={productData} />
               )}
-              <Box>
-                <ShopPagination />
-              </Box>
+
+              {/* Pagination  */}
+              <ShopPagination />
             </Grid>
           </Grid>
         </Container>

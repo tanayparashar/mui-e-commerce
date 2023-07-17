@@ -42,7 +42,8 @@ const SortingSelect = ({ productData, onSort }) => {
   };
 
   return (
-    <FormControl variant="outlined" sx={{ minWidth: 200 }} size={"small"}>
+    <FormControl variant="outlined" size={"small"}>
+      {/* sx={{ minWidth: 200 }} */}
       <Select value={sortingValue} onChange={handleSortingChange}>
         {sortingOptions.map((option) => (
           <MenuItem key={option.value} value={option.value}>

@@ -1,14 +1,20 @@
-import * as React from "react";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import Divider from "@mui/material/Divider";
-import ListItemText from "@mui/material/ListItemText";
-import Typography from "@mui/material/Typography";
-import { Box, Button, IconButton, Menu, MenuItem } from "@mui/material";
+import React, { useState } from "react";
+import {
+  List,
+  Box,
+  ListItem,
+  Divider,
+  Button,
+  ListItemText,
+  Typography,
+  IconButton,
+  Menu,
+  MenuItem,
+} from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 
 export default function SearchHistory() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);

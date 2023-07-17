@@ -1,10 +1,8 @@
 import React, { useRef, useState } from "react";
-import { styled, alpha } from "@mui/material/styles";
-import SearchIcon from "@mui/icons-material/Search";
-import InputBase from "@mui/material/InputBase";
 import { Box } from "@mui/material";
-import SearchKeyword from "./SearchKeyword";
+import SearchIcon from "@mui/icons-material/Search";
 import { Search, SearchIconWrapper, StyledInputBase } from "./SearchStyles";
+import SearchKeyword from "./SearchKeyword";
 
 function SearchBar() {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);

@@ -1,14 +1,14 @@
 import React from "react";
 import { Paper, Box, CircularProgress } from "@mui/material";
 
-const Loading = () => {
+const LoadingCenter = () => {
   return (
     <Box
       sx={{
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        pt: 5,
+        height: "90vh",
       }}
     >
       <Paper sx={{ borderRadius: "50%" }}>
@@ -20,4 +20,4 @@ const Loading = () => {
   ); // You can use a more sophisticated loading UI here
 };
 
-export default Loading;
+export default LoadingCenter;

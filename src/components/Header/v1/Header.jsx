@@ -1,12 +1,17 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Badge from "@mui/material/Badge";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
+import {
+  Box,
+  Toolbar,
+  AppBar,
+  IconButton,
+  Typography,
+  Badge,
+  MenuItem,
+  Menu,
+  useMediaQuery,
+} from "@mui/material";
+
+import styled from "@emotion/styled";
 import MenuIcon from "@mui/icons-material/Menu";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MailIcon from "@mui/icons-material/Mail";
@@ -14,12 +19,11 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import SearchBar from "../../Search/v1/SearchBar";
 import Logo from "../../Logo/Logo";
-import styled from "@emotion/styled";
 import SearchIconClick from "../../Search/SearchIcon";
-import { useMediaQuery } from "@mui/material";
 import CartIcon from "../../Cart/CartIcon";
 import MenuDrawer from "../../Menu/v1/MenuDrawer";
 import { Link } from "react-router-dom";
+import ShowCartDrawer from "./ShowCartDrawer";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
@@ -115,6 +119,11 @@ export default function Header() {
     >
       <Box sx={{ width: MOBILE_WIDTH }} />
 
+      <MenuItem component={Link} to="/addtocart">
+        <ShowCartDrawer />
+        <p style={{ marginLeft: "12px" }}>Cart</p>
+      </MenuItem>
+
       <MenuItem>
         <IconButton size="large" aria-label="show 4 new mails" color="inherit">
           <Badge badgeContent={4} color="error">
@@ -161,9 +170,6 @@ export default function Header() {
 
           {isMobile ? null : <SearchBar />}
 
-          {/* <SearchBar />
-          <SearchIconClick /> */}
-
           <Box
             sx={{
               display: "flex",
@@ -171,15 +177,8 @@ export default function Header() {
               justifyContent: "center",
             }}
           >
-            {/* <Box sx={{ flexGrow: 1 }} /> */}
             {isMobile ? <SearchIconClick /> : null}
-            {isMobile ? (
-              <CartIcon
-                badgeCount={4}
-                onClick={handleCartMenuOpen}
-                cartId={cartId}
-              />
-            ) : null}
+            {isMobile ? <ShowCartDrawer /> : null}
 
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
               <IconButton
@@ -201,9 +200,7 @@ export default function Header() {
                 </Badge>
               </IconButton>
 
-              <Box component={Link} to="/addtocart" color="inherit">
-                <CartIcon badgeCount={14} />
-              </Box>
+              <ShowCartDrawer />
 
               <IconButton
                 size="large"
@@ -213,6 +210,7 @@ export default function Header() {
                 aria-haspopup="true"
                 onClick={handleProfileMenuOpen}
                 color="inherit"
+                sx={{ marginLeft: "10px" }}
               >
                 <AccountCircle />
               </IconButton>

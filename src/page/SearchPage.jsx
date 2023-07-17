@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { styled } from "@mui/system";
 import { useNavigate } from "react-router-dom";
 import { Box, CssBaseline, IconButton, useMediaQuery } from "@mui/material";
+import { styled } from "@mui/system";
 import SearchBar from "../components/Search/v1/SearchBar";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import SearchHistory from "../components/Search/v1/SearchHistory";

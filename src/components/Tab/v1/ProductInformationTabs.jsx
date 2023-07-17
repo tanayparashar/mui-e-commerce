@@ -1,9 +1,12 @@
-import * as React from "react";
-import PropTypes from "prop-types";
+import { useState } from "react";
+
 import { Tab, Paper, Tabs, Box, Typography, useTheme } from "@mui/material";
+
+// import SwipeableViews from "react-swipeable-views";
 import Description from "./Description";
 import Reviews from "./Reviews";
-import SwipeableViews from "react-swipeable-views";
+
+import PropTypes from "prop-types";
 
 function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -39,7 +42,7 @@ function a11yProps(index) {
 }
 
 export default function ProductInformationTabs() {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
   const theme = useTheme();
   const handleChange = (event, newValue) => {
     setValue(newValue);
@@ -77,18 +80,18 @@ export default function ProductInformationTabs() {
           </Tabs>
         </Box>
 
-        <SwipeableViews
+        {/* <SwipeableViews
           axis={theme.direction === "rtl" ? "x-reverse" : "x"}
           index={value}
           onChangeIndex={handleChange}
-        >
-          <CustomTabPanel value={value} index={0} dir={theme.direction}>
-            <Description />
-          </CustomTabPanel>
-          <CustomTabPanel value={value} index={1} dir={theme.direction}>
-            <Reviews />
-          </CustomTabPanel>
-        </SwipeableViews>
+        > */}
+        <CustomTabPanel value={value} index={0} dir={theme.direction}>
+          <Description />
+        </CustomTabPanel>
+        <CustomTabPanel value={value} index={1} dir={theme.direction}>
+          <Reviews />
+        </CustomTabPanel>
+        {/* </SwipeableViews> */}
       </Paper>
     </Box>
   );

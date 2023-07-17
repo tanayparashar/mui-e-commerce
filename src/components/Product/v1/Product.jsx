@@ -1,6 +1,13 @@
 import React, { useEffect, useRef } from "react";
-import { useTheme } from "@emotion/react";
-import { Box, Grid, Paper, Rating, Stack, Typography } from "@mui/material";
+import {
+  Box,
+  Grid,
+  Paper,
+  Rating,
+  Stack,
+  Typography,
+  useTheme,
+} from "@mui/material";
 import { Link } from "react-router-dom";
 
 export const productData = [

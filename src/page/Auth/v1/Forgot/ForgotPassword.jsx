@@ -12,6 +12,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 // ----------------------------------------------------------------------
 
@@ -57,71 +58,75 @@ function ForgotPassword() {
   };
 
   return (
-    <Container>
-      <StyledContent sx={{ textAlign: "center", alignItems: "center" }}>
-        <Paper>
-          <Box p={2}>
-            <Typography variant="h3">Forgot your password?</Typography>
-            <Typography sx={{ color: "text.secondary", mt: 2, mb: 3 }}>
-              Please enter the email address associated with your account and We
-              will email you a link to reset your password.
-            </Typography>
-            <form onSubmit={handleSubmit}>
-              <FormControl sx={{ width: "100%" }}>
-                <TextField
-                  type="email"
-                  id="email"
-                  label="Email Address"
-                  value={email}
-                  onChange={handleEmailChange}
-                  variant="outlined"
-                  InputLabelProps={{
-                    style: {
-                      fontSize: 14,
-                      marginTop: "3px",
-                    },
-                  }}
-                />
-                {error && (
-                  <Typography
-                    color="error"
-                    sx={{ textAlign: "left", fontSize: 12 }}
-                  >
-                    {error}
-                  </Typography>
-                )}
-                <Box mt={3}>
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    color="primary"
-                    size={"large"}
-                    disabled={loading} // Disable the button when loading is true
-                    sx={{ width: "100%" }}
-                  >
-                    {loading ? <CircularProgress size={18} /> : "Send Email"}
-                  </Button>
-                </Box>
-              </FormControl>
-            </form>
+    <>
+      <Helmet>
+        <title>🔑 Forgot password</title>
+      </Helmet>
+      <Container>
+        <StyledContent sx={{ textAlign: "center", alignItems: "center" }}>
+          <Paper>
+            <Box p={2}>
+              <Typography variant="h3">Forgot your password?</Typography>
+              <Typography sx={{ color: "text.secondary", mt: 2, mb: 3 }}>
+                Please enter the email address associated with your account and
+                We will email you a link to reset your password.
+              </Typography>
+              <form onSubmit={handleSubmit}>
+                <FormControl sx={{ width: "100%" }}>
+                  <TextField
+                    type="email"
+                    id="email"
+                    label="Email Address"
+                    value={email}
+                    onChange={handleEmailChange}
+                    variant="outlined"
+                    InputLabelProps={{
+                      style: {
+                        fontSize: 14,
+                        marginTop: "3px",
+                      },
+                    }}
+                  />
+                  {error && (
+                    <Typography
+                      color="error"
+                      sx={{ textAlign: "left", fontSize: 12 }}
+                    >
+                      {error}
+                    </Typography>
+                  )}
+                  <Box mt={3} component={Link} to={"/maintenance"}>
+                    <Button
+                      type="submit"
+                      variant="contained"
+                      color="primary"
+                      size={"large"}
+                      disabled={loading} // Disable the button when loading is true
+                      sx={{ width: "100%" }}
+                    >
+                      {loading ? <CircularProgress size={18} /> : "Send Email"}
+                    </Button>
+                  </Box>
+                </FormControl>
+              </form>
 
-            <Box sx={{ mt: 3 }}>
-              <Button
-              startIcon={<DeleteIcon />
-                component={Link}
-                to={"/login"}
-                sx={{
-                  color: theme.palette.secondary.main,
-                  fontWeight: "bold",
-                }}
-              >
-                Return to sign in
-              </Button>
+              <Box sx={{ mt: 3 }}>
+                <Button
+                  component={Link}
+                  to={"/login"}
+                  sx={{
+                    color: theme.palette.secondary.main,
+                    fontWeight: "bold",
+                  }}
+                >
+                  Return to sign in
+                </Button>
+              </Box>
             </Box>
-          </Box>
-        </Paper>
-      </StyledContent>
-    </Container>
+          </Paper>
+        </StyledContent>
+      </Container>
+    </>
   );
 }
 

@@ -36,7 +36,7 @@ function Maintenance() {
 
           <Box
             component="img"
-            src="/illustration_404.svg"
+            src="https://5.imimg.com/data5/KW/XI/MY-5514661/under-maintenance-sign-250x250.jpg"
             sx={{ height: 260, mx: "auto", my: { xs: 5, sm: 10 } }}
           />
 

@@ -9,6 +9,8 @@ import Page404 from "../page/BrokenPage/v1/Page404.jsx";
 import Login from "../page/Auth/v1/Login/Login.jsx";
 import Register from "../page/Auth/v1/Register/Register.jsx";
 import ForgotPassword from "../page/Auth/v1/Forgot/ForgotPassword.jsx";
+import Maintenance from "../page/BrokenPage/v1/Maintenance.jsx";
+import ComingSoon from "../page/BrokenPage/v1/ComingSoon.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -47,5 +49,13 @@ export const router = createBrowserRouter([
   {
     path: "/*",
     element: <Page404 />,
+  },
+  {
+    path: "/maintenance",
+    element: <Maintenance />,
+  },
+  {
+    path: "/comingsoon",
+    element: <ComingSoon />,
   },
 ]);

@@ -95,8 +95,15 @@ export default function Header() {
       onClose={handleMenuClose}
     >
       <Box sx={{ width: MOBILE_WIDTH }} />
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+      <MenuItem component={Link} to={"./"} onClick={handleMenuClose}>
+        Profile
+      </MenuItem>
+      <MenuItem component={Link} to={"./"} onClick={handleMenuClose}>
+        My account
+      </MenuItem>
+      <MenuItem component={Link} to={"./dashboard"} onClick={handleMenuClose}>
+        Dashboard
+      </MenuItem>
     </Menu>
   );
 

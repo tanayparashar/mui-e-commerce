@@ -1,10 +1,14 @@
+import { createBrowserRouter } from "react-router-dom";
+
 import App from "../App.jsx";
 import SearchPage from "../page/SearchPage.jsx";
 import ProductDetails from "../page/ProductDetails/v1/ProductDetails.jsx";
 import AddToCart from "../page/AddToCart/v1/AddToCart.jsx";
 import Shop from "../page/Shop/v1/Shop.jsx";
-
-import { createBrowserRouter } from "react-router-dom";
+import Page404 from "../page/BrokenPage/v1/Page404.jsx";
+import Login from "../page/Auth/v1/Login/Login.jsx";
+import Register from "../page/Auth/v1/Register/Register.jsx";
+import ForgotPassword from "../page/Auth/v1/Forgot/ForgotPassword.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -27,5 +31,21 @@ export const router = createBrowserRouter([
   {
     path: "/shop",
     element: <Shop />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+  {
+    path: "/forgot",
+    element: <ForgotPassword />,
+  },
+  {
+    path: "/*",
+    element: <Page404 />,
   },
 ]);

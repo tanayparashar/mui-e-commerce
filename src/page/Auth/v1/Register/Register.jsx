@@ -8,6 +8,7 @@ import {
   Grid,
   InputAdornment,
   IconButton,
+  useTheme,
 } from "@mui/material";
 import styled from "@emotion/styled";
 import { Visibility, VisibilityOff, Google } from "@mui/icons-material";
@@ -41,15 +42,10 @@ const GoogleButton = styled(Button)`
   }
 `;
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: #66bb6a;
-  font-weight: bold;
-`;
-
 function Register() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+  const theme = useTheme();
 
   const {
     register,
@@ -97,7 +93,17 @@ function Register() {
               sx={{ gap: "10px" }}
             >
               Already have an account?
-              <StyledLink to="/login">Sign in</StyledLink>
+              <Box
+                component={Link}
+                sx={{
+                  textDecoration: "none",
+                  color: theme.palette.primary.main,
+                  fontWeight: "bold",
+                }}
+                to="/login"
+              >
+                Sign in
+              </Box>
             </Typography>
           </Box>
           <form onSubmit={handleSubmit(onSubmit)} style={{ width: "100%" }}>

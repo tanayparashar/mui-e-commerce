@@ -8,6 +8,7 @@ import {
   Grid,
   InputAdornment,
   IconButton,
+  useTheme,
 } from "@mui/material";
 import styled from "@emotion/styled";
 import { Visibility, VisibilityOff, Google } from "@mui/icons-material";
@@ -40,14 +41,9 @@ const GoogleButton = styled(Button)`
   }
 `;
 
-const StyledLink = styled(Link)`
-  text-decoration: none;
-  color: #66bb6a;
-  font-weight: bold;
-`;
-
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const theme = useTheme();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -96,7 +92,17 @@ function Login() {
               sx={{ gap: "10px" }}
             >
               New user?
-              <StyledLink to="/register">Create an account</StyledLink>
+              <Box
+                component={Link}
+                to="/register"
+                sx={{
+                  textDecoration: "none",
+                  color: theme.palette.primary.main,
+                  fontWeight: "bold",
+                }}
+              >
+                Create an account
+              </Box>
             </Typography>
           </Box>
           <form onSubmit={handleSubmit(onSubmit)} style={{ width: "100%" }}>
@@ -139,7 +145,16 @@ function Login() {
               display="flex"
               justifyContent="flex-end"
             >
-              <Link to="/forgot">Forgot password?</Link>
+              <Box
+                component={Link}
+                to="/forgot"
+                sx={{
+                  color: theme.palette.secondary.main,
+                  fontWeight: "bold",
+                }}
+              >
+                Forgot password?
+              </Box>
             </Typography>
             <Box mt={2}>
               <Button

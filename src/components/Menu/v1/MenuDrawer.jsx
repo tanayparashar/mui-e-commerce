@@ -15,11 +15,11 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import Profile from "./Profile/Profile";
-import SectionOne from "./Section/SectionOne";
+import ReusableList from "./ReusableList";
 import MenuIconButton from "./MenuIconButton";
 
 const NAV_WIDTH = 280;
-const electronics = [
+const ScrollableList = [
   { name: "Accessories & Supplies", path: "/accessories-supplies" },
   { name: "Camera & Photo", path: "/camera-photo" },
   { name: "Car & Vehicle Electronics", path: "/car-vehicle-electronics" },
@@ -42,7 +42,7 @@ const electronics = [
   { name: "eBook Readers & Accessories", path: "/ebook-readers-accessories" },
 ];
 
-const categories = [
+const lists = [
   { name: "Clothing", path: "/clothing" },
   { name: "Shoes", path: "/shoes" },
   { name: "Jewelry", path: "/jewelry" },
@@ -53,16 +53,8 @@ const categories = [
   { name: "Lingerie Sets' Fashion", path: "/lingerie" },
   { name: "Panties", path: "/panties" },
 ];
-const categories2 = [
-  { name: "Clothing", path: "/clothing" },
-  { name: "Shoes", path: "/shoes" },
-  { name: "Jewelry", path: "/jewelry" },
-  { name: "Watches", path: "/watches" },
-  { name: "Handbags", path: "/handbags" },
-  { name: "Accessories", path: "/accessories" },
-];
 
-const lists = [
+const categories = [
   { id: 1, name: "Electronics" },
   { id: 2, name: "Computers" },
   { id: 3, name: "Smart Home" },
@@ -134,40 +126,50 @@ export default function MenuDrawer() {
         </Typography>
         <Divider />
         <List sx={{ m: 0, pt: 0 }}>
-          {lists.map((list) => (
+          {categories.map((category) => (
             <ListItem
               button
-              onClick={() => handleSectionClick(list.name)}
+              onClick={() => handleSectionClick(category.name)}
               sx={{ display: "flex", justifyContent: "space-between" }}
-              key={list.id}
+              key={category.id}
             >
-              <ListItemText primary={list.name} />
+              <ListItemText primary={category.name} />
               <ChevronRightIcon />
             </ListItem>
           ))}
         </List>
-        <Slide direction="left" in={isOpening} mountOnEnter unmountOnExit>
+
+        {/* List section You can made it component */}
+        <Slide direction="right" in={isOpening} mountOnEnter unmountOnExit>
           <Box>
+            {activeSection === "Electronics" && (
+              <ReusableList
+                title="Electronics"
+                lists={ScrollableList}
+                onClose={handleCloseSection}
+                isOpening={isOpening}
+              />
+            )}
             {activeSection === "Women's Fashion" && (
-              <SectionOne
+              <ReusableList
                 title="Women's Fashion"
-                categories={categories}
+                lists={lists}
                 onClose={handleCloseSection}
                 isOpening={isOpening}
               />
             )}
             {activeSection === "Girls' Fashion" && (
-              <SectionOne
+              <ReusableList
                 title="Girl's Fashion"
-                categories={categories2}
+                lists={lists}
                 onClose={handleCloseSection}
                 isOpening={isOpening}
               />
             )}
-            {activeSection === "Electronics" && (
-              <SectionOne
-                title="Electronics"
-                categories={electronics}
+            {activeSection === "Toys and Games" && (
+              <ReusableList
+                title="Toys and Games"
+                lists={lists}
                 onClose={handleCloseSection}
                 isOpening={isOpening}
               />

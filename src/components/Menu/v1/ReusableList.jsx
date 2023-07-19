@@ -12,37 +12,39 @@ import {
   Tooltip,
   Typography,
   Slide,
+  Popover,
 } from "@mui/material";
-import List01 from "../List/List01";
+import List01 from "./List/List01";
 import { Link } from "react-router-dom";
 
-const SectionOne = ({ title, categories, onClose, isOpening }) => {
-  useEffect(() => {
-    if (!isOpening) {
-      const timeout = setTimeout(() => {
-        onClose();
-      }, 400);
-      return () => clearTimeout(timeout);
-    }
-  }, [onClose, isOpening]);
+const ReusableList = ({ title, lists, onClose, isOpening }) => {
+  console.log(lists);
+  // useEffect(() => {
+  //   if (!isOpening) {
+  //     const timeout = setTimeout(() => {
+  //       onClose();
+  //     }, 400);
+  //     return () => clearTimeout(timeout);
+  //   }
+  // }, []);
 
   return (
-    <Slide direction="left" in={isOpening} mountOnEnter unmountOnExit>
+    <Slide direction="right" in={isOpening} mountOnEnter unmountOnExit>
       <Box
         sx={{
           backgroundColor: "#f0f0f0",
-          height: "100vw",
+          height: "100%",
           flexGrow: 1,
           top: "0",
-          width: "100%",
-          position: "absolute",
-          // overflowY: "scroll",
+          width: "280px",
+          position: "fixed",
+          overflowY: "scroll",
+          // overflow: "hidden",
         }}
       >
         <Box
           sx={{
             display: "flex",
-            // justifyContent: "space-between",
             alignItems: "center",
             px: 2,
             py: 2,
@@ -69,7 +71,7 @@ const SectionOne = ({ title, categories, onClose, isOpening }) => {
         <Divider component="div" />
 
         <List sx={{ mt: 0 }}>
-          {categories.map((list) => (
+          {lists.map((list) => (
             <ListItem
               button
               sx={{ py: 1 }}
@@ -89,12 +91,12 @@ const SectionOne = ({ title, categories, onClose, isOpening }) => {
             </ListItem>
           ))}
         </List>
-        <Box sx={{ px: 2 }}>
-          <List01 />
-        </Box>
+        {/* <Box sx={{ px: 2 }}>
+        <List01 />
+      </Box> */}
       </Box>
     </Slide>
   );
 };
 
-export default SectionOne;
+export default ReusableList;

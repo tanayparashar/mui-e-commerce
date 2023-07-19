@@ -7,6 +7,7 @@ import {
   ListItem,
   ListItemText,
   Box,
+  Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
@@ -28,6 +29,9 @@ const SearchKeyword = ({ isOpen, onClose, keywords, anchorEl }) => {
     >
       <ClickAwayListener onClickAway={onClose}>
         <Paper>
+          <Typography variant="caption" m={2} fontWeight={"bold"}>
+            Popular keyword
+          </Typography>
           <List>
             {keywords.map((keyword, index) => (
               <ListItem key={index} sx={{ display: "block" }}>

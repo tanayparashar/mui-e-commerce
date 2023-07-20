@@ -21,12 +21,10 @@ import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 
 import SortingSelect from "./SortingSelect";
 import ShopPagination from "./ShopPagination";
-import ShowGridProduct from "./ShowGridProduct";
-import ShowFlatProduct from "./ShowFlatProduct";
+import ShowGridProduct from "./View/ShowGridProduct";
+import ShowFlatProduct from "./View/ShowFlatProduct";
 import ReuseableCarousel from "./../../../components/ReusableProduct/ReuseableCarousel";
-import CustomMenu from "./Dropdown/CustomMenu";
-import PriceRange from "./PriceRange/PriceRange";
-import CustomRadioButtons from "./CustomRadioButtons";
+import Sidebar from "./Sidebar";
 
 const productData = [
   {
@@ -242,9 +240,7 @@ function Shop() {
           <Grid container spacing={2}>
             {!isMobile && (
               <Grid item md={3} mt={5}>
-                <CustomMenu title={"Women Category"} />
-                <PriceRange />
-                <CustomRadioButtons />
+                <Sidebar />
               </Grid>
             )}
             <Grid item md={9} mt={5}>
@@ -281,11 +277,8 @@ function Shop() {
                             sx: { width: NAV_WIDTH },
                           }}
                         >
-                          <Box sx={{ p: 0.5 }}>
-                            <CustomMenu title={"Women Category"} />
-                            <PriceRange />
-                            <CustomRadioButtons />
-                            <CustomMenu title={"Women Category"} />
+                          <Box sx={{ p: 2 }}>
+                            <Sidebar />
                           </Box>
                         </Drawer>
                       </>

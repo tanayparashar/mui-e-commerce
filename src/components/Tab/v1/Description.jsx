@@ -70,7 +70,7 @@ const descriptionData = [
 
 function Description() {
   return (
-    <div>
+    <>
       {descriptionData.map((d, index) => (
         <Box key={index}>
           <Typography variant="h6" my={1}>
@@ -79,7 +79,7 @@ function Description() {
           {d.content}
         </Box>
       ))}
-    </div>
+    </>
   );
 }
 

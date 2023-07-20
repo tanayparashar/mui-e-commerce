@@ -118,7 +118,7 @@ function ReusableProduct({ sectionTitle }) {
                 <Box
                   sx={{ textDecoration: "none", color: "inherit" }}
                   component={Link}
-                  to={`/product-details`}
+                  to={`/product-details/${data.id}`}
                   onClick={handleProductClick}
                 >
                   <Box

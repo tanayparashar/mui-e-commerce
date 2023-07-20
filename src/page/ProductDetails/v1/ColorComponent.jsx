@@ -31,10 +31,6 @@ const ColorComponent = () => {
           onClick={() => handleColorClick(color)}
         >
           {selectedColor === color && (
-            // <Zoom
-            //   in={checked}
-            //   style={{ transitionDelay: checked ? "500ms" : "0ms" }}
-            // >
             <IconButton
               sx={{
                 position: "absolute",
@@ -45,7 +41,6 @@ const ColorComponent = () => {
             >
               <CheckIcon sx={{ color: "white" }} />
             </IconButton>
-            // </Zoom>
           )}
         </Box>
       ))}

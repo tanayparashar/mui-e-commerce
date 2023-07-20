@@ -6,8 +6,6 @@ import VerifiedUserIcon from "@mui/icons-material/VerifiedUser";
 
 function WhatWeProvide() {
   const theme = useTheme();
-
-  console.log(theme.palette.primary.main);
   return (
     <Grid container spacing={2} my={5}>
       <Grid item xs={12} sm={6} md={4}>

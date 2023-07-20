@@ -12,7 +12,7 @@ function CustomTabPanel(props) {
   const { children, value, index, ...other } = props;
 
   return (
-    <div
+    <Box
       role="tabpanel"
       hidden={value !== index}
       id={`simple-tabpanel-${index}`}
@@ -20,11 +20,11 @@ function CustomTabPanel(props) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
-          <Typography>{children}</Typography>
-        </Box>
+        <Typography component="div" sx={{ p: 3 }}>
+          {children}
+        </Typography>
       )}
-    </div>
+    </Box>
   );
 }
 
@@ -79,19 +79,12 @@ export default function ProductInformationTabs() {
             />
           </Tabs>
         </Box>
-
-        {/* <SwipeableViews
-          axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-          index={value}
-          onChangeIndex={handleChange}
-        > */}
         <CustomTabPanel value={value} index={0} dir={theme.direction}>
           <Description />
         </CustomTabPanel>
         <CustomTabPanel value={value} index={1} dir={theme.direction}>
           <Reviews />
         </CustomTabPanel>
-        {/* </SwipeableViews> */}
       </Paper>
     </Box>
   );

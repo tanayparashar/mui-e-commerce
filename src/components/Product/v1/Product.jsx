@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
-export const productData = [
+const productData = [
   {
     id: 1,
     name: "Example Product",

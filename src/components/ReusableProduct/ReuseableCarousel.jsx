@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Paper, Box, Typography, Grid, Button } from "@mui/material";
 import "../../components/SlideImg/v1/arrow.css";
 
@@ -6,24 +6,31 @@ import Carousel from "react-multi-carousel";
 import { Link } from "react-router-dom";
 const items = [
   {
+    id: 1,
     description: "Fixing CSS load order/style.chunk.css incorrect in Nextjs",
     headline: "New Designed Casual Shoes Bulk Shoes Men Sneakers",
     image:
       "https://s.alicdn.com/@sc04/kf/Ha49943145d404c1e803b6da67c7d61cf9.jpg_480x480.jpg",
   },
   {
+    id: 2,
+
     description: "Fixing CSS load order/style.chunk.css incorrect in Nextjs",
     headline: "w3js.com - web front-end studio",
     image:
       "https://s.alicdn.com/@sc04/kf/H7b1326101ed64c8484110eab46e965301.jpg_480x480.jpg",
   },
   {
+    id: 3,
+
     description: "React Carousel with Server Side Rendering Support – Part 2",
     headline: "w3js.com - web front-end studio",
     image:
       "https://s.alicdn.com/@sc04/kf/He7bc700fa4874b59b9a9bd25985338afx.jpeg_480x480.jpg",
   },
   {
+    id: 4,
+
     description: "React Carousel with Server Side Rendering Support – Part 1",
     headline: "w3js.com - web front-end studio",
     image:
@@ -31,12 +38,16 @@ const items = [
   },
 
   {
+    id: 5,
+
     description: "React Carousel with Server Side Rendering Support – Part 2",
     headline: "w3js.com - web front-end studio",
     image:
       "https://s.alicdn.com/@sc04/kf/UTB8FWWWExHEXKJk43Jeq6yeeXXan.jpg_250x250xz.jpg",
   },
   {
+    id: 6,
+
     description: "React Carousel with Server Side Rendering Support – Part 2",
     headline: "w3js.com - web front-end studio",
     image:
@@ -45,6 +56,11 @@ const items = [
 ];
 
 function ReuseableCarousel({ sectionTitle }) {
+  const productRef = useRef();
+
+  const handleProductClick = () => {
+    productRef.current.scrollTo(0, 0); // Scroll to the top before navigating
+  };
   return (
     <Paper elevation={10}>
       <Box sx={{ mt: 5, p: 1 }}>
@@ -120,8 +136,9 @@ function ReuseableCarousel({ sectionTitle }) {
                 <Box sx={{ p: 1 }}>
                   <Box
                     component={Link}
-                    to="/go"
+                    to={`/product-details/${item.id}`}
                     sx={{ textDecoration: "none", color: "inherit" }}
+                    onClick={handleProductClick}
                   >
                     <Box
                       component="img"
@@ -132,9 +149,6 @@ function ReuseableCarousel({ sectionTitle }) {
                     <Typography variant="body2">
                       {item.headline.substring(0, 25)}...
                     </Typography>
-                    {/* <Typography variant="caption">
-                      {item.description}
-                    </Typography> */}
                   </Box>
                 </Box>
               </Paper>

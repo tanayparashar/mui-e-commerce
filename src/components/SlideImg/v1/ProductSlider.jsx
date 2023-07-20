@@ -87,7 +87,7 @@ function ProductSlider() {
                   {products.slice(0, 3).map((singleItem) => (
                     <Box key={singleItem.id} sx={{ textAlign: "center" }}>
                       <Link
-                        to="/lol"
+                        to="/shop"
                         style={{ textDecoration: "none", color: "inherit" }}
                       >
                         <img
@@ -147,7 +147,7 @@ function ProductSlider() {
                   {products.slice(0, 3).map((singleItem) => (
                     <Box key={singleItem.id} sx={{ textAlign: "center" }}>
                       <Link
-                        to="/lol"
+                        to="/shop"
                         style={{ textDecoration: "none", color: "inherit" }}
                       >
                         <img
@@ -207,7 +207,7 @@ function ProductSlider() {
                   {products.slice(0, 3).map((singleItem) => (
                     <Box key={singleItem.id} sx={{ textAlign: "center" }}>
                       <Link
-                        to="/lol"
+                        to="/shop"
                         style={{ textDecoration: "none", color: "inherit" }}
                       >
                         <img

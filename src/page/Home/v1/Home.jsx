@@ -7,7 +7,7 @@ import ProductSlider from "../../../components/SlideImg/v1/ProductSlider";
 import Product from "../../../components/Product/v1/Product";
 import ViewProduct from "../../../components/Product/v1/ViewProduct";
 import ReuseableCarousel from "../../../components/ReusableProduct/ReuseableCarousel";
-import ReusableProduct from "../../../components/ReusableProduct/RelatedProduct";
+import ReusableProduct from "../../../components/ReusableProduct/ReusableProduct";
 
 import Layout from "../../../layout/GlobalLayout/Layout";
 import LoadingLinearTop from "../../../components/Loading/LoadingLinearTop";
@@ -28,25 +28,25 @@ function Home() {
         <title>🚀Buy Black Friday</title>
         <meta name="description" content="Your page description" />
       </Helmet>
-      {loading ? (
+      {/* {loading ? (
         <LoadingLinearTop />
-      ) : (
-        <>
-          <Layout>
-            {/* First slider   */}
-            <Slider />
+      ) : ( */}
+      <>
+        <Layout>
+          {/* First slider   */}
+          <Slider />
 
-            <Container>
-              <ProductSlider />
-              <Product />
-              <ViewProduct />
-              <ReuseableCarousel sectionTitle={"Shop under $20"} />
+          <Container>
+            <ProductSlider />
+            <Product />
+            <ViewProduct />
+            <ReuseableCarousel sectionTitle={"Shop under $20"} />
 
-              <ReusableProduct sectionTitle={"Browse History"} />
-            </Container>
-          </Layout>
-        </>
-      )}
+            <ReusableProduct sectionTitle={"Browse History"} />
+          </Container>
+        </Layout>
+      </>
+      {/* )} */}
     </>
   );
 }

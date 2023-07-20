@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import Layout from "../../../layout/GlobalLayout/Layout";
 import {
@@ -15,11 +15,12 @@ import {
   useTheme,
   Button,
 } from "@mui/material";
+
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import ProductDetailSlider from "../../../components/SlideImg/v1/ProductDetailSlider";
 import WhatWeProvide from "../../../components/Commitment/v1/WhatWeProvide";
 import ProductInformationTabs from "../../../components/Tab/v1/ProductInformationTabs";
-import ReusableProduct from "../../../components/ReusableProduct/RelatedProduct";
+import ReusableProduct from "../../../components/ReusableProduct/ReusableProduct";
 
 import Counter from "./Counter";
 import ColorComponent from "./ColorComponent";
@@ -27,10 +28,10 @@ import ProductDetailsSkelton from "./ProductDetailsSkelton";
 
 export default function ProductDetails() {
   const theme = useTheme();
-  const [age, setAge] = React.useState("");
-  const [loading, setLoading] = React.useState(true);
+  const [age, setAge] = useState("");
+  const [loading, setLoading] = useState(true);
 
-  React.useEffect(() => {
+  useEffect(() => {
     // Simulate a delay of 2 seconds to demonstrate the loading component
     setTimeout(() => {
       setLoading(false);

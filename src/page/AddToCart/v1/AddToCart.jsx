@@ -19,7 +19,7 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 import Layout from "../../../layout/GlobalLayout/Layout";
-import ReusableProduct from "../../../components/ReusableProduct/RelatedProduct";
+import ReusableProduct from "../../../components/ReusableProduct/ReusableProduct";
 import ReuseableCarousel from "../../../components/ReusableProduct/ReuseableCarousel";
 
 import Bookmark from "./Bookmark";
@@ -441,6 +441,7 @@ function AddToCart() {
             </Grid>
 
             <ReusableProduct sectionTitle={"Product from those shop"} />
+
             <ReuseableCarousel
               sectionTitle={"Recommended based on your shopping trends"}
             />

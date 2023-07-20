@@ -74,7 +74,7 @@ const productData = [
     price: 19.99,
     currency: "USD",
     image:
-      "https://m.media-amazon.com/images/I/419duk9SwmL._AC_UF452,452_FMjpg_.jpg",
+      "https://s.alicdn.com/@sc04/kf/Hdc1d83b424f449f2b7c058957513f11as.jpg_250x250xz.jpg",
     category: "Electronics",
     brand: "Example Brand",
     rating: 4.5,
@@ -103,7 +103,7 @@ const productData = [
     price: 19.99,
     currency: "USD",
     image:
-      "https://s.alicdn.com/@sc04/kf/H153bbd39e57e46c09e6445ae5ab55704w.jpg_480x480.jpg",
+      "https://s.alicdn.com/@sc04/kf/Hd6e0d57852f14931a30c4de83fb26f8fb.jpg_250x250xz.jpg",
     category: "Electronics",
     brand: "Example Brand",
     rating: 4.5,
@@ -118,7 +118,7 @@ const productData = [
     price: 19.99,
     currency: "USD",
     image:
-      "https://s.alicdn.com/@sc04/kf/H153bbd39e57e46c09e6445ae5ab55704w.jpg_480x480.jpg",
+      "https://s.alicdn.com/@sc04/kf/Hd0053eba9fb943f5ada9614b244c9556h.jpg_250x250xz.jpg",
     category: "Electronics",
     brand: "Example Brand",
     rating: 4.5,
@@ -133,7 +133,7 @@ const productData = [
     price: 19.99,
     currency: "USD",
     image:
-      "https://s.alicdn.com/@sc04/kf/H153bbd39e57e46c09e6445ae5ab55704w.jpg_480x480.jpg",
+      "https://s.alicdn.com/@sc04/kf/H0b91f507d7af4dc48c5f1707f9866d31r.jpeg_250x250xz.jpg",
     category: "Electronics",
     brand: "Example Brand",
     rating: 4.5,
@@ -148,7 +148,7 @@ const productData = [
     price: 19.99,
     currency: "USD",
     image:
-      "https://s.alicdn.com/@sc04/kf/H153bbd39e57e46c09e6445ae5ab55704w.jpg_480x480.jpg",
+      "https://s.alicdn.com/@sc04/kf/H539c4abc9df94d38b6ba83a7473baee4s.jpg_250x250xz.jpg",
     category: "Electronics",
     brand: "Example Brand",
     rating: 4.5,
@@ -190,12 +190,6 @@ const productData = [
 function Product() {
   const theme = useTheme();
 
-  const productRef = useRef();
-
-  const handleProductClick = () => {
-    productRef.current.scrollTo(0, 0); // Scroll to the top before navigating
-  };
-
   return (
     <Paper sx={{ p: 2, mt: 5 }} elevation={10}>
       <Box>
@@ -209,8 +203,7 @@ function Product() {
                 <Box
                   sx={{ textDecoration: "none", color: "inherit" }}
                   component={Link}
-                  to={`/product-details/${data.id}`}
-                  onClick={handleProductClick}
+                  to={`/product`}
                 >
                   <Box
                     component="img"

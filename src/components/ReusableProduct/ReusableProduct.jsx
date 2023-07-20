@@ -100,11 +100,6 @@ export const productData = [
 function ReusableProduct({ sectionTitle }) {
   const theme = useTheme();
 
-  const productRef = useRef();
-
-  const handleProductClick = () => {
-    productRef.current.scrollTo(0, 0); // Scroll to the top before navigating
-  };
   return (
     <Paper sx={{ p: 2, mt: 5 }} elevation={10}>
       <Box>
@@ -118,8 +113,7 @@ function ReusableProduct({ sectionTitle }) {
                 <Box
                   sx={{ textDecoration: "none", color: "inherit" }}
                   component={Link}
-                  to={`/product-details/${data.id}`}
-                  onClick={handleProductClick}
+                  to={`/product`}
                 >
                   <Box
                     component="img"

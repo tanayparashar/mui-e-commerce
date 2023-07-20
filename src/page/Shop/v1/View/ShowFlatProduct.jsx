@@ -22,7 +22,7 @@ function ShowFlatProduct({ productData }) {
               gap: 3,
             }}
             component={Link}
-            to={`/product-details/${data.id}`}
+            to={`/product`}
             onClick={handleProductClick}
           >
             <Box

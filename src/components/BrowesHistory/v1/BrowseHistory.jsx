@@ -105,7 +105,7 @@ function BrowseHistory() {
                 <Box
                   sx={{ textDecoration: "none", color: "inherit" }}
                   component={Link}
-                  to={`/product-details/${data.id}`}
+                  to={`/product`}
                 >
                   <Box
                     component="img"

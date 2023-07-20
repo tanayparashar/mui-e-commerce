@@ -56,11 +56,6 @@ const items = [
 ];
 
 function ReuseableCarousel({ sectionTitle }) {
-  const productRef = useRef();
-
-  const handleProductClick = () => {
-    productRef.current.scrollTo(0, 0); // Scroll to the top before navigating
-  };
   return (
     <Paper elevation={10}>
       <Box sx={{ mt: 5, p: 1 }}>
@@ -136,9 +131,8 @@ function ReuseableCarousel({ sectionTitle }) {
                 <Box sx={{ p: 1 }}>
                   <Box
                     component={Link}
-                    to={`/product-details/${item.id}`}
+                    to={`/product`}
                     sx={{ textDecoration: "none", color: "inherit" }}
-                    onClick={handleProductClick}
                   >
                     <Box
                       component="img"

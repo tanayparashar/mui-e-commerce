@@ -85,9 +85,10 @@ function SlideShow({ products }) {
               alt=""
               style={{
                 display: "block",
-                height: "100px",
+                height: "150px",
                 width: "95%",
                 borderRadius: "4px",
+                objectFit: "cover",
               }}
             />
             <Typography sx={{ textAlign: "center" }} component={"span"}>

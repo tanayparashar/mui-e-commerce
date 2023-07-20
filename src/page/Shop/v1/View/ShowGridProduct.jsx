@@ -26,7 +26,7 @@ function ShowGridProduct({ productData }) {
             <Box
               sx={{ textDecoration: "none", color: "inherit" }}
               component={Link}
-              to={`/product-details/${data.id}`}
+              to={`/product`}
               onClick={handleProductClick}
             >
               <Box

@@ -34,7 +34,7 @@ const productData = [
     price: 19.99,
     currency: "USD",
     image:
-      "https://static-01.daraz.com.bd/p/b994318f0b20d67ada83f6e620ea37a2.jpg_400x400q75-product.jpg_.webp",
+      "https://s.alicdn.com/@sc04/kf/U3e61f2f7c2044998946a55a6ed93efe4T.jpeg_480x480.jpg",
     category: "Electronics",
     brand: "Example Brand",
     rating: 4.5,
@@ -48,7 +48,7 @@ const productData = [
     price: 19.99,
     currency: "USD",
     image:
-      "https://static-01.daraz.com.bd/p/fd574b5a64d4494c8093d2d0cd5ac48f.jpg_400x400q75-product.jpg_.webp",
+      "https://s.alicdn.com/@sc04/kf/Ab060a9795b554cfca101888d5417f2b7n.jpg_220x220.jpg",
     category: "Electronics",
     brand: "Example Brand",
     rating: 4.5,
@@ -62,7 +62,7 @@ const productData = [
     price: 19.99,
     currency: "USD",
     image:
-      "https://static-01.daraz.com.bd/p/011687c0633d6b336a0de47d6ecc1d0c.jpg_400x400q75-product.jpg_.webp",
+      "https://s.alicdn.com/@sc04/kf/Ucd8d64697249428791933b0c67745d4aP.jpg_300x300.jpg",
     category: "Electronics",
     brand: "Example Brand",
     rating: 4.5,
@@ -76,7 +76,7 @@ const productData = [
     price: 19.99,
     currency: "USD",
     image:
-      "https://static-01.daraz.com.bd/p/mdc/180c8b06034c543c8fd2798bbb9ea952.jpg_400x400q75-product.jpg_.webp",
+      "https://s.alicdn.com/@sc04/kf/Ued246640dfab45a9964b6a05e89d9d52p.jpg_300x300.jpg",
     category: "Electronics",
     brand: "Example Brand",
     rating: 4.5,
@@ -90,7 +90,7 @@ const productData = [
     price: 19.99,
     currency: "USD",
     image:
-      "https://m.media-amazon.com/images/I/419duk9SwmL._AC_UF452,452_FMjpg_.jpg",
+      "https://s.alicdn.com/@sc04/kf/Ab99a7ee3eff64fa7b17a9c2bff3123af5.jpg_300x300.jpg",
     category: "Electronics",
     brand: "Example Brand",
     rating: 4.5,
@@ -104,7 +104,7 @@ const productData = [
     price: 19.99,
     currency: "USD",
     image:
-      "https://static-01.daraz.com.bd/p/6a3bee1e84bb5054d0492fa53f859f80.jpg_400x400q75-product.jpg_.webp",
+      "https://s.alicdn.com/@sc04/kf/A6ef11c18a15644da8448925c74fae25e9.jpg_300x300.jpg",
     category: "Electronics",
     brand: "Example Brand",
     rating: 4.5,
@@ -119,7 +119,7 @@ const productData = [
     price: 19.99,
     currency: "USD",
     image:
-      "https://s.alicdn.com/@sc04/kf/H153bbd39e57e46c09e6445ae5ab55704w.jpg_480x480.jpg",
+      "https://s.alicdn.com/@sc04/kf/H39a694fe232b4cf6ac8b612edc786ebap.jpg_300x300.jpg",
     category: "Electronics",
     brand: "Example Brand",
     rating: 4.5,
@@ -134,7 +134,7 @@ const productData = [
     price: 19.99,
     currency: "USD",
     image:
-      "https://s.alicdn.com/@sc04/kf/H153bbd39e57e46c09e6445ae5ab55704w.jpg_480x480.jpg",
+      "https://s.alicdn.com/@sc04/kf/H9b0ab25b7432474bb8611fc5c7972223L.jpg_250x250xz.jpg",
     category: "Electronics",
     brand: "Example Brand",
     rating: 4.5,
@@ -149,7 +149,7 @@ const productData = [
     price: 19.99,
     currency: "USD",
     image:
-      "https://s.alicdn.com/@sc04/kf/H153bbd39e57e46c09e6445ae5ab55704w.jpg_480x480.jpg",
+      "https://s.alicdn.com/@sc04/kf/Abf188f0d6d324a22b797df810f2e238aD.jpg_480x480.jpg",
     category: "Electronics",
     brand: "Example Brand",
     rating: 4.5,
@@ -164,7 +164,7 @@ const productData = [
     price: 19.99,
     currency: "USD",
     image:
-      "https://s.alicdn.com/@sc04/kf/H153bbd39e57e46c09e6445ae5ab55704w.jpg_480x480.jpg",
+      "https://s.alicdn.com/@sc04/kf/U899fd99865174890b48999d443b2b494o.jpg_480x480.jpg",
     category: "Electronics",
     brand: "Example Brand",
     rating: 4.5,
@@ -179,7 +179,7 @@ const productData = [
     price: 19.99,
     currency: "USD",
     image:
-      "https://s.alicdn.com/@sc04/kf/H153bbd39e57e46c09e6445ae5ab55704w.jpg_480x480.jpg",
+      "https://s.alicdn.com/@sc04/kf/Ub297c0174ec24557a679aa5f1e975f5e0.jpg_300x300.jpg",
     category: "Electronics",
     brand: "Example Brand",
     rating: 4.5,
@@ -194,7 +194,7 @@ const productData = [
     price: 19.99,
     currency: "USD",
     image:
-      "https://static-01.daraz.com.bd/p/581c57d9da4adde7be0660410bf054cb.jpg",
+      "https://s.alicdn.com/@sc04/kf/U9945645e3e694637829203ec994d6ec4F.jpg_300x300.jpg",
     category: "Electronics",
     brand: "Example Brand",
     rating: 4.5,

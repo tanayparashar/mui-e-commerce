@@ -11,11 +11,15 @@ import {
   useTheme,
   Container,
 } from "@mui/material";
+
 import styled from "@emotion/styled";
 import { Visibility, VisibilityOff, Google } from "@mui/icons-material";
+import { AuthContext } from "../../../../provider/AuthProvider";
 
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
+import CustomDialog from "./CustomDialog";
+import CustomWarning from "./CustomWarning";
 
 const NeedPadding = styled(Box)`
   padding-left: 80px;
@@ -26,27 +30,16 @@ const NeedPadding = styled(Box)`
     padding-right: 20px;
   }
 `;
-const GoogleButton = styled(Button)`
-  background-color: #fff;
-  color: #757575;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 16px;
-  text-transform: none;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  cursor: pointer;
 
-  &:hover {
-    background-color: #f1f1f1;
-  }
-`;
+const img_hosting_token = import.meta.env.VITE_IMG_UPLOAD_API;
 
 function Register() {
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("123456Pp@");
   const [showPassword, setShowPassword] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
+  const [openWarning, setOpenWarning] = useState(false);
+  const [imageFile, setImageFile] = useState(null);
+
   const theme = useTheme();
 
   const {
@@ -58,9 +51,62 @@ function Register() {
   } = useForm();
 
   const navigate = useNavigate();
+  const { registerUser, fetchSignInMethods, updateUserProfile } =
+    useContext(AuthContext);
 
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
+
+    // Check if the email is already registered
+    try {
+      const signInMethods = await fetchSignInMethods(data.email);
+
+      if (signInMethods.length > 0) {
+        setOpenWarning(true);
+        return; // Stop the registration process
+      }
+    } catch (error) {
+      console.log(error);
+      return; // Stop the registration process
+    }
+
+    // If email is not registered, proceed with registration
+    try {
+      const result = await registerUser(data.email, data.password);
+
+      const img_hosting_url = `https://api.imgbb.com/1/upload?key=${img_hosting_token}`;
+
+      const uploadImageToImgbb = async (imageFile) => {
+        const formData = new FormData();
+        formData.append("image", imageFile);
+
+        const response = await fetch(img_hosting_url, {
+          method: "POST",
+          body: formData,
+        });
+
+        const data = await response.json();
+        if (data.data && data.data.url) {
+          return data.data.url; // Return the image URL from imgbb API
+        } else {
+          throw new Error("Image upload failed.");
+        }
+      };
+
+      if (imageFile) {
+        const photoURL = await uploadImageToImgbb(imageFile);
+        await updateUserProfile(data.name, photoURL);
+      } else {
+        await updateUserProfile(data.name, null);
+      }
+
+      console.log("user profile info updated");
+      reset();
+      setOpenDialog(true);
+      // navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleTogglePassword = () => {
@@ -115,7 +161,7 @@ function Register() {
                 </Typography>
               </Box>
               <form onSubmit={handleSubmit(onSubmit)} style={{ width: "100%" }}>
-                <Box mb={3} display={"flex"} sx={{ gap: "15px" }}>
+                <Box mb={3}>
                   <TextField
                     label="Name"
                     type="text"
@@ -123,6 +169,12 @@ function Register() {
                     {...register("name", { required: true })}
                     name="name"
                   />
+
+                  {errors.name && (
+                    <Typography variant="body2" color="error">
+                      Name is required
+                    </Typography>
+                  )}
                 </Box>
                 <Box mb={3}>
                   <TextField
@@ -150,7 +202,13 @@ function Register() {
                       pattern:
                         /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/,
                     })}
+                    value={"123456Pp@"}
                   />
+                  {errors.password?.type === "required" && (
+                    <Typography variant="body2" color="error">
+                      Password is required
+                    </Typography>
+                  )}
                 </Box>
                 <Box mb={3}>
                   <TextField
@@ -172,7 +230,7 @@ function Register() {
 
                   {errors.password?.type === "required" && (
                     <Typography variant="body2" color="error">
-                      Password is required
+                      Confirm password is required
                     </Typography>
                   )}
                   {errors.password?.type === "minLength" && (
@@ -192,6 +250,21 @@ function Register() {
                     </Typography>
                   )}
                 </Box>
+
+                <Box mb={3}>
+                  <input
+                    label="Photo Url"
+                    type="file"
+                    onChange={(e) => setImageFile(e.target.files[0])}
+                    {...register("photoURL", { required: true })}
+                    name="photoURL"
+                  />
+                  {errors.photoURL && (
+                    <Typography variant="body2" color="error">
+                      Profile picture is required
+                    </Typography>
+                  )}
+                </Box>
                 <Box mt={2}>
                   <Button
                     type="submit"
@@ -207,6 +280,13 @@ function Register() {
             </NeedPadding>
           </Grid>
         </Grid>
+
+        {/* Dialog  */}
+        <CustomDialog open={openDialog} onClose={() => setOpenDialog(false)} />
+        <CustomWarning
+          open={openWarning}
+          onClose={() => setOpenWarning(false)}
+        />
       </Container>
     </>
   );

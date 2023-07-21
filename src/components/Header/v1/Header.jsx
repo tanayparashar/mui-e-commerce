@@ -9,6 +9,7 @@ import {
   MenuItem,
   Menu,
   useMediaQuery,
+  Avatar,
 } from "@mui/material";
 
 import styled from "@emotion/styled";
@@ -24,6 +25,7 @@ import CartIcon from "../../Cart/CartIcon";
 import MenuDrawer from "../../Menu/v1/MenuDrawer";
 import { Link } from "react-router-dom";
 import ShowCartDrawer from "./ShowCartDrawer";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
@@ -45,6 +47,7 @@ export default function Header() {
 
   const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
   const [isOpening, setIsOpening] = React.useState(false);
+  const { user, logOut } = React.useContext(AuthContext);
 
   const handleToggleDrawer = () => {
     setIsOpening(true);
@@ -75,6 +78,17 @@ export default function Header() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  const logoutHandler = () => {
+    logOut()
+      .then(() => {
+        setSuccess(true);
+        setTimeout(() => {
+          setSuccess(false);
+        }, 1000);
+      })
+      .catch((error) => console.log(error));
+  };
+
   const menuId = "primary-search-account-menu";
   const cartId = "primary-cart-menu";
 
@@ -95,15 +109,25 @@ export default function Header() {
       onClose={handleMenuClose}
     >
       <Box sx={{ width: MOBILE_WIDTH }} />
-      <MenuItem component={Link} to={"./"} onClick={handleMenuClose}>
+      <MenuItem component={Link} to={"/"} onClick={handleMenuClose}>
         Profile
       </MenuItem>
-      <MenuItem component={Link} to={"./"} onClick={handleMenuClose}>
+      <MenuItem component={Link} to={"/"} onClick={handleMenuClose}>
         My account
       </MenuItem>
-      <MenuItem component={Link} to={"./dashboard"} onClick={handleMenuClose}>
+      <MenuItem component={Link} to={"/dashboard"} onClick={handleMenuClose}>
         Dashboard
       </MenuItem>
+
+      {user ? (
+        <MenuItem onClick={logoutHandler} component={Link} color="inherit">
+          Logout
+        </MenuItem>
+      ) : (
+        <MenuItem component={Link} to="/login" color="inherit">
+          Login
+        </MenuItem>
+      )}
     </Menu>
   );
 
@@ -219,7 +243,19 @@ export default function Header() {
                 color="inherit"
                 sx={{ marginLeft: "10px" }}
               >
-                <AccountCircle />
+                {user ? (
+                  <div>
+                    {user.photoURL && (
+                      <Avatar
+                        alt={user.displayName}
+                        src={user.photoURL}
+                        sx={{ width: 22, height: 22, borderRadius: "50%" }}
+                      />
+                    )}
+                  </div>
+                ) : (
+                  <AccountCircle />
+                )}
               </IconButton>
             </Box>
             <Box sx={{ display: { xs: "flex", md: "none" } }}>

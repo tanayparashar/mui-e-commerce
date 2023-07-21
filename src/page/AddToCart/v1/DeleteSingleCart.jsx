@@ -27,7 +27,12 @@ function DeleteSingleCart() {
 
   return (
     <>
-      <IconButton aria-label="delete" onClick={handleDeleteClick}>
+      <IconButton
+        aria-label="delete"
+        onClick={handleDeleteClick}
+        color="error"
+        size="small"
+      >
         <DeleteIcon />
       </IconButton>
 

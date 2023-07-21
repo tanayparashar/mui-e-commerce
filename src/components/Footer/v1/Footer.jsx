@@ -137,7 +137,7 @@ function Footer() {
           <GetYear />
 
           <Box sx={{ display: "flex", gap: 1 }}>
-            <AnchorControl to="/term">Terms of Use</AnchorControl>
+            <AnchorControl to="/term-of-use">Terms of Use</AnchorControl>
             <AnchorControl to="/privacy">Privacy</AnchorControl>
             <AnchorControl to="/ads">Interest-based ads</AnchorControl>
           </Box>

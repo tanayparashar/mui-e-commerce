@@ -11,6 +11,8 @@ import Register from "../page/Auth/v1/Register/Register.jsx";
 import ForgotPassword from "../page/Auth/v1/Forgot/ForgotPassword.jsx";
 import Maintenance from "../page/BrokenPage/v1/Maintenance.jsx";
 import ComingSoon from "../page/BrokenPage/v1/ComingSoon.jsx";
+import TermsOfUse from "../page/Policy/TermsOfUse.jsx";
+import PrivacyPolicy from "../page/Policy/PrivacyPolicy.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -57,5 +59,13 @@ export const router = createBrowserRouter([
   {
     path: "/comingsoon",
     element: <ComingSoon />,
+  },
+  {
+    path: "/term-of-use",
+    element: <TermsOfUse />,
+  },
+  {
+    path: "/privacy",
+    element: <PrivacyPolicy />,
   },
 ]);

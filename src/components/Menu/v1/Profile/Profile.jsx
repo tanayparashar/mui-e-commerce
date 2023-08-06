@@ -11,16 +11,16 @@ export default function Profile() {
         <Chip
           sx={{ my: "15px" }}
           avatar={
-            user.photoURL ? (
+            user && user.photoURL ? (
               <Avatar alt="Logo" src={user.photoURL} />
             ) : (
               <Avatar
                 alt="Default Logo"
-                src={"https://i.ibb.co/DpK6Z0m/1673291260756.png"}
+                src="https://i.ibb.co/DpK6Z0m/1673291260756.png"
               />
             )
           }
-          label={`Hi, ${user.displayName}`}
+          label={`Hi, ${user?.displayName || "Guest"}`}
         />
       </Box>
       <Divider />

@@ -191,7 +191,7 @@ export default function Header() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }} component={"header"}>
       <AppBar position="static">
         <StyledToolbar>
           <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>

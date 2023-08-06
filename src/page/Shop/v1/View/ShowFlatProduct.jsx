@@ -3,12 +3,9 @@ import { Box, Paper, Rating, Stack, Typography, useTheme } from "@mui/material";
 import { Link } from "react-router-dom";
 
 function ShowFlatProduct({ productData }) {
-  const productRef = useRef();
   const theme = useTheme();
 
-  const handleProductClick = () => {
-    productRef.current.scrollTo(0, 0);
-  };
+
   return (
     <Stack spacing={2}>
       {productData.map((data) => (
@@ -23,7 +20,6 @@ function ShowFlatProduct({ productData }) {
             }}
             component={Link}
             to={`/product`}
-            onClick={handleProductClick}
           >
             <Box
               component="img"

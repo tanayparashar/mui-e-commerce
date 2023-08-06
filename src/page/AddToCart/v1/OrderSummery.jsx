@@ -1,5 +1,6 @@
 import React from "react";
 import { Box, Divider, Typography, TextField, Button } from "@mui/material";
+import { Link } from "react-router-dom";
 
 function OrderSummary() {
   return (
@@ -69,7 +70,13 @@ function OrderSummary() {
 
       {/* Proceed to Checkout Button */}
       <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}>
-        <Button variant="contained" color="primary" sx={{ width: "100%" }}>
+        <Button
+          component={Link}
+          to="/checkout"
+          variant="contained"
+          color="primary"
+          sx={{ width: "100%" }}
+        >
           Proceed to Checkout
         </Button>
       </Box>

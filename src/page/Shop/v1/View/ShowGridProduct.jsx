@@ -11,12 +11,7 @@ import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 
 function ShowGridProduct({ productData }) {
-  const productRef = useRef();
   const theme = useTheme();
-
-  const handleProductClick = () => {
-    productRef.current.scrollTo(0, 0);
-  };
 
   return (
     <>
@@ -27,7 +22,6 @@ function ShowGridProduct({ productData }) {
               sx={{ textDecoration: "none", color: "inherit" }}
               component={Link}
               to={`/product`}
-              onClick={handleProductClick}
             >
               <Box
                 component="img"

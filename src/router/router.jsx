@@ -4,6 +4,7 @@ import App from "../App.jsx";
 import SearchPage from "../page/SearchPage.jsx";
 import ProductDetails from "../page/ProductDetails/v1/ProductDetails.jsx";
 import AddToCart from "../page/AddToCart/v1/AddToCart.jsx";
+import EmptyCart from "../page/EmptyCart/v1/EmptyCart.jsx";
 import Shop from "../page/Shop/v1/Shop.jsx";
 import Page404 from "../page/BrokenPage/v1/Page404.jsx";
 import Login from "../page/Auth/v1/Login/Login.jsx";
@@ -13,6 +14,8 @@ import Maintenance from "../page/BrokenPage/v1/Maintenance.jsx";
 import ComingSoon from "../page/BrokenPage/v1/ComingSoon.jsx";
 import TermsOfUse from "../page/Policy/TermsOfUse.jsx";
 import PrivacyPolicy from "../page/Policy/PrivacyPolicy.jsx";
+import Checkout from "../page/Checkout/v1/Checkout.jsx";
+import Dashboard from "../page/Dashboard/v1/Dashboard.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +34,14 @@ export const router = createBrowserRouter([
   {
     path: "/addtocart",
     element: <AddToCart />,
+  },
+  {
+    path: "/emptycart",
+    element: <EmptyCart />,
+  },
+  {
+    path: "/checkout",
+    element: <Checkout />,
   },
   {
     path: "/shop",
@@ -67,5 +78,9 @@ export const router = createBrowserRouter([
   {
     path: "/privacy",
     element: <PrivacyPolicy />,
+  },
+  {
+    path: "/dashboard",
+    element: <Dashboard />,
   },
 ]);

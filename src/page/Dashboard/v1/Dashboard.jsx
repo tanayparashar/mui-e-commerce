@@ -10,6 +10,8 @@ import MyDashboard from "../../../components/Chart/v1/DountCount";
 import SealsOverview from "./SealsOverview";
 import RadialBarChart from "../../../components/Chart/v1/RadialBarChart";
 import RadialBarChart2 from "../../../components/Chart/v1/RadialBarChart2";
+import RadialChart from "../../../components/Chart/v1/RadialChart";
+import PolarChart from "../../../components/Chart/v1/PolarChart";
 
 function Dashboard() {
   const theme = useTheme();
@@ -177,11 +179,15 @@ function Dashboard() {
           />
         </Grid>
         <Grid item xs={12} md={6} lg={4}>
-          <RadialBarChart
-            title="Radial Bar Chart"
-            subheader="Subheader for the chart"
-            chartData={[{ label: "A", value: 67 }]}
+          <RadialChart
+            title="Radial Bar Chart Example"
+            subheader="Sample Subheader"
+            series={[70]}
+            labels={["Cricket"]}
           />
+        </Grid>
+        <Grid item xs={12} md={6} lg={4}>
+          <PolarChart series={[14, 23, 21, 17, 15, 10, 12, 17, 21]} />
         </Grid>
       </Grid>
     </Container>

@@ -27,9 +27,9 @@ const CustomMenu = ({ title }) => {
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <Box>
-        <Typography variant="h6" mb={1}>
+        {/* <Typography variant="h6" mb={1}>
           Category
-        </Typography>
+        </Typography> */}
         <Paper sx={{ mb: 2 }}>
           <Button
             onClick={handleButtonClick}

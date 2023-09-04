@@ -433,7 +433,12 @@ function AddToCart() {
               </Grid>
               <Grid item xs={12} md={4} mt={5}>
                 <Paper>
-                  <OrderSummery />
+                  <OrderSummery
+                    titleMarginButton={2}
+                    size="h6"
+                    btnText="Proceed to checkout"
+                    path="/checkout"
+                  />
                 </Paper>
 
                 {/* <Box> to do </Box> */}

@@ -2,10 +2,10 @@ import React from "react";
 import { Box, Divider, Typography, TextField, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 
-function OrderSummary() {
+function OrderSummary({ size, path, btnText, titleMarginButton }) {
   return (
     <Box sx={{ p: 2, width: "100%" }}>
-      <Typography variant="h6" mb={2}>
+      <Typography variant={size} mb={titleMarginButton}>
         Subtotal
       </Typography>
 
@@ -72,12 +72,12 @@ function OrderSummary() {
       <Box sx={{ display: "flex", justifyContent: "flex-end", mt: 2 }}>
         <Button
           component={Link}
-          to="/checkout"
+          to={path}
           variant="contained"
           color="primary"
           sx={{ width: "100%" }}
         >
-          Proceed to Checkout
+          {btnText}
         </Button>
       </Box>
     </Box>

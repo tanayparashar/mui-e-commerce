@@ -25,6 +25,7 @@ import ReusableProduct from "../../../components/ReusableProduct/ReusableProduct
 import Counter from "./Counter";
 import ColorComponent from "./ColorComponent";
 import ProductDetailsSkelton from "./ProductDetailsSkelton";
+import { Link } from "react-router-dom";
 
 export default function ProductDetails() {
   const theme = useTheme();
@@ -142,7 +143,12 @@ export default function ProductDetails() {
                       <Button sx={{ width: "50%" }} variant="contained">
                         <AddShoppingCartIcon /> Add to Cart
                       </Button>
-                      <Button sx={{ width: "50%" }} variant="contained">
+                      <Button
+                        component={Link}
+                        to={"/checkout"}
+                        sx={{ width: "50%" }}
+                        variant="contained"
+                      >
                         Buy Now
                       </Button>
                     </Box>

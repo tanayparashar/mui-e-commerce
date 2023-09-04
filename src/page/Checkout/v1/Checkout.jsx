@@ -12,6 +12,9 @@ import {
   IconButton,
   Card,
   CardContent,
+  FormGroup,
+  FormControlLabel,
+  Checkbox,
 } from "@mui/material";
 import OrderSummary from "../../AddToCart/v1/OrderSummery";
 import EditIcon from "@mui/icons-material/Edit";
@@ -27,99 +30,9 @@ function Checkout() {
       </Helmet>
       <Layout>
         <Container>
-          <Grid container spacing={2} my={5}>
-            <Grid item md={6}>
-              {/* Previous Address  */}
-
-              <Box>
-                <Box
-                  sx={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    mb: 3,
-                  }}
-                >
-                  <Typography variant="h4">Shipping address</Typography>
-                  <Button variant="contained">Add new address</Button>
-                </Box>
-                <Grid container spacing={2}>
-                  <Grid item md={4}>
-                    <Paper sx={{ p: 1 }}>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                        }}
-                      >
-                        <Typography variant="h6">Home</Typography>
-                        <Box sx={{ display: "flex" }}>
-                          <IconButton>
-                            <EditIcon />
-                          </IconButton>
-                          <IconButton>
-                            <DeleteOutlineIcon color="error" />
-                          </IconButton>
-                        </Box>
-                      </Box>
-                      <Typography variant="body2">
-                        Address rs 705 90875 road nu 7688 mio 979797979797
-                      </Typography>
-                    </Paper>
-                  </Grid>
-                  <Grid item md={4}>
-                    <Paper sx={{ p: 1 }}>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                        }}
-                      >
-                        <Typography variant="h6">Home</Typography>
-                        <Box sx={{ display: "flex" }}>
-                          <IconButton>
-                            <EditIcon />
-                          </IconButton>
-                          <IconButton>
-                            <DeleteOutlineIcon color="error" />
-                          </IconButton>
-                        </Box>
-                      </Box>
-                      <Typography variant="body2">
-                        Address rs 705 90875 road nu 7688 mio 979797979797
-                      </Typography>
-                    </Paper>
-                  </Grid>
-                  <Grid item md={4}>
-                    <Paper sx={{ p: 1 }}>
-                      <Box
-                        sx={{
-                          display: "flex",
-                          justifyContent: "space-between",
-                          alignItems: "center",
-                        }}
-                      >
-                        <Typography variant="h6">Home</Typography>
-                        <Box sx={{ display: "flex" }}>
-                          <IconButton>
-                            <EditIcon />
-                          </IconButton>
-                          <IconButton>
-                            <DeleteOutlineIcon color="error" />
-                          </IconButton>
-                        </Box>
-                      </Box>
-                      <Typography variant="body2">
-                        Address rs 705 90875 road nu 7688 mio 979797979797
-                      </Typography>
-                    </Paper>
-                  </Grid>
-                </Grid>
-              </Box>
-
-              <Box my={5}>
+          <Grid container spacing={2}>
+            <Grid item md={7}>
+              <Box my={5} pt={2}>
                 <Typography variant="h4" mb={3}>
                   Shipping information
                 </Typography>
@@ -166,27 +79,26 @@ function Checkout() {
                   sx={{ width: "100%", mt: 2 }}
                   type="number"
                 />
+
+                <FormGroup sx={{ mt: 5 }}>
+                  <FormControlLabel
+                    // required
+                    control={<Checkbox />}
+                    label="Save this address"
+                  />
+                </FormGroup>
               </Box>
 
               <EPaymentMethods />
             </Grid>
 
-            <Grid item md={6}>
-              <OrderSummary />
-
-              <Card sx={{ m: 2 }}>
-                <CardContent>
-                  <Typography variant="h6">Cash on Delivery</Typography>
-                  <Typography variant="body2">
-                    Pay with cash on delivery.
-                  </Typography>
-                  <IconButton
-                    onClick={() => handlePaymentMethodClick("Cash on Delivery")}
-                  >
-                    Cash
-                  </IconButton>
-                </CardContent>
-              </Card>
+            <Grid item my={5}>
+              <OrderSummary
+                titleMarginButton={3}
+                size="h4"
+                btnText="Proceed to checkout"
+                path="/payment"
+              />
             </Grid>
           </Grid>
         </Container>

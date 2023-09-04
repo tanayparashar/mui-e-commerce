@@ -16,6 +16,7 @@ import TermsOfUse from "../page/Policy/TermsOfUse.jsx";
 import PrivacyPolicy from "../page/Policy/PrivacyPolicy.jsx";
 import Checkout from "../page/Checkout/v1/Checkout.jsx";
 import Dashboard from "../page/Dashboard/v1/Dashboard.jsx";
+import Faq from "../page/Faq/Faq.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -78,6 +79,10 @@ export const router = createBrowserRouter([
   {
     path: "/privacy",
     element: <PrivacyPolicy />,
+  },
+  {
+    path: "/faqs",
+    element: <Faq />,
   },
   {
     path: "/dashboard",

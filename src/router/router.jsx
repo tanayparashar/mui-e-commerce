@@ -6,6 +6,7 @@ import ProductDetails from "../page/ProductDetails/v1/ProductDetails.jsx";
 import AddToCart from "../page/AddToCart/v1/AddToCart.jsx";
 import EmptyCart from "../page/EmptyCart/v1/EmptyCart.jsx";
 import Shop from "../page/Shop/v1/Shop.jsx";
+import Shop2 from "../page/Shop/v2/Shop2.jsx";
 import Page404 from "../page/BrokenPage/v1/Page404.jsx";
 import Login from "../page/Auth/v1/Login/Login.jsx";
 import Register from "../page/Auth/v1/Register/Register.jsx";
@@ -47,6 +48,10 @@ export const router = createBrowserRouter([
   {
     path: "/shop",
     element: <Shop />,
+  },
+  {
+    path: "/v2/shop",
+    element: <Shop2 />,
   },
   {
     path: "/login",

@@ -10,11 +10,10 @@ import {
   Divider,
 } from "@mui/material";
 import EastIcon from "@mui/icons-material/East";
-
 import VirtualizedList from "./VirtualizedList";
 
-const CustomMenu = ({ title }) => {
-  const [isOpen, setIsOpen] = useState(true);
+const CustomMenu = ({ title, isOpenOrNot, lists }) => {
+  const [isOpen, setIsOpen] = useState(isOpenOrNot);
 
   const handleButtonClick = () => {
     setIsOpen((prevOpen) => !prevOpen); // Toggle the isOpen state
@@ -53,12 +52,11 @@ const CustomMenu = ({ title }) => {
             <EastIcon sx={{ marginLeft: "8px" }} />
           </Button>
 
-          {/* <Divider /> */}
-
           {/* Use Collapse component for smooth transitions */}
-          <Collapse in={isOpen} collapsedHeight={0}>
+          {/* collapsedHeight={0} */}
+          <Collapse in={isOpen}>
             <Divider />
-            <VirtualizedList />
+            <VirtualizedList lists={lists} />
           </Collapse>
         </Paper>
       </Box>

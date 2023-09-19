@@ -26,6 +26,7 @@ import Counter from "./Counter";
 import ColorComponent from "./ColorComponent";
 import ProductDetailsSkelton from "./ProductDetailsSkelton";
 import { Link } from "react-router-dom";
+import SocialShare from "../../../components/SocialShare";
 
 export default function ProductDetails() {
   const theme = useTheme();
@@ -152,6 +153,7 @@ export default function ProductDetails() {
                         Buy Now
                       </Button>
                     </Box>
+                    <SocialShare />
                   </Box>
                 </Grid>
               </Grid>

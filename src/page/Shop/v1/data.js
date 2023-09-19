@@ -1,0 +1,178 @@
+const productData = [
+  {
+    id: 1,
+    name: "Example Product",
+    description: "This is an example product description.",
+    price: 19.99,
+    currency: "USD",
+    image:
+      "https://s.alicdn.com/@sc04/kf/U3e61f2f7c2044998946a55a6ed93efe4T.jpeg_480x480.jpg",
+    category: "Electronics",
+    brand: "Example Brand",
+    rating: 4.5,
+    reviews: 10,
+    availability: true,
+  },
+  {
+    id: 2,
+    name: "Example Product",
+    description: "This is an example product description.",
+    price: 19.99,
+    currency: "USD",
+    image:
+      "https://s.alicdn.com/@sc04/kf/Ab060a9795b554cfca101888d5417f2b7n.jpg_220x220.jpg",
+    category: "Electronics",
+    brand: "Example Brand",
+    rating: 4.5,
+    reviews: 10,
+    availability: true,
+  },
+  {
+    id: 3,
+    name: "Example Product",
+    description: "This is an example product description.",
+    price: 19.99,
+    currency: "USD",
+    image:
+      "https://s.alicdn.com/@sc04/kf/Ucd8d64697249428791933b0c67745d4aP.jpg_300x300.jpg",
+    category: "Electronics",
+    brand: "Example Brand",
+    rating: 4.5,
+    reviews: 10,
+    availability: true,
+  },
+  {
+    id: 4,
+    name: "Example Product",
+    description: "This is an example product description.",
+    price: 19.99,
+    currency: "USD",
+    image:
+      "https://s.alicdn.com/@sc04/kf/Ued246640dfab45a9964b6a05e89d9d52p.jpg_300x300.jpg",
+    category: "Electronics",
+    brand: "Example Brand",
+    rating: 4.5,
+    reviews: 10,
+    availability: true,
+  },
+  {
+    id: 5,
+    name: "Example Product",
+    description: "This is an example product description.",
+    price: 19.99,
+    currency: "USD",
+    image:
+      "https://s.alicdn.com/@sc04/kf/Ab99a7ee3eff64fa7b17a9c2bff3123af5.jpg_300x300.jpg",
+    category: "Electronics",
+    brand: "Example Brand",
+    rating: 4.5,
+    reviews: 10,
+    availability: true,
+  },
+  {
+    id: 6,
+    name: "Example Product",
+    description: "This is an example product description.",
+    price: 19.99,
+    currency: "USD",
+    image:
+      "https://s.alicdn.com/@sc04/kf/A6ef11c18a15644da8448925c74fae25e9.jpg_300x300.jpg",
+    category: "Electronics",
+    brand: "Example Brand",
+    rating: 4.5,
+    reviews: 10,
+    availability: true,
+  },
+
+  {
+    id: 7,
+    name: "Example Product",
+    description: "This is an example product description.",
+    price: 19.99,
+    currency: "USD",
+    image:
+      "https://s.alicdn.com/@sc04/kf/H39a694fe232b4cf6ac8b612edc786ebap.jpg_300x300.jpg",
+    category: "Electronics",
+    brand: "Example Brand",
+    rating: 4.5,
+    reviews: 10,
+    availability: true,
+  },
+
+  {
+    id: 8,
+    name: "Example Product",
+    description: "This is an example product description.",
+    price: 19.99,
+    currency: "USD",
+    image:
+      "https://s.alicdn.com/@sc04/kf/H9b0ab25b7432474bb8611fc5c7972223L.jpg_250x250xz.jpg",
+    category: "Electronics",
+    brand: "Example Brand",
+    rating: 4.5,
+    reviews: 10,
+    availability: true,
+  },
+
+  {
+    id: 9,
+    name: "Example Product",
+    description: "This is an example product description.",
+    price: 19.99,
+    currency: "USD",
+    image:
+      "https://s.alicdn.com/@sc04/kf/Abf188f0d6d324a22b797df810f2e238aD.jpg_480x480.jpg",
+    category: "Electronics",
+    brand: "Example Brand",
+    rating: 4.5,
+    reviews: 10,
+    availability: true,
+  },
+
+  {
+    id: 10,
+    name: "Example Product",
+    description: "This is an example product description.",
+    price: 19.99,
+    currency: "USD",
+    image:
+      "https://s.alicdn.com/@sc04/kf/U899fd99865174890b48999d443b2b494o.jpg_480x480.jpg",
+    category: "Electronics",
+    brand: "Example Brand",
+    rating: 4.5,
+    reviews: 10,
+    availability: true,
+  },
+
+  {
+    id: 11,
+    name: "Example Product",
+    description: "This is an example product description.",
+    price: 19.99,
+    currency: "USD",
+    image:
+      "https://s.alicdn.com/@sc04/kf/Ub297c0174ec24557a679aa5f1e975f5e0.jpg_300x300.jpg",
+    category: "Electronics",
+    brand: "Example Brand",
+    rating: 4.5,
+    reviews: 10,
+    availability: true,
+  },
+
+  {
+    id: 12,
+    name: "Example Product",
+    description: "This is an example product description.",
+    price: 19.99,
+    currency: "USD",
+    image:
+      "https://s.alicdn.com/@sc04/kf/U9945645e3e694637829203ec994d6ec4F.jpg_300x300.jpg",
+    category: "Electronics",
+    brand: "Example Brand",
+    rating: 4.5,
+    reviews: 10,
+    availability: true,
+  },
+];
+
+export default productData;

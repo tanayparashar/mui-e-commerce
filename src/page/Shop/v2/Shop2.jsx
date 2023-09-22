@@ -1,90 +1,107 @@
-import { useState } from "react";
-import ShopSearchBar from "./components/ShopSearchBar";
+import React, { useState, useEffect } from "react";
 import Products from "./components/Products";
-import products from "../../../../public/shop";
-import Recommended from "./components/Recommended";
-import Sidebar from "./Sidebar/Sidebar";
-import CustomCard from "./components/CustomCard";
+import Sidebar from "./components/Sidebar";
 import { Grid, Typography } from "@mui/material";
+import products from "../../../../public/shop";
 
-function Sidebar2() {
-  const [selectedCategory, setSelectedCategory] = useState(null);
+function Shop2() {
+  const [selectedCategory, setSelectedCategory] = useState("");
   const [query, setQuery] = useState("");
+  const [priceRange, setPriceRange] = useState([0, 300]); // Initial price range
+  const [selectedColor, setSelectedColor] = useState(""); // Selected color
+  const [selectedRating, setSelectedRating] = useState(null); // Updated to null
+  const [colorCounts, setColorCounts] = useState({}); // Initialize colorCounts state
+
+  // Calculate color counts
+  useEffect(() => {
+    const counts = {};
+    products.forEach((product) => {
+      const color = product.color;
+      counts[color] = (counts[color] || 0) + 1;
+    });
+    setColorCounts(counts);
+  }, []); // Empty dependency array to run the effect only once
 
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
 
-  const handleChange = (event) => {
-    setSelectedCategory(event.target.value);
+  const handleCategoryChange = (category) => {
+    setSelectedCategory(category);
   };
 
-  const handleClick = (event) => {
-    setSelectedCategory(event.target.value);
+  const handlePriceChange = (newPriceRange) => {
+    setPriceRange(newPriceRange);
   };
 
-  const filteredData = (products, selected, query) => {
-    let filteredProducts = products;
+  const handleColorChange = (color) => {
+    setSelectedColor(color);
+  };
 
-    if (query) {
-      filteredProducts = filteredProducts.filter(
-        (product) =>
-          product.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
-      );
-    }
+  const handleRatingChange = (newValue) => {
+    setSelectedRating(newValue);
+  };
 
-    if (selected) {
-      filteredProducts = filteredProducts.filter(
-        ({ category, color, company, newPrice, title }) =>
-          category === selected ||
-          color === selected ||
-          company === selected ||
-          newPrice === selected ||
-          title === selected
-      );
-    }
+  const filteredProducts = products.filter((product) => {
+    const titleMatches = product.title
+      .toLowerCase()
+      .includes(query.toLowerCase());
+    const categoryMatches =
+      selectedCategory === "" || product.category === selectedCategory;
+    const priceMatches =
+      product.newPrice >= priceRange[0] && product.newPrice <= priceRange[1];
+    const colorMatches =
+      selectedColor === "" || product.color === selectedColor;
+    const ratingMatches =
+      selectedRating === null ||
+      product.rating.rate >= parseFloat(selectedRating);
 
-    return filteredProducts.map(
-      ({ img, title, rating, reviews, prevPrice, newPrice }) => (
-        <CustomCard
-          key={Math.random()}
-          img={img}
-          title={title}
-          rating={rating.rate}
-          reviews={reviews}
-          prevPrice={prevPrice}
-          newPrice={newPrice}
-        />
-      )
+    return (
+      titleMatches &&
+      categoryMatches &&
+      priceMatches &&
+      colorMatches &&
+      ratingMatches
     );
-  };
-
-  const result = filteredData(products, selectedCategory, query);
-  const totalCount = result.length; // Calculate the total count
+  });
 
   return (
-    <>
-      <Grid container spacing={2}>
-        <Grid item xs={2}>
-          <Sidebar handleChange={handleChange} />
-        </Grid>
+    <Grid container spacing={2}>
+      <Grid item xs={3}>
+        <Sidebar
+          onCategoryChange={handleCategoryChange}
+          selectedCategory={selectedCategory}
+          onInputChange={handleInputChange}
+          query={query}
+          onPriceChange={handlePriceChange}
+          priceRange={priceRange}
+          onColorChange={handleColorChange}
+          onRatingChange={handleRatingChange} // Pass the rating change handler
+          selectedRating={selectedRating} // Pass the selected rating value
+          selectedColor={selectedColor}
+          colorCounts={colorCounts} // Pass color counts
+          availableColors={["white", "red", "green", "blue", "black"]} // Example colors
+        />
+      </Grid>
+      <Grid item xs={9}>
+        <Typography variant="h4">Shop</Typography>
         <Grid item xs={10}>
-          <ShopSearchBar query={query} handleInputChange={handleInputChange} />
-          <Recommended handleClick={handleClick} />
-          {totalCount === 0 ? (
+          {filteredProducts.length === 0 ? (
             <Typography variant="h6">No results found</Typography>
           ) : (
             <>
               {query && (
-                <Typography variant="h6">{totalCount} results found</Typography>
+                <Typography variant="h6">
+                  {filteredProducts.length} results found
+                </Typography>
               )}
-              <Products result={result} />
+              <Products result={filteredProducts} />
             </>
           )}
         </Grid>
       </Grid>
-    </>
+    </Grid>
   );
 }
 
-export default Sidebar2;
+export default Shop2;

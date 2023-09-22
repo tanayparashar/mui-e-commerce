@@ -1,32 +1,3 @@
-// // import { BsFillBagFill } from "react-icons/bs";
-
-// const CustomCart = ({ img, title, star, reviews, prevPrice, newPrice }) => {
-//   return (
-//     <>
-//       <section className="card">
-//         <img src={img} alt={title} className="card-img" />
-//         <div className="card-details">
-//           <h3 className="card-title">{title}</h3>
-//           <section className="card-reviews">
-//             {star} {star} {star} {star}
-//             <span className="total-reviews">{reviews}</span>
-//           </section>
-//           <section className="card-price">
-//             <div className="price">
-//               <del>{prevPrice}</del> {newPrice}
-//             </div>
-//             <div className="bag">
-//               {/* <BsFillBagFill className="bag-icon" /> */}
-//             </div>
-//           </section>
-//         </div>
-//       </section>
-//     </>
-//   );
-// };
-
-// export default CustomCart;
-
 import React from "react";
 import {
   Card,
@@ -37,7 +8,15 @@ import {
   Rating,
 } from "@mui/material";
 
-const CustomCard = ({ img, title, rating, reviews, prevPrice, newPrice }) => {
+const CustomCard = ({
+  id,
+  img,
+  title,
+  rating,
+  reviews,
+  prevPrice,
+  newPrice,
+}) => {
   return (
     <Card sx={{ display: "flex", flexDirection: "column", gap: 2, m: 1 }}>
       <CardMedia
@@ -52,12 +31,7 @@ const CustomCard = ({ img, title, rating, reviews, prevPrice, newPrice }) => {
           {title}
         </Typography>
         <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
-          <Rating
-            value={rating}
-            readOnly
-            defaultValue={rating}
-            precision={0.5}
-          />
+          {/* <Rating readOnly defaultValue={rating} precision={0.5} /> */}
           <Typography variant="body2" color="text.secondary">
             {reviews}
           </Typography>

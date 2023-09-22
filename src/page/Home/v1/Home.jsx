@@ -40,7 +40,10 @@ function Home() {
             <ProductSlider />
             <Product />
             <ViewProduct />
-            <ReuseableCarousel sectionTitle={"Shop under $20"} />
+            <ReuseableCarousel
+              sectionTitle={"Shop under $20"}
+              routeLink={"/v2/shop"}
+            />
 
             <ReusableProduct sectionTitle={"Browse History"} />
           </Container>

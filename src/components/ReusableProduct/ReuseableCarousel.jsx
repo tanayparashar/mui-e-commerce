@@ -55,7 +55,7 @@ const items = [
   },
 ];
 
-function ReuseableCarousel({ sectionTitle }) {
+function ReuseableCarousel({ sectionTitle, routeLink }) {
   return (
     <Paper elevation={10}>
       <Box sx={{ mt: 5, p: 1 }}>
@@ -70,7 +70,14 @@ function ReuseableCarousel({ sectionTitle }) {
           <Typography variant="h6" px={1}>
             {sectionTitle}
           </Typography>
-          <Button variant="contained">View all</Button>
+          <Button
+            variant="contained"
+            component={Link}
+            to={`${routeLink}`}
+            sx={{ textDecoration: "none", color: "inherit" }}
+          >
+            View all
+          </Button>
         </Box>
         <Carousel
           additionalTransfrom={0}

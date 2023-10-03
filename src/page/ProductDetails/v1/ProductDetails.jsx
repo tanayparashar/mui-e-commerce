@@ -17,10 +17,12 @@ import {
 } from "@mui/material";
 
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
-import ProductDetailSlider from "../../../components/SlideImg/v1/ProductDetailSlider";
+
+import ProductDetailSlider from "./ProductDetailSlider";
 import WhatWeProvide from "../../../components/Commitment/v1/WhatWeProvide";
 import ProductInformationTabs from "../../../components/Tab/v1/ProductInformationTabs";
-import ReusableProduct from "../../../components/ReusableProduct/ReusableProduct";
+
+import ProductRowSection from "../../../components/Product/v1/ProductRowSection";
 
 import Counter from "./Counter";
 import ColorComponent from "./ColorComponent";
@@ -162,7 +164,7 @@ export default function ProductDetails() {
               <ProductInformationTabs />
 
               {/* YOU can use your custom product api data JUST use props data={api} */}
-              <ReusableProduct sectionTitle={"Related Product"} />
+              <ProductRowSection SectionTitle={"Related Product"} />
             </Container>
           </Layout>
         </>

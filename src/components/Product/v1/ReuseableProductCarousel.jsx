@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { Paper, Box, Typography, Grid, Button } from "@mui/material";
-import "../../components/SlideImg/v1/arrow.css";
 
 import Carousel from "react-multi-carousel";
 import { Link } from "react-router-dom";
@@ -55,7 +54,7 @@ const items = [
   },
 ];
 
-function ReuseableCarousel({ sectionTitle, routeLink }) {
+function ReuseableProductCarousel({ SectionTitle, RouteLink }) {
   return (
     <Paper elevation={10}>
       <Box sx={{ mt: 5, p: 1 }}>
@@ -68,19 +67,19 @@ function ReuseableCarousel({ sectionTitle, routeLink }) {
           }}
         >
           <Typography variant="h6" px={1}>
-            {sectionTitle}
+            {SectionTitle}
           </Typography>
           <Button
             variant="contained"
             component={Link}
-            to={`${routeLink}`}
+            to={`${RouteLink}`}
             sx={{ textDecoration: "none", color: "inherit" }}
           >
             View all
           </Button>
         </Box>
         <Carousel
-          additionalTransfrom={0}
+          additionalTransform={0}
           arrows
           autoPlaySpeed={3000}
           centerMode={false}
@@ -161,4 +160,4 @@ function ReuseableCarousel({ sectionTitle, routeLink }) {
   );
 }
 
-export default ReuseableCarousel;
+export default ReuseableProductCarousel;

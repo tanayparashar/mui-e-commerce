@@ -1,8 +1,5 @@
 import React from "react";
 import { Carousel } from "react-responsive-carousel";
-
-import "./arrow.css";
-
 const image = [
   "https://s.alicdn.com/@sc04/kf/Hce3fdcf1bb6a4dc8bec012d8e0a256caI.jpeg_220x220.jpg",
   "https://s.alicdn.com/@sc04/kf/Hc1dfc66335684787b2b1307802052707A.jpg_220x220.jpg",

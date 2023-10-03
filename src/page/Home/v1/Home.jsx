@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from "react";
 
+import { Container } from "@mui/material";
 import { Helmet } from "react-helmet-async";
 // Components
-import Slider from "../../../components/SlideImg/v1/SliderImg";
-import ProductSlider from "../../../components/SlideImg/v1/ProductSlider";
-import Product from "../../../components/Product/v1/Product";
-import ViewProduct from "../../../components/Product/v1/ViewProduct";
-import ReuseableCarousel from "../../../components/ReusableProduct/ReuseableCarousel";
-import ReusableProduct from "../../../components/ReusableProduct/ReusableProduct";
+import BannerSlider from "../../../components/SlideImg/v1/BannerSlider";
+import ViewMobileResponsive from "../../../components/SlideImg/v1/ViewMobileResponsive";
+import JustForYouSection from "../../../components/Product/v1/JustForYouSection";
+import ViewProductWithDeal from "../../../components/Product/v1/ViewProductWithDeal";
+import ProductRowSection from "../../../components/Product/v1/ProductRowSection";
+import ViewProductWithSingle from "../../../components/Product/v1/ViewProductWithSingle";
+import ReuseableProductCarousel from "../../../components/Product/v1/ReuseableProductCarousel";
 
 import Layout from "../../../layout/GlobalLayout/Layout";
 import LoadingLinearTop from "../../../components/Loading/LoadingLinearTop";
-
-import { Container } from "@mui/material";
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -34,18 +34,31 @@ function Home() {
       <>
         <Layout>
           {/* First slider   */}
-          <Slider />
+          <BannerSlider />
 
           <Container>
-            <ProductSlider />
-            <Product />
-            <ViewProduct />
-            <ReuseableCarousel
-              sectionTitle={"Shop under $20"}
-              routeLink={"/v2/shop"}
+            <ViewMobileResponsive />
+            <ProductRowSection SectionTitle={"Trading product"} />
+
+            <JustForYouSection
+              SectionTitle={"Just for you"}
+              showRating={true}
+            />
+            <ViewProductWithDeal />
+
+            <ReuseableProductCarousel
+              SectionTitle={"Shop under $20"}
+              RouteLink={"/v2/shop"}
             />
 
-            <ReusableProduct sectionTitle={"Browse History"} />
+            <JustForYouSection
+              SectionTitle={"New arrived products"}
+              showRating={false}
+            />
+
+            <ViewProductWithSingle />
+
+            <ProductRowSection SectionTitle={"Browse History"} />
           </Container>
         </Layout>
       </>

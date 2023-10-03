@@ -23,10 +23,10 @@ import SortingSelect from "./SortingSelect";
 import ShopPagination from "./ShopPagination";
 import ShowGridProduct from "./View/ShowGridProduct";
 import ShowFlatProduct from "./View/ShowFlatProduct";
-import ReuseableCarousel from "./../../../components/ReusableProduct/ReuseableCarousel";
 import Sidebar from "./Sidebar";
 
 import productData from "./data";
+import ReuseableProductCarousel from "../../../components/Product/v1/ReuseableProductCarousel";
 
 const NAV_WIDTH = 240; // Set the width of the nav drawer
 
@@ -140,7 +140,7 @@ function Shop() {
               <ShopPagination />
             </Grid>
           </Grid>
-          <ReuseableCarousel sectionTitle={"Shop under $20 🏪"} />
+          <ReuseableProductCarousel sectionTitle={"Shop under $20 🏪"} />
         </Container>
       </Layout>
     </>

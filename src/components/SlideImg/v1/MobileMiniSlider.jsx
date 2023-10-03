@@ -11,12 +11,11 @@ import {
 import { Link } from "react-router-dom";
 
 import Carousel from "react-multi-carousel";
-import "./arrow.css";
 
 function SlideShow({ products }) {
   return (
     <Carousel
-      additionalTransfrom={0}
+      additionalTransform={0}
       arrows
       autoPlaySpeed={3000}
       centerMode={false}

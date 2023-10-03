@@ -2,7 +2,6 @@ import React from "react";
 import { Box } from "@mui/material";
 import Carousel from "react-multi-carousel";
 import { Link } from "react-router-dom";
-// import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const imgData = [
   {
@@ -54,10 +53,10 @@ const responsive = {
   },
 };
 
-function SliderImg() {
+function BannerSlider() {
   return (
     <Carousel
-      additionalTransfrom={0}
+      additionalTransform={0}
       arrows
       autoPlaySpeed={3000}
       centerMode={false}
@@ -105,4 +104,4 @@ function SliderImg() {
   );
 }
 
-export default SliderImg;
+export default BannerSlider;

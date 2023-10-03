@@ -19,8 +19,6 @@ import { Helmet } from "react-helmet-async";
 import { Link } from "react-router-dom";
 
 import Layout from "../../../layout/GlobalLayout/Layout";
-import ReusableProduct from "../../../components/ReusableProduct/ReusableProduct";
-import ReuseableCarousel from "../../../components/ReusableProduct/ReuseableCarousel";
 
 import Bookmark from "./Bookmark";
 import DeleteSingleCart from "./DeleteSingleCart";
@@ -28,6 +26,8 @@ import DeleteWholeCart from "./DeleteWholeCart";
 import OrderSummery from "./OrderSummery";
 
 import LoadingCenter from "../../../components/Loading/LoadingCenter";
+import ReuseableProductCarousel from "../../../components/Product/v1/ReuseableProductCarousel";
+import ProductRowSection from "../../../components/Product/v1/ProductRowSection";
 
 const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
@@ -445,14 +445,14 @@ function AddToCart() {
               </Grid>
             </Grid>
 
-            <ReusableProduct sectionTitle={"Product from those shop"} />
+            <ProductRowSection sectionTitle={"Product from those shop"} />
 
-            <ReuseableCarousel
-              sectionTitle={"Recommended based on your shopping trends"}
+            <ReuseableProductCarousel
+              SectionTitle={"Recommended based on your shopping trends"}
             />
 
-            <ReusableProduct
-              sectionTitle={
+            <ReuseableProductCarousel
+              SectionTitle={
                 "Customers who viewed items in your browsing history also viewed"
               }
             />

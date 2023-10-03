@@ -8,6 +8,7 @@ import { router } from "./router/router.jsx";
 // Core third party css
 import "react-multi-carousel/lib/styles.css";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "./index.css";
 
 // Provider context
 import ThemeProvider from "./theme/index.jsx";

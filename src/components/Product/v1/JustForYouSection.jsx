@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   Box,
   Grid,
@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
-export const productData = [
+const productData = [
   {
     id: 1,
     name: "Example Product",
@@ -74,7 +74,7 @@ export const productData = [
     price: 19.99,
     currency: "USD",
     image:
-      "https://m.media-amazon.com/images/I/419duk9SwmL._AC_UF452,452_FMjpg_.jpg",
+      "https://s.alicdn.com/@sc04/kf/Hdc1d83b424f449f2b7c058957513f11as.jpg_250x250xz.jpg",
     category: "Electronics",
     brand: "Example Brand",
     rating: 4.5,
@@ -95,16 +95,106 @@ export const productData = [
     reviews: 10,
     availability: true,
   },
+
+  {
+    id: 7,
+    name: "Example Product",
+    description: "This is an example product description.",
+    price: 19.99,
+    currency: "USD",
+    image:
+      "https://s.alicdn.com/@sc04/kf/Hd6e0d57852f14931a30c4de83fb26f8fb.jpg_250x250xz.jpg",
+    category: "Electronics",
+    brand: "Example Brand",
+    rating: 4.5,
+    reviews: 10,
+    availability: true,
+  },
+
+  {
+    id: 8,
+    name: "Example Product",
+    description: "This is an example product description.",
+    price: 19.99,
+    currency: "USD",
+    image:
+      "https://s.alicdn.com/@sc04/kf/Hd0053eba9fb943f5ada9614b244c9556h.jpg_250x250xz.jpg",
+    category: "Electronics",
+    brand: "Example Brand",
+    rating: 4.5,
+    reviews: 10,
+    availability: true,
+  },
+
+  {
+    id: 9,
+    name: "Example Product",
+    description: "This is an example product description.",
+    price: 19.99,
+    currency: "USD",
+    image:
+      "https://s.alicdn.com/@sc04/kf/H0b91f507d7af4dc48c5f1707f9866d31r.jpeg_250x250xz.jpg",
+    category: "Electronics",
+    brand: "Example Brand",
+    rating: 4.5,
+    reviews: 10,
+    availability: true,
+  },
+
+  {
+    id: 10,
+    name: "Example Product",
+    description: "This is an example product description.",
+    price: 19.99,
+    currency: "USD",
+    image:
+      "https://s.alicdn.com/@sc04/kf/H539c4abc9df94d38b6ba83a7473baee4s.jpg_250x250xz.jpg",
+    category: "Electronics",
+    brand: "Example Brand",
+    rating: 4.5,
+    reviews: 10,
+    availability: true,
+  },
+
+  {
+    id: 11,
+    name: "Example Product",
+    description: "This is an example product description.",
+    price: 19.99,
+    currency: "USD",
+    image:
+      "https://s.alicdn.com/@sc04/kf/H153bbd39e57e46c09e6445ae5ab55704w.jpg_480x480.jpg",
+    category: "Electronics",
+    brand: "Example Brand",
+    rating: 4.5,
+    reviews: 10,
+    availability: true,
+  },
+
+  {
+    id: 12,
+    name: "Example Product",
+    description: "This is an example product description.",
+    price: 19.99,
+    currency: "USD",
+    image:
+      "https://static-01.daraz.com.bd/p/581c57d9da4adde7be0660410bf054cb.jpg",
+    category: "Electronics",
+    brand: "Example Brand",
+    rating: 4.5,
+    reviews: 10,
+    availability: true,
+  },
 ];
 
-function ReusableProduct({ sectionTitle }) {
+function JustForYouSection({ SectionTitle, showRating = true }) {
   const theme = useTheme();
 
   return (
     <Paper sx={{ p: 2, mt: 5 }} elevation={10}>
       <Box>
         <Typography variant="h6" mb={2}>
-          {sectionTitle}
+          {SectionTitle}
         </Typography>
         <Grid container spacing={1}>
           {productData.map((data) => (
@@ -125,15 +215,17 @@ function ReusableProduct({ sectionTitle }) {
                     alt={data.name}
                   />
                   <Typography>{data.name}</Typography>
-                  {/* <Typography>${data.price}</Typography> */}
-                  <Stack spacing={1}>
-                    <Rating
-                      name="half-rating-read"
-                      defaultValue={data.rating}
-                      precision={0.5}
-                      readOnly
-                    />
-                  </Stack>
+                  <Typography fontWeight={"bold"}>${data.price}</Typography>
+                  {showRating && (
+                    <Stack spacing={1}>
+                      <Rating
+                        name="half-rating-read"
+                        defaultValue={data.rating}
+                        precision={0.5}
+                        readOnly
+                      />
+                    </Stack>
+                  )}
                 </Box>
               </Paper>
             </Grid>
@@ -144,4 +236,4 @@ function ReusableProduct({ sectionTitle }) {
   );
 }
 
-export default ReusableProduct;
+export default JustForYouSection;

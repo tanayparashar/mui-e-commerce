@@ -1,24 +1,31 @@
 import React from "react";
-import CustomCard from "./CustomCard"; // Import your product card component here
-import { Grid } from "@mui/material";
+import CustomCard from "./CustomCard";
+import { Box, Grid, Paper } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Products = ({ result }) => {
   return (
-    <Grid container spacing={1}>
+    // <Grid item xs={6} sm={6} md={3} lg={12 / 5} xl={2}>
+    // <Paper sx={{ p: 0.5 }}>
+    <Box
+      sx={{ textDecoration: "none", color: "inherit" }}
+      component={Link}
+      to={`/product`}
+    >
       {result.map((product) => (
-        <Grid key={product.id} item xs={6} sm={6} md={3} lg={12 / 5} xl={2}>
-          <CustomCard
-            key={product.id}
-            img={product.img}
-            title={product.title}
-            rating={product.rating}
-            reviews={product.reviews}
-            prevPrice={product.prevPrice}
-            newPrice={product.newPrice}
-          />
-        </Grid>
+        <CustomCard
+          key={product.id}
+          img={product.img}
+          title={product.title}
+          rating={product.rating}
+          reviews={product.reviews}
+          prevPrice={product.prevPrice}
+          newPrice={product.newPrice}
+        />
       ))}
-    </Grid>
+    </Box>
+    // </Paper>
+    // </Grid>
   );
 };
 

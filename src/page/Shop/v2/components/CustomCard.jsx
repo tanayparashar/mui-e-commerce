@@ -7,7 +7,9 @@ import {
   Box,
   Rating,
   Grid,
+  Paper,
 } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const CustomCard = ({
   id,
@@ -25,7 +27,7 @@ const CustomCard = ({
         alt={title}
         // height="auto"
         image={img}
-        sx={{ width: 300, height: 150, objectFit: "contain", p: 2 }}
+        sx={{ width: 300, height: 150, objectFit: "contain", p: 1 }}
       />
       <CardContent>
         <Typography variant="h6" component="div">

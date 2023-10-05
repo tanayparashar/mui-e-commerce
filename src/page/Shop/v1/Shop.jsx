@@ -140,7 +140,7 @@ function Shop() {
               <ShopPagination />
             </Grid>
           </Grid>
-          <ReuseableProductCarousel sectionTitle={"Shop under $20 🏪"} />
+          <ReuseableProductCarousel SectionTitle={"Shop under $20 🏪"} />
         </Container>
       </Layout>
     </>

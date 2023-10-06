@@ -91,7 +91,7 @@ const Sidebar = ({
   ];
 
   return (
-    <Box sx={{ pt: 3 }}>
+    <Box sx={{ p: 1 }}>
       <Button variant="outlined" onClick={handleReset}>
         Reset Filters
       </Button>

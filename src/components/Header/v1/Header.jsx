@@ -109,7 +109,7 @@ export default function Header() {
       onClose={handleMenuClose}
     >
       <Box sx={{ width: MOBILE_WIDTH }} />
-      <MenuItem component={Link} to={"/"} onClick={handleMenuClose}>
+      <MenuItem component={Link} to={"/user"} onClick={handleMenuClose}>
         Profile
       </MenuItem>
       <MenuItem component={Link} to={"/"} onClick={handleMenuClose}>

@@ -1,31 +1,45 @@
 import React from "react";
-import CustomCard from "./CustomCard";
-import { Box, Grid, Paper } from "@mui/material";
-import { Link } from "react-router-dom";
+import {
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+  Grid,
+  Paper,
+  Typography,
+} from "@mui/material";
 
 const Products = ({ result }) => {
   return (
-    // <Grid item xs={6} sm={6} md={3} lg={12 / 5} xl={2}>
-    // <Paper sx={{ p: 0.5 }}>
-    <Box
-      sx={{ textDecoration: "none", color: "inherit" }}
-      component={Link}
-      to={`/product`}
-    >
+    <>
       {result.map((product) => (
-        <CustomCard
-          key={product.id}
-          img={product.img}
-          title={product.title}
-          rating={product.rating}
-          reviews={product.reviews}
-          prevPrice={product.prevPrice}
-          newPrice={product.newPrice}
-        />
+        <Grid item xs={6} sm={6} md={3} lg={12 / 4} xl={2} key={product.id}>
+          <Card>
+            <CardMedia
+              component="img"
+              alt={product.title}
+              // height="auto"
+              image={product.img}
+              sx={{ width: 300, height: 150, objectFit: "contain", p: 1 }}
+            />
+            <CardContent>
+              <Typography variant="h6" component="div">
+                {product.title}
+              </Typography>
+              <Box sx={{ display: "flex", alignItems: "center", mb: 1 }}>
+                {/* <Rating readOnly defaultValue={rating} precision={0.5} /> */}
+                <Typography variant="body2" color="text.secondary">
+                  {product.reviews}
+                </Typography>
+              </Box>
+              <Typography variant="body2" color="text.secondary">
+                <del>{product.prevPrice}</del> {product.newPrice}
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
       ))}
-    </Box>
-    // </Paper>
-    // </Grid>
+    </>
   );
 };
 

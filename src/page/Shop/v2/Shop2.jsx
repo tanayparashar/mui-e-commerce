@@ -118,9 +118,9 @@ function Shop2() {
   return (
     <Layout>
       <Container>
-        <Grid container spacing={2}>
+        <Grid container spacing={1} mt={5}>
           {!isMobile && (
-            <Grid item xs={3}>
+            <Grid item xs={3} lg={3} md={3} sm={3}>
               <Sidebar
                 handleReset={handleReset}
                 onCategoryChange={handleCategoryChange}
@@ -143,7 +143,7 @@ function Shop2() {
             </Grid>
           )}
 
-          <Grid item xs={9}>
+          <Grid item xs={12} md={9} sm={9} lg={9}>
             {isMobile && (
               <>
                 <Toolbar sx={{ p: 0, ml: 2 }}>
@@ -158,7 +158,7 @@ function Shop2() {
                     keepMounted: true,
                   }}
                   PaperProps={{
-                    sx: { width: NAV_WIDTH },
+                    sx: { width: NAV_WIDTH, px: 0.5 },
                   }}
                 >
                   <Sidebar
@@ -193,7 +193,9 @@ function Shop2() {
                     {filteredProducts.length} results found
                   </Typography>
                 )}
-                <Products result={filteredProducts} />
+                <Grid container spacing={1}>
+                  <Products result={filteredProducts} />
+                </Grid>
               </>
             )}
           </Grid>

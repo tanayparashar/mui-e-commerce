@@ -18,6 +18,14 @@ import PrivacyPolicy from "../page/Policy/PrivacyPolicy.jsx";
 import Checkout from "../page/Checkout/v1/Checkout.jsx";
 import Dashboard from "../page/Dashboard/v1/Dashboard.jsx";
 import Faq from "../page/Faq/Faq.jsx";
+import User from "../page/User/v1/User.jsx";
+import Order from "../page/User/v1/Order.jsx";
+import Profile from "../page/User/v1/Profile.jsx";
+import Address from "../page/User/v1/Address.jsx";
+import WishList from "../page/User/v1/WishList.jsx";
+import Save from "../page/User/v1/Save.jsx";
+import Setting from "../page/User/v1/Setting.jsx";
+import UserDashboardLayout from "../page/User/v1/UserDashboardLayout.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -89,6 +97,43 @@ export const router = createBrowserRouter([
     path: "/faqs",
     element: <Faq />,
   },
+
+  // User dashboard route
+  {
+    path: "/",
+    element: <UserDashboardLayout />,
+    children: [
+      {
+        path: "/user",
+        element: <User />,
+      },
+      {
+        path: "/user/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/user/orders",
+        element: <Order />,
+      },
+      {
+        path: "/user/address",
+        element: <Address />,
+      },
+      {
+        path: "/user/wishlist",
+        element: <WishList />,
+      },
+      {
+        path: "/user/save",
+        element: <Save />,
+      },
+      {
+        path: "/user/setting",
+        element: <Setting />,
+      },
+    ],
+  },
+
   {
     path: "/dashboard",
     element: <Dashboard />,

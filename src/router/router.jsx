@@ -26,6 +26,7 @@ import WishList from "../page/User/v1/WishList.jsx";
 import Save from "../page/User/v1/Save.jsx";
 import Setting from "../page/User/v1/Setting.jsx";
 import UserDashboardLayout from "../page/User/v1/UserDashboardLayout.jsx";
+import OrderDetail from "../page/User/v1/OrderDetail.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -114,6 +115,10 @@ export const router = createBrowserRouter([
       {
         path: "/user/orders",
         element: <Order />,
+      },
+      {
+        path: "/user/orders/:id",
+        element: <OrderDetail />,
       },
       {
         path: "/user/address",

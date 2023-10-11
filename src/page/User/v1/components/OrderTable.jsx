@@ -7,7 +7,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TablePagination from "@mui/material/TablePagination";
 import TableRow from "@mui/material/TableRow";
-import { Button, Typography, Chip, Box } from "@mui/material";
+import { Button, Typography, Chip, Box, CircularProgress } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 import Dialog from "@mui/material/Dialog";
@@ -15,7 +15,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 
-import "./OrderTable.css";
+import OrderDetail from "../OrderDetail";
 
 const columns = [
   { id: "name", label: "Order #", minWidth: 170 },
@@ -41,7 +41,7 @@ const columns = [
   {
     id: "action",
     label: "Actions",
-    minWidth: 270,
+    minWidth: 370,
     align: "left",
   },
 ];
@@ -52,9 +52,10 @@ function createData(id, name, items, status, purchaseDate, total, action) {
 
 export default function OrderTable() {
   const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(10);
+  const [rowsPerPage, setRowsPerPage] = useState(5);
   const [rows, setRows] = useState([]);
   const [selectedOrder, setSelectedOrder] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   const navigate = useNavigate();
 
@@ -79,11 +80,11 @@ export default function OrderTable() {
           )
         );
 
-        // Update the rows state with the fetched data
         setRows(mappedRows);
-        console.log(rows);
+        setLoading(false); // Data has arrived, set loading to false
       } catch (error) {
         console.error("Error fetching data:", error);
+        setLoading(false); // If there's an error, set loading to false
       }
     }
 
@@ -104,111 +105,121 @@ export default function OrderTable() {
     navigate(`/user/orders/${orderNumber}`);
     // // You can open a dialog or navigate to a new page here
   };
+  const handleViewPopup = (row) => {
+    setSelectedOrder(row);
+  };
+
   return (
     <>
       <Paper sx={{ width: "100%", overflow: "hidden" }}>
-        <TableContainer sx={{ maxHeight: 440 }}>
-          <Table stickyHeader aria-label="sticky table">
-            <TableHead>
-              <TableRow key={Math.random()}>
-                {columns?.map((column) => (
-                  <TableCell
-                    key={column.name}
-                    align={column.align}
-                    style={{ minWidth: column.minWidth }}
-                  >
-                    {column.label}
-                  </TableCell>
-                ))}
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {rows
-                .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-                .map((row) => {
-                  return (
-                    <TableRow
-                      hover
-                      role="checkbox"
-                      tabIndex={-1}
-                      key={row.orderNumber}
+        {loading ? ( // Show a loading indicator when loading is true
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              height: 350, // Adjust the height as needed
+            }}
+          >
+            <CircularProgress color="secondary" />
+          </Box>
+        ) : (
+          <TableContainer sx={{ maxHeight: 440 }}>
+            <Table stickyHeader aria-label="sticky table">
+              <TableHead>
+                <TableRow>
+                  {columns.map((column) => (
+                    <TableCell
+                      key={column.id}
+                      align={column.align}
+                      style={{ minWidth: column.minWidth }}
                     >
-                      {columns.map((column) => {
-                        const value = row[column.id];
-                        return (
-                          <TableCell key={column.id} align={column.align}>
-                            {column.id === "items" && Array.isArray(value) ? (
-                              <Box
-                                sx={{
-                                  display: "flex",
-                                  gap: 0.3,
-                                }}
-                              >
-                                {value.map((item, index) => (
-                                  <div key={index}>
-                                    <img
-                                      src={item.imageUrl}
-                                      alt={`Product ${index + 1}`}
-                                      width="50"
-                                      height="50"
-                                      style={{ borderRadius: "4px" }}
-                                    />
-                                    {/* <Typography variant="body2">
-                                    {item.name}
-                                  </Typography> */}
-                                  </div>
-                                ))}
-                              </Box>
-                            ) : column.id === "status" ? (
-                              <div>
-                                {value.map((status, index) => (
-                                  <Chip
-                                    key={index}
-                                    label={status}
-                                    color={
-                                      status === "Deliver"
-                                        ? "success"
-                                        : status === "Pending"
-                                        ? "warning"
-                                        : "default"
-                                    }
+                      {column.label}
+                    </TableCell>
+                  ))}
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {rows
+                  .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
+                  .map((row) => (
+                    <TableRow hover role="checkbox" tabIndex={-1} key={row.id}>
+                      {columns.map((column) => (
+                        <TableCell key={column.id} align={column.align}>
+                          {column.id === "items" && Array.isArray(row.items) ? (
+                            <Box
+                              sx={{
+                                display: "flex",
+                                gap: 0.3,
+                              }}
+                            >
+                              {row.items.map((item, index) => (
+                                <div key={index}>
+                                  <img
+                                    src={item.imageUrl}
+                                    alt={`Product ${index + 1}`}
+                                    width="50"
+                                    height="50"
+                                    style={{ borderRadius: "4px" }}
                                   />
-                                ))}
-                              </div>
-                            ) : (
-                              <Box>
-                                {column.id === "action" ? (
-                                  <Box sx={{ display: "flex", gap: 0.4 }}>
-                                    {value}
-                                    <Button
-                                      variant="contained"
-                                      color="primary"
-                                      onClick={() => handleViewClick(row)} // Handle View action
-                                    >
-                                      View
-                                    </Button>
-                                    <Button
-                                      variant="contained"
-                                      color="secondary"
-                                      onClick={() => handlePrintInvoice(row)} // Handle Print PDF Invoice action
-                                    >
-                                      Print PDF Invoice
-                                    </Button>
-                                  </Box>
-                                ) : (
-                                  value
-                                )}
-                              </Box>
-                            )}
-                          </TableCell>
-                        );
-                      })}
+                                </div>
+                              ))}
+                            </Box>
+                          ) : column.id === "status" ? (
+                            <div>
+                              {row.status.map((status, index) => (
+                                <Chip
+                                  key={index}
+                                  label={status}
+                                  color={
+                                    status === "Deliver"
+                                      ? "success"
+                                      : status === "Pending"
+                                      ? "warning"
+                                      : "default"
+                                  }
+                                />
+                              ))}
+                            </div>
+                          ) : (
+                            <Box>
+                              {column.id === "action" ? (
+                                <Box sx={{ display: "flex", gap: 0.4 }}>
+                                  <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={() => handleViewClick(row)}
+                                  >
+                                    View
+                                  </Button>
+                                  <Button
+                                    variant="contained"
+                                    color="primary"
+                                    onClick={() => handleViewPopup(row)}
+                                  >
+                                    View popup
+                                  </Button>
+                                  <Button
+                                    variant="contained"
+                                    color="secondary"
+                                    onClick={() => handleViewClick(row)}
+                                  >
+                                    Print Invoice
+                                  </Button>
+                                </Box>
+                              ) : (
+                                row[column.id]
+                              )}
+                            </Box>
+                          )}
+                        </TableCell>
+                      ))}
                     </TableRow>
-                  );
-                })}
-            </TableBody>
-          </Table>
-        </TableContainer>
+                  ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        )}
         <TablePagination
           rowsPerPageOptions={[10, 25, 100]}
           component="div"
@@ -219,35 +230,27 @@ export default function OrderTable() {
           onRowsPerPageChange={handleChangeRowsPerPage}
         />
       </Paper>
+      <Dialog
+        open={!!selectedOrder}
+        onClose={() => setSelectedOrder(null)}
+        fullWidth
+        maxWidth="md"
+      >
+        <DialogTitle>Order Details</DialogTitle>
+        <DialogContent>
+          {selectedOrder && (
+            <>
+              <OrderDetail />
+            </>
+          )}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setSelectedOrder(null)} color="primary">
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
+      ;
     </>
   );
 }
-
-// <Dialog
-//   open={!!selectedOrder}
-//   onClose={() => setSelectedOrder(null)}
-//   fullWidth
-//   maxWidth="md"
-// >
-//   <DialogTitle>Order Details</DialogTitle>
-//   <DialogContent>
-//     {selectedOrder && (
-//       <div>
-//         <Typography variant="body2">{selectedOrder.name}</Typography>
-//         <Typography variant="body2">{selectedOrder.status}</Typography>
-//         <img
-//           src={selectedOrder.imageUrl}
-//           alt={`Product}`}
-//           width="50"
-//           height="50"
-//           style={{ borderRadius: "4px" }}
-//         />
-//       </div>
-//     )}
-//   </DialogContent>
-//   <DialogActions>
-//     <Button onClick={() => setSelectedOrder(null)} color="primary">
-//       Close
-//     </Button>
-//   </DialogActions>
-// </Dialog>;

@@ -5,6 +5,7 @@ import { Box, Typography, Button, Paper, IconButton } from "@mui/material";
 // icon
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import ManageOrder from "./components/ManageOrder";
+import DownloadInvoice from "./components/DownloadInvoice";
 
 const OrderDetail = () => {
   // Use useParams to access route parameters
@@ -74,9 +75,7 @@ const OrderDetail = () => {
           <Typography variant="body1">{order.address}</Typography>
         </Box>
 
-        <Button variant="contained" color="primary" mt={2}>
-          Print Invoice
-        </Button>
+        <DownloadInvoice color={"primary"} />
       </Box>
     </Paper>
   );

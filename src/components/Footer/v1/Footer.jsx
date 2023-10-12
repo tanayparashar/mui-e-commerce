@@ -59,7 +59,7 @@ function Footer() {
               <Typography variant="h6">Section title</Typography>
               <Divider sx={{ my: 2 }} />
               <Box sx={{ display: "flex", flexDirection: "column" }}>
-                <AnchorControl to={"/page"}>Gift cards</AnchorControl>
+                <AnchorControl to={"/success"}>success</AnchorControl>
                 <AnchorControl to={"/page"}>Sitemap</AnchorControl>
                 <AnchorControl to={"/page"}>Online blog</AnchorControl>
                 <AnchorControl to={"/page"}>Online Aid UK</AnchorControl>
@@ -74,7 +74,7 @@ function Footer() {
               <Divider sx={{ my: 2 }} />
               <Box sx={{ display: "flex", flexDirection: "column" }}>
                 <AnchorControl to={"/faqs"}>FAQ</AnchorControl>
-                <AnchorControl to={"/page"}>Sitemap</AnchorControl>
+                <AnchorControl to={"/emptycart"}>Empty Order</AnchorControl>
                 <AnchorControl to={"/page"}>Online blog</AnchorControl>
 
                 {/* Payment  */}

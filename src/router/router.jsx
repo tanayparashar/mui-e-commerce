@@ -27,6 +27,9 @@ import Save from "../page/User/v1/Save.jsx";
 import Setting from "../page/User/v1/Setting.jsx";
 import UserDashboardLayout from "../page/User/v1/UserDashboardLayout.jsx";
 import OrderDetail from "../page/User/v1/OrderDetail.jsx";
+import ThankYou from "../page/Congress/v1/ThankYou.jsx";
+import Success from "../page/Congress/v1/Success.jsx";
+import Congratulations from "../page/Congress/v1/Congratulations.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -49,6 +52,18 @@ export const router = createBrowserRouter([
   {
     path: "/emptycart",
     element: <EmptyCart />,
+  },
+  {
+    path: "/thankyou",
+    element: <ThankYou />,
+  },
+  {
+    path: "/success",
+    element: <Success />,
+  },
+  {
+    path: "/congress",
+    element: <Congratulations />,
   },
   {
     path: "/checkout",

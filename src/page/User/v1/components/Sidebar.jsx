@@ -42,6 +42,7 @@ export default function Sidebar() {
           </ListItemIcon>
           <ListItemText primary="Home" />
         </ListItemButton>
+
         <ListItemButton
           component={Link}
           to="/user/profile"
@@ -52,6 +53,7 @@ export default function Sidebar() {
           </ListItemIcon>
           <ListItemText primary="Profile" />
         </ListItemButton>
+
         <ListItemButton
           component={Link}
           to="/user/orders"
@@ -62,7 +64,72 @@ export default function Sidebar() {
           </ListItemIcon>
           <ListItemText primary="Order" />
         </ListItemButton>
-        {/* Add more list items with icons */}
+
+        <ListItemButton
+          component={Link}
+          to="/user/wishlist"
+          sx={{ borderRadius: 1 }}
+        >
+          <ListItemIcon>
+            <AssignmentIcon />
+          </ListItemIcon>
+          <ListItemText primary="Wishlist" />
+        </ListItemButton>
+
+        <ListItemButton
+          component={Link}
+          to="/user/address"
+          sx={{ borderRadius: 1 }}
+        >
+          <ListItemIcon>
+            <AssignmentIcon />
+          </ListItemIcon>
+          <ListItemText primary="Address" />
+        </ListItemButton>
+
+        <ListItemButton
+          component={Link}
+          to="/user/address"
+          sx={{ borderRadius: 1 }}
+        >
+          <ListItemIcon>
+            <AssignmentIcon />
+          </ListItemIcon>
+          <ListItemText primary="Payment Methods" />
+        </ListItemButton>
+
+        <ListItemButton
+          component={Link}
+          to="/user/support"
+          sx={{ borderRadius: 1 }}
+        >
+          <ListItemIcon>
+            <AssignmentIcon />
+          </ListItemIcon>
+          <ListItemText primary="Support" />
+        </ListItemButton>
+
+        <ListItemButton
+          component={Link}
+          to="/user/setting"
+          sx={{ borderRadius: 1 }}
+        >
+          <ListItemIcon>
+            <AssignmentIcon />
+          </ListItemIcon>
+          <ListItemText primary="Setting" />
+        </ListItemButton>
+
+        <ListItemButton
+          component={Link}
+          to="/user/logout"
+          sx={{ borderRadius: 1 }}
+        >
+          <ListItemIcon>
+            <AssignmentIcon />
+          </ListItemIcon>
+          <ListItemText primary="Logout" />
+        </ListItemButton>
       </Box>
     </Paper>
   );

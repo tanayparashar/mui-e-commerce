@@ -16,6 +16,10 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogActions from "@mui/material/DialogActions";
 
 import OrderDetail from "../OrderDetail";
+import DownloadInvoice from "./DownloadInvoice";
+
+import orderData from "../../../../../public/order";
+console.log(orderData);
 
 const columns = [
   { id: "name", label: "Order #", minWidth: 170 },
@@ -65,8 +69,9 @@ export default function OrderTable() {
     async function fetchData() {
       try {
         // Make an API request to fetch data
-        const response = await fetch("/public/order.json");
-        const data = await response.json();
+        // const response = await fetch("/public/order.json");
+        // const data = await response.json();
+        const data = orderData;
 
         // Map the fetched data into rows
         const mappedRows = data.map((item) =>
@@ -199,13 +204,7 @@ export default function OrderTable() {
                                   >
                                     View popup
                                   </Button>
-                                  <Button
-                                    variant="contained"
-                                    color="secondary"
-                                    onClick={() => handleViewClick(row)}
-                                  >
-                                    Print Invoice
-                                  </Button>
+                                  <DownloadInvoice color="secondary" />
                                 </Box>
                               ) : (
                                 row[column.id]
@@ -250,7 +249,6 @@ export default function OrderTable() {
           </Button>
         </DialogActions>
       </Dialog>
-      ;
     </>
   );
 }

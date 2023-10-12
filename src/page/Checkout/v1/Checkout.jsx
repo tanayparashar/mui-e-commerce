@@ -97,7 +97,7 @@ function Checkout() {
                 titleMarginButton={3}
                 size="h4"
                 btnText="Proceed to checkout"
-                path="/payment"
+                path="/thankyou"
               />
             </Grid>
           </Grid>

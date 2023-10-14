@@ -10,7 +10,10 @@ import {
   Menu,
   useMediaQuery,
   Avatar,
+  useScrollTrigger,
+  Slide,
 } from "@mui/material";
+import PropTypes from "prop-types";
 
 import styled from "@emotion/styled";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -26,6 +29,8 @@ import MenuDrawer from "../../Menu/v1/MenuDrawer";
 import { Link } from "react-router-dom";
 import ShowCartDrawer from "./ShowCartDrawer";
 import { AuthContext } from "../../../provider/AuthProvider";
+import BottomHeader from "./BottomHeader";
+import TopHeader from "./TopHeader";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
@@ -40,7 +45,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 
 const MOBILE_WIDTH = 280;
 
-export default function Header() {
+export default function Header(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
@@ -190,91 +195,120 @@ export default function Header() {
     </Menu>
   );
 
+  // function HideOnScroll(props) {
+  //   const { children, window } = props;
+  //   // Note that you normally won't need to set the window ref as useScrollTrigger
+  //   // will default to window.
+  //   // This is only being set here because the demo is in an iframe.
+  //   const trigger = useScrollTrigger({
+  //     target: window ? window() : undefined,
+  //   });
+
+  //   return (
+  //     <Slide appear={false} direction="down" in={!trigger}>
+  //       {children}
+  //     </Slide>
+  //   );
+  // }
+
+  // HideOnScroll.propTypes = {
+  //   children: PropTypes.element.isRequired,
+  //   window: PropTypes.func,
+  // };
+
   return (
-    <Box sx={{ flexGrow: 1 }} component={"header"}>
-      <AppBar position="static">
-        <StyledToolbar>
-          <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
-            <Logo />
-            <MenuDrawer />
-          </Box>
-
-          {isMobile ? null : <SearchBar />}
-
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            {isMobile ? <SearchIconClick /> : null}
-            {isMobile ? <ShowCartDrawer /> : null}
-
-            <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <IconButton
-                size="large"
-                aria-label="show 4 new mails"
-                color="inherit"
-              >
-                <Badge badgeContent={4} color="error">
-                  <MailIcon />
-                </Badge>
-              </IconButton>
-              <IconButton
-                size="large"
-                aria-label="show 17 new notifications"
-                color="inherit"
-              >
-                <Badge badgeContent={17} color="error">
-                  <NotificationsIcon />
-                </Badge>
-              </IconButton>
-
-              <ShowCartDrawer />
-
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="inherit"
-                sx={{ marginLeft: "10px" }}
-              >
-                {user ? (
-                  <div>
-                    {user.photoURL && (
-                      <Avatar
-                        alt={user.displayName}
-                        src={user.photoURL}
-                        sx={{ width: 22, height: 22, borderRadius: "50%" }}
-                      />
-                    )}
-                  </div>
-                ) : (
-                  <AccountCircle />
-                )}
-              </IconButton>
+    <>
+      {/* <TopHeader /> */}
+      <Box sx={{ flexGrow: 1 }} component={"header"}>
+        {/* <HideOnScroll {...props}> */}
+        <AppBar position="static">
+          <StyledToolbar>
+            <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
+              <Logo />
+              {/* <MenuDrawer /> */}
             </Box>
-            <Box sx={{ display: { xs: "flex", md: "none" } }}>
-              <IconButton
-                size="large"
-                aria-label="show more"
-                aria-controls={mobileMenuId}
-                aria-haspopup="true"
-                onClick={handleMobileMenuOpen}
-                color="inherit"
-              >
-                <MoreIcon />
-              </IconButton>
+
+            {isMobile ? null : <SearchBar />}
+
+            <Box
+              sx={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              {isMobile ? <SearchIconClick /> : null}
+              {isMobile ? <ShowCartDrawer /> : null}
+
+              <Box sx={{ display: { xs: "none", md: "flex" } }}>
+                <IconButton
+                  size="large"
+                  aria-label="show 4 new mails"
+                  color="inherit"
+                >
+                  <Badge badgeContent={4} color="error">
+                    <MailIcon />
+                  </Badge>
+                </IconButton>
+                <IconButton
+                  size="large"
+                  aria-label="show 17 new notifications"
+                  color="inherit"
+                >
+                  <Badge badgeContent={17} color="error">
+                    <NotificationsIcon />
+                  </Badge>
+                </IconButton>
+
+                <ShowCartDrawer />
+
+                <IconButton
+                  size="large"
+                  edge="end"
+                  aria-label="account of current user"
+                  aria-controls={menuId}
+                  aria-haspopup="true"
+                  onClick={handleProfileMenuOpen}
+                  color="inherit"
+                  sx={{ marginLeft: "10px" }}
+                >
+                  {user ? (
+                    <div>
+                      {user.photoURL && (
+                        <Avatar
+                          alt={user.displayName}
+                          src={user.photoURL}
+                          sx={{ width: 22, height: 22, borderRadius: "50%" }}
+                        />
+                      )}
+                    </div>
+                  ) : (
+                    <AccountCircle />
+                  )}
+                </IconButton>
+              </Box>
+              <Box sx={{ display: { xs: "flex", md: "none" } }}>
+                <IconButton
+                  size="large"
+                  aria-label="show more"
+                  aria-controls={mobileMenuId}
+                  aria-haspopup="true"
+                  onClick={handleMobileMenuOpen}
+                  color="inherit"
+                >
+                  <MoreIcon />
+                </IconButton>
+              </Box>
             </Box>
-          </Box>
-        </StyledToolbar>
-      </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
-    </Box>
+          </StyledToolbar>
+        </AppBar>
+        {/* </HideOnScroll> */}
+
+        {renderMobileMenu}
+        {renderMenu}
+      </Box>
+
+      <BottomHeader />
+    </>
   );
 }

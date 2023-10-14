@@ -14,6 +14,7 @@ import {
 import products from "../../../../public/shop";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import Layout from "../../../layout/GlobalLayout/LayoutHeaderOnly";
+import TopBar from "./components/TopBar";
 
 const NAV_WIDTH = 280; // Set the width of the nav drawer
 
@@ -144,6 +145,7 @@ function Shop2() {
           )}
 
           <Grid item xs={12} md={9} sm={9} lg={9}>
+            <TopBar />
             {isMobile && (
               <>
                 <Toolbar sx={{ p: 0, ml: 2 }}>

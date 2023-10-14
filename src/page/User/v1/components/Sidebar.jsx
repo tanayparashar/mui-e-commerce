@@ -27,10 +27,18 @@ import {
   ListItemText,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+
+// Import other icons as needed
 import HomeIcon from "@mui/icons-material/Home";
 import PersonIcon from "@mui/icons-material/Person";
 import AssignmentIcon from "@mui/icons-material/Assignment";
-// Import other icons as needed
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import BookmarkIcon from "@mui/icons-material/Bookmark";
+import ContactsIcon from "@mui/icons-material/Contacts";
+import PaymentIcon from "@mui/icons-material/Payment";
+import SupportAgentIcon from "@mui/icons-material/SupportAgent";
+import SettingsIcon from "@mui/icons-material/Settings";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 export default function Sidebar() {
   return (
@@ -71,20 +79,20 @@ export default function Sidebar() {
           sx={{ borderRadius: 1 }}
         >
           <ListItemIcon>
-            <AssignmentIcon />
+            <FavoriteIcon />
           </ListItemIcon>
           <ListItemText primary="Wishlist" />
         </ListItemButton>
 
         <ListItemButton
           component={Link}
-          to="/user/address"
+          to="/user/bookmark"
           sx={{ borderRadius: 1 }}
         >
           <ListItemIcon>
-            <AssignmentIcon />
+            <BookmarkIcon />
           </ListItemIcon>
-          <ListItemText primary="Address" />
+          <ListItemText primary="Bookmark" />
         </ListItemButton>
 
         <ListItemButton
@@ -93,7 +101,18 @@ export default function Sidebar() {
           sx={{ borderRadius: 1 }}
         >
           <ListItemIcon>
-            <AssignmentIcon />
+            <ContactsIcon />
+          </ListItemIcon>
+          <ListItemText primary="Address" />
+        </ListItemButton>
+
+        <ListItemButton
+          component={Link}
+          to="/user/payment"
+          sx={{ borderRadius: 1 }}
+        >
+          <ListItemIcon>
+            <PaymentIcon />
           </ListItemIcon>
           <ListItemText primary="Payment Methods" />
         </ListItemButton>
@@ -104,7 +123,7 @@ export default function Sidebar() {
           sx={{ borderRadius: 1 }}
         >
           <ListItemIcon>
-            <AssignmentIcon />
+            <SupportAgentIcon />
           </ListItemIcon>
           <ListItemText primary="Support" />
         </ListItemButton>
@@ -115,7 +134,7 @@ export default function Sidebar() {
           sx={{ borderRadius: 1 }}
         >
           <ListItemIcon>
-            <AssignmentIcon />
+            <SettingsIcon />
           </ListItemIcon>
           <ListItemText primary="Setting" />
         </ListItemButton>
@@ -126,7 +145,7 @@ export default function Sidebar() {
           sx={{ borderRadius: 1 }}
         >
           <ListItemIcon>
-            <AssignmentIcon />
+            <LogoutIcon />
           </ListItemIcon>
           <ListItemText primary="Logout" />
         </ListItemButton>

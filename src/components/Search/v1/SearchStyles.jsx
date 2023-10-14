@@ -39,6 +39,9 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
     [theme.breakpoints.up("md")]: {
       width: "700px",
     },
+    // [theme.breakpoints.up("lg")]: {
+    //   maxWidth: "900px",
+    // },
     [theme.breakpoints.down("sm")]: {
       width: "100%",
     },

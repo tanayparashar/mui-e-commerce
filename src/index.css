@@ -52,14 +52,13 @@
 }
 
 .carousel .thumbs-wrapper {
-  margin: 0px;
+  margin-top: 10px;
   overflow: hidden;
   text-align: center;
 }
-
 .carousel .thumb.selected,
 .carousel .thumb:hover {
-  border: 2px solid #26eb0b !important;
+  border: 2px solid #2ac616 !important;
   border-radius: 5px;
 }
 

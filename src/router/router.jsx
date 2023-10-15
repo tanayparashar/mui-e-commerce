@@ -30,6 +30,7 @@ import OrderDetail from "../page/User/v1/OrderDetail.jsx";
 import ThankYou from "../page/Congress/v1/ThankYou.jsx";
 import Success from "../page/Congress/v1/Success.jsx";
 import Congratulations from "../page/Congress/v1/Congratulations.jsx";
+import Documentation from "../Docs/Doc/Documentation.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -157,5 +158,10 @@ export const router = createBrowserRouter([
   {
     path: "/dashboard",
     element: <Dashboard />,
+  },
+
+  {
+    path: "/introduction",
+    element: <Documentation />,
   },
 ]);

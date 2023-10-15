@@ -31,7 +31,9 @@ function Footer() {
               <Typography variant="h6">Section title</Typography>
               <Divider sx={{ my: 2 }} />
               <Box sx={{ display: "flex", flexDirection: "column" }}>
-                <AnchorControl to={"/page"}>Gift cards</AnchorControl>
+                <AnchorControl to={"/introduction"}>
+                  Documentation
+                </AnchorControl>
                 <AnchorControl to={"/faqs"}>Faq</AnchorControl>
                 <AnchorControl to={"/page"}>Online blog</AnchorControl>
                 <AnchorControl to={"/page"}>Online Aid UK</AnchorControl>

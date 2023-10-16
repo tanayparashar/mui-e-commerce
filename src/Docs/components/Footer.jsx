@@ -6,18 +6,8 @@ export default function Footer() {
 
   return (
     <>
-      <Box
-        component={"footer"}
-        sx={{
-          position: "absolute",
-          bottom: 0,
-          p: 2,
-          background: "gray",
-          width: isMobile ? "100%" : "80%",
-          right: 0,
-        }}
-      >
-        <Box>Footer</Box>
+      <Box component={"footer"}>
+        <Paper sx={{ p: 2 }}>Footer</Paper>
       </Box>
     </>
   );

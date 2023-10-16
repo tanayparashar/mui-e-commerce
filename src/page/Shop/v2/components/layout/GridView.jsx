@@ -1,45 +1,53 @@
+import React, { useRef } from "react";
+
 import {
   Box,
+  Card,
+  CardContent,
+  CardMedia,
   Grid,
   Paper,
   Rating,
-  Stack,
   Typography,
   useTheme,
 } from "@mui/material";
-import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 
-function GridView({ productData }) {
+function GridView({ result }) {
   const theme = useTheme();
 
   return (
     <>
-      {productData.map((data) => (
-        <Grid item xs={6} sm={6} md={3} lg={12 / 5} xl={2} key={data.id}>
+      {result.map((product) => (
+        <Grid item xs={6} sm={6} md={3} lg={12 / 5} xl={2} key={product.id}>
           <Paper sx={{ p: 0.5 }}>
-            <Box
-              sx={{ textDecoration: "none", color: "inherit" }}
-              component={Link}
-              to={`/product`}
-            >
-              <Box
-                component="img"
-                sx={{ width: "100%", borderRadius: theme.shape }}
-                src={data.image}
-                alt={data.name}
-              />
-              <Typography>{data.name}</Typography>
-              <Typography fontWeight="bold">${data.price}</Typography>
-              <Stack spacing={1}>
-                <Rating
-                  name="half-rating-read"
-                  defaultValue={data.rating}
-                  precision={0.5}
-                  readOnly
+            <Card>
+              <Box component={Link} to={"/product"}>
+                <CardMedia
+                  component="img"
+                  alt={product.title}
+                  // height="auto"
+                  image={product.img}
+                  sx={{ width: 300, height: 150, objectFit: "contain", p: 1.5 }}
                 />
-              </Stack>
-            </Box>
+              </Box>
+              <CardContent sx={{ p: 0.8 }}>
+                <Typography>{product.title}</Typography>
+                <Box sx={{ mb: 1 }}>
+                  <Rating
+                    readOnly
+                    defaultValue={product.rating.rate}
+                    precision={0.5}
+                  />
+                  <Typography variant="body2" color="text.secondary">
+                    {product.reviews}
+                  </Typography>
+                </Box>
+                <Typography variant="body2" color="text.secondary">
+                  <del>{product.prevPrice}</del> {product.newPrice}
+                </Typography>
+              </CardContent>
+            </Card>
           </Paper>
         </Grid>
       ))}

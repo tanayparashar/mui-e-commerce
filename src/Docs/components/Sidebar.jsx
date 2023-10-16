@@ -39,11 +39,11 @@ export default function Sidebar() {
           pb: 20,
         }}
       >
-        <ListItemButton component={Link} to="/user" sx={{ borderRadius: 1 }}>
+        <ListItemButton component={Link} to="/setup" sx={{ borderRadius: 1 }}>
           <ListItemIcon>
             <HomeIcon />
           </ListItemIcon>
-          <ListItemText primary="Home" />
+          <ListItemText primary="Setup" />
         </ListItemButton>
 
         <ListItemButton

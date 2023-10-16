@@ -1,10 +1,9 @@
 import React from "react";
-import DocLayout from "../layout/DocLayout";
 
 export default function Documentation() {
   return (
     <div>
-      <DocLayout />
+      <h1>Hello</h1>
     </div>
   );
 }

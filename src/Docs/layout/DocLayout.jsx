@@ -19,9 +19,7 @@ export default function DocLayout() {
 
         <Grid item xs={12} md={9} sm={9} lg={9}>
           <Outlet />
-          <Box>
-            <Footer />
-          </Box>
+          <Footer />
         </Grid>
       </Grid>
     </>

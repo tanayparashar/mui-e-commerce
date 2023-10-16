@@ -3,18 +3,25 @@ import Products from "./components/Products";
 import Sidebar from "./components/Sidebar";
 import {
   Button,
+  Box,
   Container,
   Drawer,
   Grid,
   IconButton,
+  Stack,
   Toolbar,
   Typography,
   useMediaQuery,
+  Paper,
 } from "@mui/material";
 import products from "../../../../public/shop";
-import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import Layout from "../../../layout/GlobalLayout/LayoutHeaderOnly";
-import TopBar from "./components/TopBar";
+import FlatView from "./components/layout/FlatView";
+import GridView from "./components/layout/GridView";
+
+import ViewModuleIcon from "@mui/icons-material/ViewModule";
+import ViewListIcon from "@mui/icons-material/ViewList";
+import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 
 const NAV_WIDTH = 280; // Set the width of the nav drawer
 
@@ -23,6 +30,17 @@ function Shop2() {
   const [query, setQuery] = useState("");
   const [priceRange, setPriceRange] = useState([0, 300]); // Initial price range
   const [selectedRating, setSelectedRating] = useState(null); // Updated to null
+  const [viewMode, setViewMode] = useState(
+    localStorage.getItem("viewMode") || "grid"
+  );
+
+  useEffect(() => {
+    localStorage.setItem("viewMode", viewMode);
+  }, [viewMode]);
+
+  const handleViewModeChange = () => {
+    setViewMode((prevMode) => (prevMode === "grid" ? "flat" : "grid"));
+  };
 
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const [openNav, setOpenNav] = useState(false);
@@ -119,7 +137,7 @@ function Shop2() {
   return (
     <Layout>
       <Container>
-        <Grid container spacing={1} mt={5}>
+        <Grid container spacing={0.2} mt={5}>
           {!isMobile && (
             <Grid item xs={3} lg={3} md={3} sm={3}>
               <Sidebar
@@ -145,47 +163,83 @@ function Shop2() {
           )}
 
           <Grid item xs={12} md={9} sm={9} lg={9}>
-            <TopBar />
-            {isMobile && (
-              <>
-                <Toolbar sx={{ p: 0, ml: 2 }}>
-                  <IconButton edge="start" color="inherit" onClick={toggleNav}>
-                    <MenuOpenIcon />
+            <Paper>
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  mb: 3,
+                  py: 1,
+                  px: 1,
+                }}
+              >
+                <Stack direction="row" spacing={1} alignItems="center">
+                  {isMobile && (
+                    <>
+                      <Toolbar sx={{ p: 0, ml: 2 }}>
+                        <IconButton
+                          edge="start"
+                          color="inherit"
+                          onClick={toggleNav}
+                        >
+                          <MenuOpenIcon />
+                        </IconButton>
+                      </Toolbar>
+                      <Drawer
+                        open={openNav}
+                        onClose={() => setOpenNav(false)}
+                        ModalProps={{
+                          keepMounted: true,
+                        }}
+                        PaperProps={{
+                          sx: { width: NAV_WIDTH },
+                        }}
+                      >
+                        <Box sx={{ p: 2 }}>
+                          <Sidebar
+                            handleReset={handleReset}
+                            onCategoryChange={handleCategoryChange}
+                            selectedCategory={selectedCategory}
+                            onInputChange={handleInputChange}
+                            query={query}
+                            onPriceChange={handlePriceChange}
+                            priceRange={priceRange}
+                            onRatingChange={handleRatingChange} // Pass the rating change handler
+                            selectedRating={selectedRating} // Pass the selected rating value
+                            onColorChange={handleColorChange}
+                            selectedColor={selectedColor}
+                            colorCounts={colorCounts} // Pass color counts
+                            availableColors={[
+                              "white",
+                              "red",
+                              "green",
+                              "blue",
+                              "black",
+                            ]} // Example colors
+                            onBrandChange={handleBrandChange}
+                            selectedBrand={selectedBrand}
+                            brandCounts={brandCounts} // Pass color counts
+                            availableBrands={["Nike", "Adidas", "Puma", "Vans"]} // Example brands
+                          />
+                        </Box>
+                      </Drawer>
+                    </>
+                  )}
+                  <IconButton
+                    onClick={handleViewModeChange}
+                    color={viewMode === "grid" ? "primary" : "default"}
+                  >
+                    {viewMode === "grid" ? (
+                      <ViewModuleIcon />
+                    ) : (
+                      <ViewListIcon color="primary" />
+                    )}
                   </IconButton>
-                </Toolbar>
-                <Drawer
-                  open={openNav}
-                  onClose={() => setOpenNav(false)}
-                  ModalProps={{
-                    keepMounted: true,
-                  }}
-                  PaperProps={{
-                    sx: { width: NAV_WIDTH, px: 0.5 },
-                  }}
-                >
-                  <Sidebar
-                    handleReset={handleReset}
-                    onCategoryChange={handleCategoryChange}
-                    selectedCategory={selectedCategory}
-                    onInputChange={handleInputChange}
-                    query={query}
-                    onPriceChange={handlePriceChange}
-                    priceRange={priceRange}
-                    onRatingChange={handleRatingChange} // Pass the rating change handler
-                    selectedRating={selectedRating} // Pass the selected rating value
-                    onColorChange={handleColorChange}
-                    selectedColor={selectedColor}
-                    colorCounts={colorCounts} // Pass color counts
-                    availableColors={["white", "red", "green", "blue", "black"]} // Example colors
-                    onBrandChange={handleBrandChange}
-                    selectedBrand={selectedBrand}
-                    brandCounts={brandCounts} // Pass color counts
-                    availableBrands={["Nike", "Adidas", "Puma", "Vans"]} // Example brands
-                  />
-                </Drawer>
-              </>
-            )}
-            <Typography variant="h4">Shop</Typography>
+                </Stack>
+              </Box>
+            </Paper>
+
             {filteredProducts.length === 0 ? (
               <Typography variant="h6">No results found</Typography>
             ) : (
@@ -195,9 +249,15 @@ function Shop2() {
                     {filteredProducts.length} results found
                   </Typography>
                 )}
-                <Grid container spacing={1}>
-                  <Products result={filteredProducts} />
-                </Grid>
+                <>
+                  {viewMode === "grid" ? ( // Conditional rendering based on viewMode
+                    <Grid container spacing={2}>
+                      <GridView result={filteredProducts} />
+                    </Grid>
+                  ) : (
+                    <FlatView result={filteredProducts} />
+                  )}
+                </>
               </>
             )}
           </Grid>

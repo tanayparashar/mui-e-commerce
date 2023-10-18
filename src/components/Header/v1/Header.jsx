@@ -225,6 +225,7 @@ export default function Header(props) {
           <StyledToolbar>
             <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
               <Logo />
+              {!isMobile ? null : <MenuDrawer />}
               {/* <MenuDrawer /> */}
             </Box>
 

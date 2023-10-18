@@ -26,9 +26,6 @@ const CustomMenu = ({ title, isOpenOrNot, lists }) => {
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <Box>
-        {/* <Typography variant="h6" mb={1}>
-          Category
-        </Typography> */}
         <Paper sx={{ mb: 2 }}>
           <Button
             onClick={handleButtonClick}

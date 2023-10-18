@@ -9,6 +9,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import LazyLoadImg from "../../Lazyload/LazyLoadImg";
 
 const productData = [
   {
@@ -206,6 +207,16 @@ function JustForYouSection({ SectionTitle, showRating = true }) {
                   to={`/product`}
                 >
                   <Box
+                    component={LazyLoadImg}
+                    image={{
+                      alt: "Image alt text",
+                      // height: 300, // Replace with the desired height
+                      // width: 300, // Replace with the desired width
+                      style: { objectFit: "cover" },
+                      src: data.image, // Replace with the image URL
+                    }}
+                  />
+                  {/* <Box
                     component="img"
                     sx={{
                       width: "100%",
@@ -213,7 +224,7 @@ function JustForYouSection({ SectionTitle, showRating = true }) {
                     }}
                     src={data.image}
                     alt={data.name}
-                  />
+                  /> */}
                   <Typography>{data.name}</Typography>
                   <Typography fontWeight={"bold"}>${data.price}</Typography>
                   {showRating && (

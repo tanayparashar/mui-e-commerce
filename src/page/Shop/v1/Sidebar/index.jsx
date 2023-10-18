@@ -44,15 +44,15 @@ export default function index() {
   return (
     <Box>
       <CustomMenu
-        title={"Electronics Category"}
-        isOpenOrNot={false}
+        title={"All Category"}
+        isOpenOrNot={true}
         lists={ElectronicsLists}
       />
-      <CustomMenu
+      {/* <CustomMenu
         title={"Women Category"}
         isOpenOrNot={true}
         lists={WomanShoppingList}
-      />
+      /> */}
       <PriceRange />
       <CustomRadioButtons />
       <RatingView />

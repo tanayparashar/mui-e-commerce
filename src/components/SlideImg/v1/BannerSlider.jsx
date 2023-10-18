@@ -2,6 +2,7 @@ import React from "react";
 import { Box } from "@mui/material";
 import Carousel from "react-multi-carousel";
 import { Link } from "react-router-dom";
+import LazyLoadImg from "../../Lazyload/LazyLoadImg";
 
 const imgData = [
   {
@@ -13,16 +14,14 @@ const imgData = [
   },
   {
     id: 2,
-    image:
-      "https://i.ibb.co/q9shsrw/240-F-229742070-UOUl-BZt-Od-QBz-YDa-Ph-Dy-H9hbpftb-K9in-T.png",
+    image: "https://onlineaid.netlify.app/public/images/slider/slider2.jpg",
     bigTitle: "Give some title",
     subTitle: "Give some subtitle",
     buttonText: "Shop Now",
   },
   {
     id: 3,
-    image:
-      "https://i.ibb.co/t2hjQFd/240-F-156896021-y-CTTXnn-YBXto4q-X3c0-Mu-HYa-Q8-KENwu2l.png",
+    image: "https://onlineaid.netlify.app/public/images/slider/slider2.jpg",
     bigTitle: "Give some title",
     subTitle: "Give some subtitle",
     buttonText: "Shop Now",
@@ -98,6 +97,22 @@ function BannerSlider() {
               objectFit: "cover",
             }}
           />
+          {/* <Box
+            component={LazyLoadImg}
+            image={{
+              alt: "Image alt text",
+              // height: 300, // Replace with the desired height
+              // width: 300, // Replace with the desired width
+              style: {
+                display: "block",
+                height: "90vh",
+                margin: "auto",
+                minWidth: "100%",
+                objectFit: "cover",
+              },
+              src: img.image, // Replace with the image URL
+            }}
+          /> */}
         </Box>
       ))}
     </Carousel>

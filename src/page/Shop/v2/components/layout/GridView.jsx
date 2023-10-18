@@ -19,7 +19,7 @@ function GridView({ result }) {
   return (
     <>
       {result.map((product) => (
-        <Grid item xs={6} sm={6} md={3} lg={12 / 5} xl={2} key={product.id}>
+        <Grid item xs={6} sm={6} md={3} lg={12 / 4} xl={2} key={product.id}>
           <Paper sx={{ p: 0.5 }}>
             <Card>
               <Box component={Link} to={"/product"}>

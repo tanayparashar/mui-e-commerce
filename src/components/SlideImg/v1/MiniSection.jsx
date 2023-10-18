@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import MobileMiniSlider from "./MobileMiniSlider";
 import { Link } from "react-router-dom";
+import LazyLoadImg from "../../Lazyload/LazyLoadImg";
 
 export const products = [
   {
@@ -82,7 +83,7 @@ export default function MiniSection({ SectionTitle }) {
                     to="/shop"
                     style={{ textDecoration: "none", color: "inherit" }}
                   >
-                    <img
+                    {/* <img
                       src={singleItem.image}
                       alt=""
                       style={{
@@ -90,6 +91,21 @@ export default function MiniSection({ SectionTitle }) {
                         height: "100px",
                         width: "100px",
                         borderRadius: "4px",
+                      }}
+                    /> */}
+                    <Box
+                      component={LazyLoadImg}
+                      image={{
+                        alt: "Image alt text",
+                        height: 100, // Replace with the desired height
+                        width: 100, // Replace with the desired width
+                        style: {
+                          display: "block",
+                          height: "100px",
+                          width: "100px",
+                          borderRadius: "4px",
+                        },
+                        src: singleItem.image, // Replace with the image URL
                       }}
                     />
                     <Typography component={"div"} sx={{ fontWeight: 700 }}>

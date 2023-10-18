@@ -11,6 +11,7 @@ import {
 import { Link } from "react-router-dom";
 
 import Carousel from "react-multi-carousel";
+import LazyLoadImg from "../../Lazyload/LazyLoadImg";
 
 function SlideShow({ products }) {
   return (
@@ -79,7 +80,7 @@ function SlideShow({ products }) {
           }}
         >
           <Link to="/lol" style={{ textDecoration: "none", color: "inherit" }}>
-            <img
+            {/* <img
               src={singleItem.image}
               alt=""
               style={{
@@ -89,7 +90,24 @@ function SlideShow({ products }) {
                 borderRadius: "4px",
                 objectFit: "cover",
               }}
+            /> */}
+            <Box
+              component={LazyLoadImg}
+              image={{
+                alt: "Image alt text",
+                height: 150, // Replace with the desired height
+                // width: 300, // Replace with the desired width
+                style: {
+                  display: "block",
+                  height: "150px",
+                  width: "95%",
+                  borderRadius: "4px",
+                  objectFit: "cover",
+                },
+                src: singleItem.image, // Replace with the image URL
+              }}
             />
+
             <Typography sx={{ textAlign: "center" }} component={"span"}>
               {singleItem.price}
             </Typography>

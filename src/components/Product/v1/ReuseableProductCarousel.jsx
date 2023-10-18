@@ -3,6 +3,7 @@ import { Paper, Box, Typography, Grid, Button } from "@mui/material";
 
 import Carousel from "react-multi-carousel";
 import { Link } from "react-router-dom";
+import LazyLoadImg from "../../Lazyload/LazyLoadImg";
 const items = [
   {
     id: 1,
@@ -141,11 +142,21 @@ function ReuseableProductCarousel({ SectionTitle, RouteLink }) {
                     sx={{ textDecoration: "none", color: "inherit" }}
                   >
                     <Box
+                      component={LazyLoadImg}
+                      image={{
+                        alt: "Image alt text",
+                        // height: 300, // Replace with the desired height
+                        // width: 300, // Replace with the desired width
+                        style: { objectFit: "cover" },
+                        src: item.image, // Replace with the image URL
+                      }}
+                    />
+                    {/* <Box
                       component="img"
                       src={item.image}
                       alt=""
                       sx={{ width: "100%", borderRadius: "5px" }}
-                    />
+                    /> */}
                     <Typography variant="body2">
                       {item.headline.substring(0, 25)}...
                     </Typography>

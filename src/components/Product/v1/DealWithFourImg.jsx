@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Grid, Paper, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
+import LazyLoadImg from "../../Lazyload/LazyLoadImg";
 
 export default function DealWithFourImg({
   items,
@@ -46,6 +47,23 @@ export default function DealWithFourImg({
                     borderRadius: "5px",
                   }}
                 />
+
+                {/* <Box
+                  component={LazyLoadImg}
+                  image={{
+                    alt: "Image alt text",
+                    // height: 300, // Replace with the desired height
+                    // width: 300, // Replace with the desired width
+                    style: {
+                      width: "150px",
+                      height: "150px",
+                      objectFit: "cover",
+                      borderRadius: "5px",
+                    },
+                    src: catalog.image, // Replace with the image URL
+                  }}
+                /> */}
+
                 <Typography variant="caption" fontWeight={"bold"}>
                   {ProductTitle}
                 </Typography>

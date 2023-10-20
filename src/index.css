@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 .long-slider .react-multiple-carousel__arrow {
   position: absolute;
   outline: 0;

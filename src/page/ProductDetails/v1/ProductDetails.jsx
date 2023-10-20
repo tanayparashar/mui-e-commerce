@@ -16,6 +16,8 @@ import {
   Button,
 } from "@mui/material";
 
+import useScrollToTopOnMount from "../../../hook/useScrollToTopOnMount";
+
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 import ProductDetailSlider from "./ProductDetailSlider";
@@ -41,6 +43,8 @@ export default function ProductDetails() {
       setLoading(false);
     }, 1000);
   }, []);
+
+  useScrollToTopOnMount();
 
   const handleChange = (event) => {
     setAge(event.target.value);

@@ -94,9 +94,10 @@ export default function Sidebar() {
         height: "100vh",
         position: "fixed",
         left: 0,
-        background: "#f5f5f5",
-        width: !isMobile ? "20%" : "280px",
+        top: "11%",
+        width: !isMobile ? "20%" : "270px",
         overflow: "auto",
+
         pb: 10,
         "&:hover::-webkit-scrollbar": {
           display: "block",
@@ -117,35 +118,29 @@ export default function Sidebar() {
       }}
     >
       <Paper square sx={{ pb: "50px" }}>
-        <Typography
-          variant="h5"
-          gutterBottom
-          component="div"
-          sx={{ p: 2, pb: 0 }}
-        >
-          Documentation
-        </Typography>
-        <List sx={{ mb: 2 }}>
-          {messages.map(({ id, to, text }) => (
-            <React.Fragment key={id}>
-              {id === 1 && (
-                <ListSubheader sx={{ bgcolor: "background.paper" }}>
-                  Today
-                </ListSubheader>
-              )}
+        <Box>
+          <Typography
+            variant="h5"
+            gutterBottom
+            component="div"
+            sx={{ p: 2, pb: 0 }}
+          >
+            Documentation
+          </Typography>
+          <List sx={{ mb: 2 }}>
+            {messages.map(({ id, to, text }) => (
+              <React.Fragment key={id}>
+                {id === 1 && <ListSubheader>Today</ListSubheader>}
 
-              {id === 3 && (
-                <ListSubheader sx={{ bgcolor: "background.paper" }}>
-                  Yesterday
-                </ListSubheader>
-              )}
+                {id === 3 && <ListSubheader>Yesterday</ListSubheader>}
 
-              <ListItem button>
-                <ListItemText secondary={text} />
-              </ListItem>
-            </React.Fragment>
-          ))}
-        </List>
+                <ListItem button>
+                  <ListItemText secondary={text} />
+                </ListItem>
+              </React.Fragment>
+            ))}
+          </List>
+        </Box>
       </Paper>
     </Box>
   );

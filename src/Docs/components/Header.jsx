@@ -20,7 +20,7 @@ const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  backgroundColor: theme.palette.secondary.main,
+  backgroundColor: theme.palette.warning.main,
   // [theme.breakpoints.down("sm")]: {
   //   flexDirection: "column",
   //   justifyContent: "center",
@@ -45,14 +45,14 @@ function Header(props) {
               display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
-              p: 1.5,
+              p: 0,
             }}
           >
             {!isMobile && <Logo />}
 
             {isMobile && (
               <>
-                <Toolbar sx={{ p: 0, ml: 2 }}>
+                <Toolbar sx={{ p: 0, ml: 0 }}>
                   <IconButton edge="start" color="inherit" onClick={toggleNav}>
                     <MenuOpenIcon />
                   </IconButton>
@@ -75,7 +75,7 @@ function Header(props) {
               </>
             )}
           </Box>
-          <Box>
+          <Box sx={{ gap: 2, display: "flex" }}>
             <Button variant="contained">Get Update</Button>
             <Button variant="contained">Buy Now</Button>
           </Box>

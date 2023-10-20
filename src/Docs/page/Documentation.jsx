@@ -1,8 +1,10 @@
 import React from "react";
 
+import { Box } from "@mui/material";
+
 export default function Documentation() {
   return (
-    <div>
+    <Box sx={{ p: 2 }}>
       <h1>Hello</h1>
       <img
         style={{ width: "90%", margin: "auto" }}
@@ -45,6 +47,6 @@ export default function Documentation() {
         adipisci illo recusandae nam, officia incidunt blanditiis officiis
         veritatis corporis neque quod.
       </p>
-    </div>
+    </Box>
   );
 }

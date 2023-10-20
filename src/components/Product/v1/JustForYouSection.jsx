@@ -199,7 +199,7 @@ function JustForYouSection({ SectionTitle, showRating = true }) {
         </Typography>
         <Grid container spacing={1}>
           {productData.map((data) => (
-            <Grid item xs={6} sm={6} md={3} lg={12 / 5} xl={2} key={data.id}>
+            <Grid item xs={6} sm={6} md={3} lg={12 / 6} xl={2} key={data.id}>
               <Paper sx={{ p: 0.5 }}>
                 <Box
                   sx={{ textDecoration: "none", color: "inherit" }}

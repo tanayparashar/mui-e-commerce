@@ -30,7 +30,7 @@ import Counter from "./Counter";
 import ColorComponent from "./ColorComponent";
 import ProductDetailsSkelton from "./ProductDetailsSkelton";
 import { Link } from "react-router-dom";
-import SocialShare from "../../../components/SocialShare";
+import SocialShare from "../../../components/Common/SocialShare";
 
 export default function ProductDetails() {
   const theme = useTheme();

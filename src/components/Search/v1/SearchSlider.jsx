@@ -16,37 +16,42 @@ export const products = [
     image:
       "https://s.alicdn.com/@sc04/kf/H1ae0ab3f3fbc4cb8be248fbe4299e58eD.jpg_480x480.jpg",
     price: "$10.99",
+    title: "Product tile goes here",
   },
   {
     id: 2,
     image:
       "https://s.alicdn.com/@sc04/kf/H4cc1fa84e3a44c219d282987b59aa029v.jpeg_250x250xz.jpg",
     price: "$12.99",
+    title: "Product tile goes here",
   },
   {
     id: 3,
     image:
       "https://s.alicdn.com/@sc04/kf/H0b91f507d7af4dc48c5f1707f9866d31r.jpeg_250x250xz.jpg",
     price: "$8.99",
+    title: "Product tile goes here",
   },
   {
     id: 4,
     image:
       "https://s.alicdn.com/@sc04/kf/H2ec527e4af284463beb556225d422ec3c.jpeg_250x250xz.jpg",
     price: "$14.99",
+    title: "Product tile goes here",
   },
   {
     id: 5,
     image:
       "https://s.alicdn.com/@sc04/kf/H3ecd4b2408a244eeb0a2d3321e586e10M.jpg_250x250xz.jpg",
     price: "$9.99",
+    title: "Product tile goes here",
   },
 ];
 
 import Carousel from "react-multi-carousel";
 import LazyLoadImg from "../../Lazyload/LazyLoadImg";
 
-function SlideShow({ products }) {
+function SearchSlider() {
   return (
     <Carousel
       additionalTransform={0}
@@ -73,7 +78,7 @@ function SlideShow({ products }) {
             max: 3000,
             min: 1024,
           },
-          items: 2,
+          items: 3,
           partialVisibilityGutter: 40,
         },
         mobile: {
@@ -87,9 +92,9 @@ function SlideShow({ products }) {
         tablet: {
           breakpoint: {
             max: 1024,
-            min: 464,
+            min: 0,
           },
-          items: 2,
+          items: 1,
           partialVisibilityGutter: 30,
         },
       }}
@@ -102,53 +107,47 @@ function SlideShow({ products }) {
       slidesToSlide={1}
       swipeable
     >
+      {/* <Paper> */}
       {products.map((singleItem) => (
-        <Box
-          key={singleItem.id}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 2,
-            justifyContent: "center",
-          }}
-        >
-          <Link to="/lol" style={{ textDecoration: "none", color: "inherit" }}>
-            {/* <img
-              src={singleItem.image}
-              alt=""
-              style={{
-                display: "block",
-                height: "150px",
-                width: "95%",
-                borderRadius: "4px",
-                objectFit: "cover",
-              }}
-            /> */}
-            <Box
-              component={LazyLoadImg}
+        <Box key={singleItem.id}>
+          <Box
+            component={Link}
+            to={"/lol"}
+            sx={{
+              display: "flex",
+              border: "1px solid #ccc",
+              flexDirection: "row",
+              gap: 2,
+              pt: 0.8,
+              px: 1,
+              color: "inherit",
+              textDecoration: "none",
+              mr: 1,
+              borderRadius: 0.7,
+            }}
+          >
+            <LazyLoadImg
               image={{
                 alt: "Image alt text",
-                height: 150, // Replace with the desired height
-                // width: 300, // Replace with the desired width
-                style: {
-                  display: "block",
-                  height: "150px",
-                  width: "95%",
-                  borderRadius: "4px",
-                  objectFit: "cover",
-                },
-                src: singleItem.image, // Replace with the image URL
+                height: 50, // Replace with the desired height
+                width: 50, // Replace with the desired width
+                src: singleItem.image,
+                borderRadius: 50,
+                style: {},
               }}
+              style={{ borderRadius: "50px" }}
             />
 
-            <Typography sx={{ textAlign: "center" }} component={"span"}>
-              {singleItem.price}
-            </Typography>
-          </Link>
+            <Box>
+              <Typography>{singleItem.title.substring(0, 12)}...</Typography>
+              <Typography>{singleItem.price}</Typography>
+            </Box>
+          </Box>
         </Box>
       ))}
+      {/* </Paper> */}
     </Carousel>
   );
 }
 
-export default SlideShow;
+export default SearchSlider;

@@ -27,6 +27,7 @@ import Sidebar from "./Sidebar";
 
 import productData from "./data";
 import ReuseableProductCarousel from "../../../components/Product/v1/ReuseableProductCarousel";
+import useScrollToTopOnMount from "../../../hook/useScrollToTopOnMount";
 
 const NAV_WIDTH = 240; // Set the width of the nav drawer
 
@@ -38,6 +39,7 @@ function Shop() {
     localStorage.getItem("viewMode") || "grid"
   );
 
+  useScrollToTopOnMount();
   useEffect(() => {
     localStorage.setItem("viewMode", viewMode);
   }, [viewMode]);

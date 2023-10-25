@@ -11,10 +11,13 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
+import TrendingUpIcon from "@mui/icons-material/TrendingUp";
+import SearchSlider from "./SearchSlider";
+
 const SearchKeyword = ({ isOpen, onClose, keywords, anchorEl }) => {
-  if (!isOpen) {
-    return null; // Return null when the dropdown is closed
-  }
+  // if (!isOpen) {
+  //   return null; // Return null when the dropdown is closed
+  // }
   return (
     <Box
       sx={{
@@ -29,22 +32,33 @@ const SearchKeyword = ({ isOpen, onClose, keywords, anchorEl }) => {
     >
       <ClickAwayListener onClickAway={onClose}>
         <Paper>
-          <Typography variant="caption" m={2} fontWeight={"bold"}>
-            Popular keyword
-          </Typography>
-          <List>
-            {keywords.map((keyword, index) => (
-              <ListItem key={index} sx={{ display: "block" }}>
-                <Box
-                  component={Link}
-                  to="/lol"
-                  sx={{ textDecoration: "none", color: "inherit" }}
-                >
-                  <ListItemText primary={keyword} />
-                </Box>
-              </ListItem>
-            ))}
-          </List>
+          <Box p={2}>
+            <Typography variant="h6" fontWeight={"bold"} mb={3}>
+              Trending Products
+            </Typography>
+            <SearchSlider />
+          </Box>
+          <Box p={2}>
+            <Typography variant="h6" fontWeight={"bold"}>
+              Trending Search
+            </Typography>
+            <List>
+              {keywords.map((keyword, index) => (
+                <ListItem key={index} sx={{ display: "block", px: 0.4 }}>
+                  <Box
+                    component={Link}
+                    to="/lol"
+                    sx={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+                      <TrendingUpIcon />
+                      <ListItemText primary={keyword} />
+                    </Box>
+                  </Box>
+                </ListItem>
+              ))}
+            </List>
+          </Box>
         </Paper>
       </ClickAwayListener>
     </Box>

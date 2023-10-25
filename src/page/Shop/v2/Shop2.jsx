@@ -22,6 +22,7 @@ import GridView from "./components/layout/GridView";
 import ViewModuleIcon from "@mui/icons-material/ViewModule";
 import ViewListIcon from "@mui/icons-material/ViewList";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
+import useScrollToTopOnMount from "../../../hook/useScrollToTopOnMount";
 
 const NAV_WIDTH = 280; // Set the width of the nav drawer
 
@@ -33,6 +34,8 @@ function Shop2() {
   const [viewMode, setViewMode] = useState(
     localStorage.getItem("viewMode") || "grid"
   );
+
+  useScrollToTopOnMount();
 
   useEffect(() => {
     localStorage.setItem("viewMode", viewMode);

@@ -61,14 +61,16 @@ function Footer() {
               <Typography variant="h6">Section title</Typography>
               <Divider sx={{ my: 2 }} />
               <Box sx={{ display: "flex", flexDirection: "column" }}>
-                <AnchorControl to={"/success"}>success</AnchorControl>
+                <AnchorControl to={"/success"}>Documentation</AnchorControl>
                 <AnchorControl to={"/page"}>Sitemap</AnchorControl>
                 <AnchorControl to={"/page"}>Online blog</AnchorControl>
-                <AnchorControl to={"/page"}>Online Aid UK</AnchorControl>
-                <AnchorControl to={"/page"}>Online Aid DE</AnchorControl>
-                <AnchorControl to={"/page"}>Online Aid USA</AnchorControl>
-                <AnchorControl to={"/page"}>Online Aid CA</AnchorControl>
-                <AnchorControl to={"/page"}>Online Aid AUS</AnchorControl>
+                <AnchorControl to={"/introduction"}>
+                  Online Aid UK
+                </AnchorControl>
+                <AnchorControl to={"/emptycart"}>Empty cart</AnchorControl>
+                <AnchorControl to={"/thankyou"}>Thank You</AnchorControl>
+                <AnchorControl to={"/comingsoon"}>Coming soon</AnchorControl>
+                <AnchorControl to={"/maintenance"}>Maintenance</AnchorControl>
               </Box>
             </Grid>
             <Grid item xs={12} md={3}>
@@ -76,8 +78,8 @@ function Footer() {
               <Divider sx={{ my: 2 }} />
               <Box sx={{ display: "flex", flexDirection: "column" }}>
                 <AnchorControl to={"/faqs"}>FAQ</AnchorControl>
-                <AnchorControl to={"/emptycart"}>Empty Order</AnchorControl>
-                <AnchorControl to={"/page"}>Online blog</AnchorControl>
+                <AnchorControl to={"/success"}>Success</AnchorControl>
+                <AnchorControl to={"/block"}>Block</AnchorControl>
 
                 {/* Payment  */}
                 <Paper>

@@ -10,18 +10,7 @@ function SearchBar() {
   const [anchorEl, setAnchorEl] = useState(null);
 
   // Static popular keywords data
-  const popularKeywords = [
-    "Keyword 1",
-    "Keyword 2",
-    "Keyword 3",
-    "Keyword 4",
-    "Keyword 5",
-    "Keyword 6",
-    "Keyword 7",
-    "Keyword 8",
-    "Keyword 9",
-    "Keyword 10",
-  ];
+  const popularKeywords = ["watch", "fan", "mobile", "panjabi", "smart watch"];
 
   const handleSearchFieldClick = (event) => {
     setIsDropdownOpen(!isDropdownOpen);

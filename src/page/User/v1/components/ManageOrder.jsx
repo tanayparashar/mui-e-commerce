@@ -10,11 +10,14 @@ import DialogActions from "@mui/material/DialogActions";
 import Button from "@mui/material/Button";
 import TextField from "@mui/material/TextField";
 import { Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 export default function ManageOrder() {
   const [anchorEl, setAnchorEl] = useState(null);
   const [cancelDialogOpen, setCancelDialogOpen] = useState(false);
   const [cancellationReason, setCancellationReason] = useState("");
+
+  const navigate = useNavigate();
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -69,12 +72,7 @@ export default function ManageOrder() {
         <MenuItem onClick={() => handleMenuItemClick("Cancel Order")}>
           Cancel Order
         </MenuItem>
-        <MenuItem onClick={() => handleMenuItemClick("Option 2")}>
-          Option 2
-        </MenuItem>
-        <MenuItem onClick={() => handleMenuItemClick("Option 3")}>
-          Option 3
-        </MenuItem>
+        <MenuItem onClick={() => navigate(`/comingsoon`)}>Track Order</MenuItem>
       </Menu>
 
       {/* Cancellation Dialog */}

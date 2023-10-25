@@ -33,6 +33,7 @@ import Congratulations from "../page/Congress/v1/Congratulations.jsx";
 import Documentation from "../Docs/page/Documentation.jsx";
 import DocLayout from "../Docs/layout/DocLayout.jsx";
 import Setup from "../Docs/page/Setup.jsx";
+import Sorry from "../page/Sorry/Sorry.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -63,6 +64,10 @@ export const router = createBrowserRouter([
   {
     path: "/success",
     element: <Success />,
+  },
+  {
+    path: "/block",
+    element: <Sorry />,
   },
   {
     path: "/congress",

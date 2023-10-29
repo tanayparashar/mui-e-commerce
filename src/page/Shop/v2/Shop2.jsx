@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Products from "./components/Products";
 import Sidebar from "./components/Sidebar";
 import {
   Button,
@@ -23,6 +22,7 @@ import ViewModuleIcon from "@mui/icons-material/ViewModule";
 import ViewListIcon from "@mui/icons-material/ViewList";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import useScrollToTopOnMount from "../../../hook/useScrollToTopOnMount";
+import WithProgressBar from "../../../components/Loading/WithProgressBar";
 
 const NAV_WIDTH = 280; // Set the width of the nav drawer
 
@@ -270,4 +270,4 @@ function Shop2() {
   );
 }
 
-export default Shop2;
+export default WithProgressBar(Shop2);

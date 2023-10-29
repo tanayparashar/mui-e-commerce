@@ -74,7 +74,7 @@ function ReuseableProductCarousel({ SectionTitle, RouteLink }) {
             variant="contained"
             component={Link}
             to={`${RouteLink}`}
-            sx={{ textDecoration: "none", color: "inherit" }}
+            sx={{ textDecoration: "none" }}
           >
             View all
           </Button>

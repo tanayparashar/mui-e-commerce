@@ -10,6 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import LazyLoadImg from "../../../../components/Lazyload/LazyLoadImg";
 
 const Products = ({ result }) => {
   return (
@@ -19,12 +20,15 @@ const Products = ({ result }) => {
           {/* Grid item xs={6} sm={6} md={3} lg={12 / 5} xl={2} */}
           <Card>
             <Box component={Link} to={"/product"}>
-              <CardMedia
-                component="img"
-                alt={product.title}
-                // height="auto"
-                image={product.img}
-                sx={{ width: 300, height: 150, objectFit: "contain", p: 1.5 }}
+              <Box
+                component={LazyLoadImg}
+                image={{
+                  alt: "Image alt text",
+                  height: 150, // Replace with the desired height
+                  width: 150, // Replace with the desired width
+                  style: { objectFit: "cover" },
+                  src: product.img, // Replace with the image URL
+                }}
               />
             </Box>
             <CardContent sx={{ p: 0.8 }}>

@@ -32,7 +32,9 @@ import ProductDetailsSkelton from "./ProductDetailsSkelton";
 import { Link } from "react-router-dom";
 import SocialShare from "../../../components/Common/SocialShare";
 
-export default function ProductDetails() {
+import WithProgressBar from "../../../components/Loading/WithProgressBar";
+
+function ProductDetails() {
   const theme = useTheme();
   const [age, setAge] = useState("");
   const [loading, setLoading] = useState(true);
@@ -176,3 +178,5 @@ export default function ProductDetails() {
     </>
   );
 }
+
+export default WithProgressBar(ProductDetails);

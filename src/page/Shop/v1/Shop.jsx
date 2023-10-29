@@ -28,6 +28,7 @@ import Sidebar from "./Sidebar";
 import productData from "./data";
 import ReuseableProductCarousel from "../../../components/Product/v1/ReuseableProductCarousel";
 import useScrollToTopOnMount from "../../../hook/useScrollToTopOnMount";
+import WithProgressBar from "../../../components/Loading/WithProgressBar";
 
 const NAV_WIDTH = 240; // Set the width of the nav drawer
 
@@ -152,4 +153,4 @@ function Shop() {
   );
 }
 
-export default Shop;
+export default WithProgressBar(Shop);

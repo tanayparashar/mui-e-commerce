@@ -12,6 +12,7 @@ import {
   useTheme,
 } from "@mui/material";
 import { Link } from "react-router-dom";
+import LazyLoadImg from "../../../../../components/Lazyload/LazyLoadImg";
 
 function GridView({ result }) {
   const theme = useTheme();
@@ -30,6 +31,19 @@ function GridView({ result }) {
                   image={product.img}
                   sx={{ width: 300, height: 150, objectFit: "contain", p: 1.5 }}
                 />
+
+                {/* <LazyLoadImg
+                  component={LazyLoadImg}
+                  alt={"product.title"}
+                  image={{
+                    alt: product.title,
+                    height: 180, // Replace with the desired height
+                    width: 180, // Replace with the desired width
+                    style: { objectFit: "cover" },
+                    src: product.img, // Replace with the image URL
+                  }}
+                  // sx={{ objectFit: "cover" }}
+                /> */}
               </Box>
               <CardContent sx={{ p: 0.8 }}>
                 <Typography>{product.title}</Typography>

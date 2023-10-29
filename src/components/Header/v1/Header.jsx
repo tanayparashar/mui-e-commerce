@@ -195,32 +195,10 @@ export default function Header(props) {
     </Menu>
   );
 
-  // function HideOnScroll(props) {
-  //   const { children, window } = props;
-  //   // Note that you normally won't need to set the window ref as useScrollTrigger
-  //   // will default to window.
-  //   // This is only being set here because the demo is in an iframe.
-  //   const trigger = useScrollTrigger({
-  //     target: window ? window() : undefined,
-  //   });
-
-  //   return (
-  //     <Slide appear={false} direction="down" in={!trigger}>
-  //       {children}
-  //     </Slide>
-  //   );
-  // }
-
-  // HideOnScroll.propTypes = {
-  //   children: PropTypes.element.isRequired,
-  //   window: PropTypes.func,
-  // };
-
   return (
     <>
       {/* <TopHeader /> */}
       <Box sx={{ flexGrow: 1 }} component={"header"}>
-        {/* <HideOnScroll {...props}> */}
         <AppBar position="static">
           <StyledToolbar>
             <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
@@ -274,15 +252,17 @@ export default function Header(props) {
                   sx={{ marginLeft: "10px" }}
                 >
                   {user ? (
-                    <div>
-                      {user.photoURL && (
+                    <>
+                      <AccountCircle />
+
+                      {/* {user.photoURL && (
                         <Avatar
                           alt={user.displayName}
                           src={user.photoURL}
                           sx={{ width: 22, height: 22, borderRadius: "50%" }}
                         />
-                      )}
-                    </div>
+                      )} */}
+                    </>
                   ) : (
                     <AccountCircle />
                   )}
@@ -303,7 +283,6 @@ export default function Header(props) {
             </Box>
           </StyledToolbar>
         </AppBar>
-        {/* </HideOnScroll> */}
 
         {renderMobileMenu}
         {renderMenu}

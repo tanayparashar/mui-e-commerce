@@ -15,9 +15,10 @@ import TrendingUpIcon from "@mui/icons-material/TrendingUp";
 import SearchSlider from "./SearchSlider";
 
 const SearchKeyword = ({ isOpen, onClose, keywords, anchorEl }) => {
-  // if (!isOpen) {
-  //   return null; // Return null when the dropdown is closed
-  // }
+  if (!isOpen) {
+    return null; // Return null when the dropdown is closed
+  }
+
   return (
     <Box
       sx={{
@@ -31,18 +32,18 @@ const SearchKeyword = ({ isOpen, onClose, keywords, anchorEl }) => {
       }}
     >
       <ClickAwayListener onClickAway={onClose}>
-        <Paper>
-          <Box p={2}>
-            <Typography variant="h6" fontWeight={"bold"} mb={3}>
+        <Paper sx={{ p: 2 }}>
+          <Box>
+            <Typography variant="h6" fontWeight={"bold"} mb={1}>
               Trending Products
             </Typography>
             <SearchSlider />
           </Box>
-          <Box p={2}>
-            <Typography variant="h6" fontWeight={"bold"}>
+          <Box>
+            <Typography variant="h6" fontWeight={"bold"} mt={2}>
               Trending Search
             </Typography>
-            <List>
+            <List sx={{ p: 0 }}>
               {keywords.map((keyword, index) => (
                 <ListItem key={index} sx={{ display: "block", px: 0.4 }}>
                   <Box

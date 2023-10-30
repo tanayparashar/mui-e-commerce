@@ -9,7 +9,7 @@ import SearchHistory from "../components/Search/v1/SearchHistory";
 const SearchPageContainer = styled("div")({
   width: "100%",
   display: "block",
-  background: "#cccc",
+  // background: "#ccc",
   height: "100vh",
 });
 
@@ -24,12 +24,12 @@ function SearchPage() {
     <>
       <SearchPageContainer>
         <CssBaseline />
-        <Box sx={{ display: "flex", justifyContent: "center", pt: 3 }}>
+        {/* <Box sx={{ display: "flex", justifyContent: "center", pt: 3 }}>
           <IconButton onClick={handleGoBack}>
             <ArrowBackIcon />
           </IconButton>
           <SearchBar />
-        </Box>
+        </Box> */}
         <SearchHistory />
       </SearchPageContainer>
     </>

@@ -47,7 +47,7 @@ export default function SearchHistory() {
                   sx={{ display: "inline" }}
                   component="span"
                   variant="body2"
-                  color="text.primary"
+                  color="inherit"
                 >
                   Ali Connors
                 </Typography>
@@ -57,7 +57,7 @@ export default function SearchHistory() {
           />
           <IconButton
             aria-label="fingerprint"
-            color="secondary"
+            color="inherit"
             onClick={handleMenuOpen}
           >
             <MoreVertIcon />

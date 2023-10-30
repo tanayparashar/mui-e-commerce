@@ -14,6 +14,7 @@ import ReuseableProductCarousel from "../../../components/Product/v1/ReuseablePr
 import Layout from "../../../layout/GlobalLayout/Layout";
 import LoadingLinearTop from "../../../components/Loading/LoadingLinearTop";
 import useFlashTitle from "../../../hook/useFlashTitle";
+import Network from "./Network";
 
 function Home() {
   const [loading, setLoading] = useState(true);
@@ -37,6 +38,8 @@ function Home() {
         <Layout>
           {/* First slider   */}
           <BannerSlider />
+
+          <Network />
 
           <Container>
             <ViewMobileResponsive />

@@ -8,27 +8,17 @@ import {
   Paper,
   Toolbar,
   useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import Logo from "../../components/Logo/Logo";
-import styled from "@emotion/styled";
 
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
 import Sidebar from "./Sidebar";
 const NAV_WIDTH = 280;
 
-const StyledToolbar = styled(Toolbar)(({ theme }) => ({
-  display: "flex",
-  justifyContent: "space-between",
-  alignItems: "center",
-  backgroundColor: theme.palette.warning.main,
-  // [theme.breakpoints.down("sm")]: {
-  //   flexDirection: "column",
-  //   justifyContent: "center",
-  // },
-}));
-
-function Header(props) {
-  const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+function Header() {
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down("md"));
+  const theme = useTheme();
 
   const [openNav, setOpenNav] = useState(false);
 
@@ -37,50 +27,65 @@ function Header(props) {
   };
 
   return (
-    <Box sx={{ display: "flex", mb: 10 }}>
-      <AppBar component="nav">
-        <StyledToolbar>
-          <Box
-            sx={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "center",
-              p: 0,
-            }}
-          >
-            {!isMobile && <Logo />}
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        p: 1,
+        background: theme.palette.common.white,
+        // boxShadow: theme.shadows[1],
+        position: "fixed",
+        width: "100%",
+        top: 0,
+        left: 0,
+        right: 0,
+        zIndex: 999,
+      }}
+    >
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          p: 0,
+        }}
+      >
+        {!isMobile && <Logo />}
 
-            {isMobile && (
-              <>
-                <Toolbar sx={{ p: 0, ml: 0 }}>
-                  <IconButton edge="start" color="inherit" onClick={toggleNav}>
-                    <MenuOpenIcon />
-                  </IconButton>
-                </Toolbar>
-                <Drawer
-                  open={openNav}
-                  onClose={() => setOpenNav(false)}
-                  ModalProps={{
-                    keepMounted: true,
-                  }}
-                  PaperProps={{
-                    sx: { width: NAV_WIDTH },
-                  }}
-                >
-                  <Box p={1}>
-                    <Logo jc={"left"} />
-                    <Sidebar />
-                  </Box>
-                </Drawer>
-              </>
-            )}
-          </Box>
-          <Box sx={{ gap: 2, display: "flex" }}>
-            <Button variant="contained">Get Update</Button>
-            <Button variant="contained">Buy Now</Button>
-          </Box>
-        </StyledToolbar>
-      </AppBar>
+        {isMobile && (
+          <>
+            <Toolbar sx={{ p: 0, ml: 0 }}>
+              <IconButton edge="start" color="inherit" onClick={toggleNav}>
+                <MenuOpenIcon />
+              </IconButton>
+            </Toolbar>
+            <Drawer
+              open={openNav}
+              onClose={() => setOpenNav(false)}
+              ModalProps={{
+                keepMounted: true,
+              }}
+              PaperProps={{
+                sx: { width: NAV_WIDTH },
+              }}
+            >
+              <Box p={0}>
+                <Logo jc={"left"} />
+                <Sidebar />
+              </Box>
+            </Drawer>
+          </>
+        )}
+      </Box>
+      <Box sx={{ gap: 2, display: "flex" }}>
+        <Button variant="contained" size="small">
+          Get Update
+        </Button>
+        <Button variant="contained" size="small">
+          Buy Now
+        </Button>
+      </Box>
     </Box>
   );
 }

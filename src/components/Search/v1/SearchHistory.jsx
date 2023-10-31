@@ -67,6 +67,13 @@ const data = [
     title: "Product title 7",
     description: "I'll be in your neighborhood doing errands this…",
   },
+  {
+    id: 8,
+    imgSrc:
+      "https://res.cloudinary.com/epantry/image/fetch/f_auto,fl_progressive,q_auto,w_902/https://images.ctfassets.net/lraovp89rm10/1DMma6ZtpK4zmUbfnHcklv/86af59d2f54ad2216b1311bb6211dfbc/PS_GR_WL_JENNA_0352_110220_R.jpeg",
+    title: "Product title 8",
+    description: "I'll be in your neighborhood doing errands this…",
+  },
 ];
 
 export default function SearchHistory() {
@@ -102,7 +109,7 @@ export default function SearchHistory() {
           width: "100%",
           maxWidth: "100%",
           // background: theme.palette.grey[100],
-          pt: 0,
+          // pt: 0,
         }}
       >
         {data.map((item, index) => (

@@ -1,14 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {
-  Box,
-  CssBaseline,
-  IconButton,
-  useMediaQuery,
-  useTheme,
-} from "@mui/material";
+import { Box, IconButton, useMediaQuery, useTheme } from "@mui/material";
 import { styled } from "@mui/system";
-import SearchBar from "../components/Search/v1/SearchBar";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import SearchHistory from "../components/Search/v1/SearchHistory";
 import InputBase from "@mui/material/InputBase";
@@ -17,7 +10,6 @@ import MoreVertIcon from "@mui/icons-material/MoreVert";
 const SearchPageContainer = styled("div")({
   width: "100%",
   display: "block",
-  // background: "#ccc",
   height: "100vh",
 });
 
@@ -39,6 +31,7 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
 function SearchPage() {
   const navigate = useNavigate();
   const theme = useTheme();
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 
   const handleGoBack = () => {
     navigate(-1);
@@ -47,7 +40,6 @@ function SearchPage() {
   return (
     <>
       <SearchPageContainer>
-        <CssBaseline />
         <Box
           sx={{ display: "flex", gap: 0.5, p: 1, bgcolor: "secondary.main" }}
         >
@@ -72,7 +64,15 @@ function SearchPage() {
             <MoreVertIcon />
           </IconButton>
         </Box>
-        <SearchHistory />
+        {!isMobile ? (
+          <p style={{ textAlign: "center" }}>
+            This page only for mobile device please go mobile device and view
+            the UI
+          </p>
+        ) : (
+          <SearchHistory />
+        )}
+        {/* <SearchHistory /> */}
       </SearchPageContainer>
     </>
   );

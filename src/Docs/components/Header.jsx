@@ -79,10 +79,10 @@ function Header() {
         )}
       </Box>
       <Box sx={{ gap: 2, display: "flex" }}>
-        <Button variant="contained" size="small">
+        <Button variant="contained" size="small" color="secondary">
           Get Update
         </Button>
-        <Button variant="contained" size="small">
+        <Button variant="contained" size="small" color="secondary">
           Buy Now
         </Button>
       </Box>

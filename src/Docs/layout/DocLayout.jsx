@@ -24,7 +24,9 @@ export default function DocLayout() {
               height: "100vh",
             }}
           >
-            <Outlet />
+            <Box sx={{ pt: 16, px: 4 }}>
+              <Outlet />
+            </Box>
             <Footer />
           </Box>
         </Grid>

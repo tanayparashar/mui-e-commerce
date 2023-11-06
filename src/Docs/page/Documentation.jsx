@@ -1,24 +1,21 @@
 import React from "react";
-
 import {
   Box,
-  Card,
   Divider,
   List,
   ListItem,
-  ListItemIcon,
   Paper,
   Typography,
   useTheme,
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
-import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import useScrollToTopOnMount from "../../hook/useScrollToTopOnMount";
 export default function Documentation() {
   const theme = useTheme();
-  // console.log(theme);
+  useScrollToTopOnMount();
   return (
-    <Box sx={{ pt: 16, px: 4 }}>
+    <Box>
       <Box>
         <img
           style={{
@@ -137,7 +134,7 @@ export default function Documentation() {
       {/* _________________________--  */}
 
       <Paper sx={{ p: 5 }}>
-        <Typography variant="h3" color={"warning.main"}>
+        <Typography variant="h3" color={"secondary.main"}>
           "This project is just the user interface not including the backend and
           database."
         </Typography>

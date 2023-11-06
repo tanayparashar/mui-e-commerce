@@ -37,13 +37,16 @@ export const StyledInputBase = styled(InputBase)(({ theme }) => ({
     transition: theme.transitions.create("width"),
     width: "100%", // Set default width to 100%
     [theme.breakpoints.up("md")]: {
-      width: "700px",
+      width: "600px",
     },
-    // [theme.breakpoints.up("lg")]: {
-    //   maxWidth: "900px",
-    // },
+    [theme.breakpoints.up("lg")]: {
+      maxWidth: "900px",
+    },
     [theme.breakpoints.down("sm")]: {
       width: "100%",
+    },
+    "&::placeholder": {
+      color: theme.palette.common.white, // Set the placeholder color to white
     },
   },
 }));

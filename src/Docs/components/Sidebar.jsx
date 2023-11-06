@@ -1,86 +1,14 @@
 import * as React from "react";
-import { styled } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import IconButton from "@mui/material/IconButton";
-import Paper from "@mui/material/Paper";
-import Fab from "@mui/material/Fab";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import ListItemText from "@mui/material/ListItemText";
-import ListSubheader from "@mui/material/ListSubheader";
-import Avatar from "@mui/material/Avatar";
-import MenuIcon from "@mui/icons-material/Menu";
-import AddIcon from "@mui/icons-material/Add";
-import SearchIcon from "@mui/icons-material/Search";
-import MoreIcon from "@mui/icons-material/MoreVert";
 import { useMediaQuery, useTheme } from "@mui/material";
+import MenuList from "./MenuList";
 
-const messages = [
-  {
-    id: 1,
-    to: "/setup",
-    text: "Setup",
-  },
-  {
-    id: 2,
-
-    to: "/setup",
-    text: "Setup",
-  },
-  {
-    id: 3,
-
-    to: "/setup",
-    text: "Setup",
-  },
-  {
-    id: 4,
-
-    to: "/setup",
-    text: "Setup",
-  },
-  {
-    id: 5,
-
-    to: "/setup",
-    text: "Setup",
-  },
-  {
-    id: 6,
-
-    to: "/setup",
-    text: "Setup",
-  },
-  {
-    id: 7,
-
-    to: "/setup",
-    text: "Setup",
-  },
-
-  {
-    id: 8,
-
-    to: "/setup",
-    text: "Setup",
-  },
-  {
-    id: 9,
-
-    to: "/setup",
-    text: "Setup",
-  },
-  {
-    id: 10,
-
-    to: "/setup",
-    text: "Setup",
-  },
+const List = [
+  { name: "Introduction", path: "/introduction" },
+  { name: "Setup", path: "/setup" },
+  { name: "Car & Vehicle Electronics", path: "/car-vehicle-electronics" },
+  { name: "Cell Phones & Accessories", path: "/cell-phones-accessories" },
+  { name: "Computers & Accessories", path: "/computers-accessories" },
 ];
 
 export default function Sidebar() {
@@ -99,6 +27,7 @@ export default function Sidebar() {
           // boxShadow: theme.shadows[4],
           top: "66px",
           p: 1,
+          pl: 2,
           pb: 10,
 
           "&:hover::-webkit-scrollbar": {
@@ -119,45 +48,10 @@ export default function Sidebar() {
           },
         }}
       >
-        <Typography variant="subtitle2" mt={4} fontWeight={"bold"}>
-          GETTING STARTED
-        </Typography>
-        <h3>Content</h3>
-        <h3>Content</h3>
-        <h3>Content</h3>
-        <h3>Content</h3>
-        <h3>Content</h3>
-        <h3>Content</h3>
-        <h3>Content</h3>
-        <Typography variant="subtitle2" mt={4} fontWeight={"bold"}>
-          THEME UI
-        </Typography>
-        <h3>Content</h3>
-        <h3>Content</h3>
-        <h3>Content</h3>
-        <h3>Content</h3>
-        <h3>Content</h3>
-        <h3>Content</h3>
-
-        <Typography variant="subtitle2" mt={4} fontWeight={"bold"}>
-          DEVELOPMENT
-        </Typography>
-        <h3>Content</h3>
-        <h3>Content</h3>
-        <h3>Content</h3>
-        <h3>Content</h3>
-        <h3>Content</h3>
-        <h3>Content</h3>
-        <h3>Content</h3>
-        <h3>Content</h3>
-        <Typography variant="subtitle2" mt={4} fontWeight={"bold"}>
-          SUPPORT
-        </Typography>
-        <h3>Content</h3>
-        <h3>Content</h3>
-        <h3>Content</h3>
-        <h3>Content</h3>
-        <h3>Last One</h3>
+        <MenuList title={"Getting Started"} isOpenOrNot={true} lists={List} />
+        <MenuList title={"Theme Ui"} isOpenOrNot={true} lists={List} />
+        <MenuList title={"Development"} isOpenOrNot={true} lists={List} />
+        <MenuList title={"Support"} isOpenOrNot={true} lists={List} />
       </Box>
     </Box>
   );

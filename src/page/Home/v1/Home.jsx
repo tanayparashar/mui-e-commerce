@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, lazy, Suspense } from "react";
 
 import { Container } from "@mui/material";
 import { Helmet } from "react-helmet-async";
 // Components
-import BannerSlider from "../../../components/SlideImg/v1/BannerSlider";
 import ViewMobileResponsive from "../../../components/SlideImg/v1/ViewMobileResponsive";
 import JustForYouSection from "../../../components/Product/v1/JustForYouSection";
 import ViewProductWithDeal from "../../../components/Product/v1/ViewProductWithDeal";
@@ -11,33 +10,37 @@ import ProductRowSection from "../../../components/Product/v1/ProductRowSection"
 import ViewProductWithSingle from "../../../components/Product/v1/ViewProductWithSingle";
 import ReuseableProductCarousel from "../../../components/Product/v1/ReuseableProductCarousel";
 
-import Layout from "../../../layout/GlobalLayout/Layout";
 import LoadingLinearTop from "../../../components/Loading/LoadingLinearTop";
+import Loading from "../../../components/Loading/Loading";
+
 import useFlashTitle from "../../../hook/useFlashTitle";
 import Network from "./Network";
 
+const Layout = lazy(() => import("../../../layout/GlobalLayout/Layout"));
+const BannerSlider = lazy(
+  () =>
+    new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(import("../../../components/SlideImg/v1/BannerSlider"));
+      }, 1000);
+    })
+);
+
 function Home() {
-  const [loading, setLoading] = useState(true);
   useFlashTitle("(2) New notification");
 
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, []);
   return (
     <>
       <Helmet>
         <title>🚀Buy Black Friday</title>
         <meta name="description" content="Your page description" />
       </Helmet>
-      {/* {loading ? (
-        <LoadingLinearTop />
-      ) : ( */}
-      <>
+      <Suspense fallback={<LoadingLinearTop />}>
         <Layout>
           {/* First slider   */}
-          <BannerSlider />
+          <Suspense fallback={<Loading />}>
+            <BannerSlider />
+          </Suspense>
 
           <Network />
 
@@ -66,8 +69,7 @@ function Home() {
             <ProductRowSection SectionTitle={"Browse History"} />
           </Container>
         </Layout>
-      </>
-      {/* )} */}
+      </Suspense>
     </>
   );
 }

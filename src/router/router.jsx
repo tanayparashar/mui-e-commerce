@@ -1,4 +1,6 @@
+import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
+import LoadingLinearTop from "../components/Loading/LoadingLinearTop.jsx";
 
 import App from "../App.jsx";
 import SearchPage from "../page/SearchPage.jsx";
@@ -7,12 +9,13 @@ import AddToCart from "../page/AddToCart/v1/AddToCart.jsx";
 import EmptyCart from "../page/EmptyCart/v1/EmptyCart.jsx";
 import Shop from "../page/Shop/v1/Shop.jsx";
 import Shop2 from "../page/Shop/v2/Shop2.jsx";
-import Page404 from "../page/BrokenPage/v1/Page404.jsx";
 import Login from "../page/Auth/v1/Login/Login.jsx";
 import Register from "../page/Auth/v1/Register/Register.jsx";
 import ForgotPassword from "../page/Auth/v1/Forgot/ForgotPassword.jsx";
 import Maintenance from "../page/BrokenPage/v1/Maintenance.jsx";
 import ComingSoon from "../page/BrokenPage/v1/ComingSoon.jsx";
+import Page404 from "../page/BrokenPage/v1/Page404.jsx";
+import ErrorPage from "../page/BrokenPage/v1/ErrorPage.jsx";
 import TermsOfUse from "../page/Policy/TermsOfUse.jsx";
 import PrivacyPolicy from "../page/Policy/PrivacyPolicy.jsx";
 import Checkout from "../page/Checkout/v1/Checkout.jsx";
@@ -30,15 +33,18 @@ import OrderDetail from "../page/User/v1/OrderDetail.jsx";
 import ThankYou from "../page/Congress/v1/ThankYou.jsx";
 import Success from "../page/Congress/v1/Success.jsx";
 import Congratulations from "../page/Congress/v1/Congratulations.jsx";
-import Documentation from "../Docs/page/Documentation.jsx";
+import Sorry from "../page/Sorry/Sorry.jsx";
+
+// Use Lazy load";
+const Documentation = lazy(() => import("../Docs/page/Documentation.jsx"));
 import DocLayout from "../Docs/layout/DocLayout.jsx";
 import Setup from "../Docs/page/Setup.jsx";
-import Sorry from "../page/Sorry/Sorry.jsx";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage />,
   },
 
   {
@@ -173,7 +179,11 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/introduction",
-        element: <Documentation />,
+        element: (
+          <Suspense fallback={<LoadingLinearTop />}>
+            <Documentation />
+          </Suspense>
+        ),
       },
       {
         path: "/setup",

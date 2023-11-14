@@ -12,6 +12,7 @@ const NAV_WIDTH = 320; // Set the width of the nav drawer
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreHorizRoundedIcon from "@mui/icons-material/MoreHorizRounded";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
+import NotificationTab from "./Notification/NotificationTab";
 
 const notifications = [
   {
@@ -102,13 +103,14 @@ function UserSetting() {
           </Box>
 
           <Divider />
+          <NotificationTab />
 
-          {notifications.map((notice) => (
+          {/* {notifications.map((notice) => (
             <Box key={notice.id}>
               <Typography>{notice.message}</Typography>
               <Divider />
             </Box>
-          ))}
+          ))} */}
         </>
       </Drawer>
     </Box>

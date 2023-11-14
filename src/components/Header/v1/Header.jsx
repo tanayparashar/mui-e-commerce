@@ -29,13 +29,16 @@ export default function Header() {
       <Box sx={{ flexGrow: 1 }} component={"header"}>
         <AppBar position="static">
           <StyledToolbar>
+            {/* Left  */}
             <Box sx={{ display: "flex", gap: 2, alignItems: "center" }}>
               <Logo />
               {!isMobile ? null : <MenuDrawer />}
             </Box>
 
+            {/* Center  */}
             {isMobile ? null : <SearchBar />}
 
+            {/* Right  */}
             <Box
               sx={{
                 display: "flex",
@@ -43,12 +46,18 @@ export default function Header() {
                 justifyContent: "center",
               }}
             >
+              {/* <Box sx={{ display: { xs: "flex", gap: 8 } }}> */}
               {isMobile ? <SearchIconClick /> : null}
               {isMobile ? <ShowCartDrawer /> : null}
-              {isMobile ? <Notification /> : null}
+              {isMobile ? (
+                <Box sx={{ mx: 1.3 }}>
+                  <Notification />
+                </Box>
+              ) : null}
               {isMobile ? <UserAccount /> : null}
+              {/* </Box> */}
 
-              <Box sx={{ display: { xs: "none", md: "flex", gap: 1 } }}>
+              <Box sx={{ display: { xs: "none", md: "flex", gap: 3 } }}>
                 <UserSetting />
                 <Notification />
                 <ShowCartDrawer />
@@ -59,6 +68,7 @@ export default function Header() {
         </AppBar>
       </Box>
 
+      {/* Bottom  */}
       <BottomHeader />
     </>
   );

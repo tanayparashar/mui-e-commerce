@@ -16,7 +16,7 @@ export default function Sidebar() {
   const theme = useTheme();
 
   return (
-    <Box>
+    <Box sx={{ position: "absolute" }}>
       <Box
         sx={{
           position: "fixed",

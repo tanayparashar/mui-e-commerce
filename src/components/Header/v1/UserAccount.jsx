@@ -10,6 +10,7 @@ import {
   Divider,
   useTheme,
   Zoom,
+  useMediaQuery,
 } from "@mui/material";
 
 // Icon
@@ -25,6 +26,7 @@ export default function UserAccount() {
   const [anchorEl, setAnchorEl] = useState(null);
 
   const { user, logOut } = useContext(AuthContext);
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 
   const theme = useTheme();
 
@@ -54,7 +56,7 @@ export default function UserAccount() {
           <IconButton
             onClick={handleClick}
             size="small"
-            sx={{ ml: 2 }}
+            sx={{ ml: isMobile ? 0 : 2 }}
             aria-controls={open ? "account-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}

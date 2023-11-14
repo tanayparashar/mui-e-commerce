@@ -33,8 +33,9 @@ function Header() {
         justifyContent: "space-between",
         alignItems: "center",
         p: 1,
+        px: isMobile ? 4 : 0,
         background: theme.palette.common.white,
-        // boxShadow: theme.shadows[1],
+        // boxShadow: theme.shadows[4],
         position: "fixed",
         width: "100%",
         top: 0,
@@ -71,7 +72,9 @@ function Header() {
               }}
             >
               <Box p={0}>
-                <Logo jc={"left"} />
+                <Box sx={{ p: 2 }}>
+                  <Logo jc={"left"} />
+                </Box>
                 <Sidebar />
               </Box>
             </Drawer>

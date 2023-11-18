@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 import MenuDrawer from "../../Menu/v1/MenuDrawer";
 
 const menuItems = [
-  { text: "Today's Deals", link: "/today" },
+  { text: "Today's Deals", link: "/shop" },
   { text: "Buy Again", link: "/buy-again" },
-  { text: "Customer Service", link: "/customer-service" },
-  { text: "Registry", link: "/registry" },
+  { text: "Customer Service", link: "/faqs" },
+  { text: "Registry", link: "/register" },
   { text: "Gift Cards", link: "/gift-cards" },
-  { text: "Sell", link: "/sell" },
+  { text: "Shop", link: "/v2/shop" },
 ];
 
 export default function BottomHeader() {

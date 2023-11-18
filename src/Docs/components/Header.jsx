@@ -33,7 +33,7 @@ function Header() {
         justifyContent: "space-between",
         alignItems: "center",
         p: 1,
-        px: isMobile ? 4 : 0,
+        px: isMobile ? 4 : 2,
         background: theme.palette.common.white,
         // boxShadow: theme.shadows[4],
         position: "fixed",
@@ -56,11 +56,10 @@ function Header() {
 
         {isMobile && (
           <>
-            <Toolbar sx={{ p: 0, ml: 0 }}>
-              <IconButton edge="start" color="inherit" onClick={toggleNav}>
-                <MenuOpenIcon />
-              </IconButton>
-            </Toolbar>
+            <IconButton edge="start" color="inherit" onClick={toggleNav}>
+              <MenuOpenIcon />
+            </IconButton>
+
             <Drawer
               open={openNav}
               onClose={() => setOpenNav(false)}

@@ -8,7 +8,7 @@ import { Card, CardHeader } from "@mui/material";
 import { fNumber } from "../../../utils/formatNumber";
 
 // components
-import useChart from "../../Chart/useChart";
+import useChart from "../useChart";
 
 // ----------------------------------------------------------------------
 

@@ -1,23 +1,45 @@
 import React from "react";
-import { Container, Grid, useTheme } from "@mui/material";
+import { Container, Grid, useTheme, Box } from "@mui/material";
 import AppAreaChart from "../../../components/Chart/v1/AppAreaChart";
 import AppWebsiteVisits from "../../../components/Chart/v1/AppWebsiteVisits";
 import AppCurrentVisits from "../../../components/Chart/v1/AppCurrentVisits";
 import AppConversationRates from "../../../components/Chart/v1/AppConversationRates";
 import AppSubject from "../../../components/Chart/v1/AppSubject";
-import Layout from "../../../layout/GlobalLayout/Layout";
-import MyDashboard from "../../../components/Chart/v1/DountCount";
-import SealsOverview from "./SealsOverview";
+import MyDashboard from "../../../components/Chart/v1/MyDashboard";
 import RadialBarChart from "../../../components/Chart/v1/RadialBarChart";
 import RadialBarChart2 from "../../../components/Chart/v1/RadialBarChart2";
 import RadialChart from "../../../components/Chart/v1/RadialChart";
 import PolarChart from "../../../components/Chart/v1/PolarChart";
+import PolarChart2 from "../../../components/Chart/v1/PolarChart2";
+import MultiRadialChart from "../../../components/Chart/v1/MultiRadialChart";
+import SocialViewChart from "../../../components/Chart/v1/SocialViewChart";
+import TradeChart from "../../../components/Chart/v1/TradeChart";
+import SingleAreaChart from "../../../components/Chart/v1/SingleAreaChart";
+import BarChart from "../../../components/Chart/v1/BarChart";
+import YearUpdateChart from "../../../components/Chart/v1/YearUpdateChart";
+import CashFlowChart from "../../../components/Chart/v1/CashFlowChart";
+import UserPerformanceChart from "../../../components/Chart/v1/UserPerformanceChart";
+import UserProgressChart from "../../../components/Chart/v1/UserProgressChart";
+import RadialBarSemiCircleChart from "../../../components/Chart/v1/RadialBarSemiCircleChart";
+import Chunk1 from "../../../components/Chart/v1/Chunk1";
+import Chunk2 from "../../../components/Chart/v1/Chunk2";
+import Chunk3 from "../../../components/Chart/v1/Chunk3";
+import Option1 from "../../../components/Chart/v1/Option1";
+import Option2 from "../../../components/Chart/v1/Option2";
+import Option3 from "../../../components/Chart/v1/Option3";
+import Option4 from "../../../components/Chart/v1/Option4";
+import Volume01 from "../../../components/Chart/v1/Volume01";
+import Volume02 from "../../../components/Chart/v1/Volume02";
+import Volume04 from "../../../components/Chart/v1/Volume04";
+import Volume03 from "../../../components/Chart/v1/Volume03";
+import Sidebar from "./Sidebar";
 
 function Dashboard() {
   const theme = useTheme();
   return (
     // <Layout>
     <Container>
+      <Sidebar />
       <Grid container spacing={2}>
         <Grid item xs={12} md={6} lg={4} mt={5}>
           <MyDashboard
@@ -163,9 +185,9 @@ function Dashboard() {
           />
         </Grid>
 
-        <Grid item xs={12} md={6} lg={8}>
+        {/* <Grid item xs={12} md={6} lg={8}>
           <SealsOverview />
-        </Grid>
+        </Grid> */}
         <Grid item xs={12} md={6} lg={4}>
           <RadialBarChart
             title="Progress Chart"
@@ -179,6 +201,26 @@ function Dashboard() {
           />
         </Grid>
         <Grid item xs={12} md={6} lg={4}>
+          <PolarChart series={[14, 23, 21, 17, 15, 10, 12, 17, 21]} />
+        </Grid>
+        <Grid item xs={12} md={6} lg={4}>
+          <PolarChart2 series={[42, 47, 52, 58, 65]} />
+        </Grid>
+        <Grid item xs={12} md={6} lg={4}>
+          <MultiRadialChart series={[44, 55, 67, 83]} />
+        </Grid>
+        <Grid item xs={12} md={6} lg={8}>
+          <SocialViewChart />
+        </Grid>
+        <Grid item xs={12} md={6} lg={4}>
+          <RadialBarSemiCircleChart />
+        </Grid>
+
+        <Grid item xs={12} md={6} lg={8}>
+          <TradeChart />
+        </Grid>
+
+        <Grid item xs={12} md={6} lg={4}>
           <RadialChart
             title="Radial Bar Chart Example"
             subheader="Sample Subheader"
@@ -186,8 +228,63 @@ function Dashboard() {
             labels={["Cricket"]}
           />
         </Grid>
+
+        <Grid item xs={12} md={6} lg={8}>
+          <BarChart />
+        </Grid>
+
         <Grid item xs={12} md={6} lg={4}>
-          <PolarChart series={[14, 23, 21, 17, 15, 10, 12, 17, 21]} />
+          <Chunk1 />
+        </Grid>
+
+        <Grid item xs={12} md={6} lg={8}>
+          <CashFlowChart />
+        </Grid>
+
+        <Grid item xs={12} md={6} lg={4}>
+          <Chunk2 />
+        </Grid>
+        <Grid item xs={12} md={6} lg={8}>
+          <UserPerformanceChart />
+        </Grid>
+        <Grid item xs={12} md={6} lg={4}>
+          <Chunk3 />
+        </Grid>
+
+        <Grid item xs={12} md={6} lg={8}>
+          <UserProgressChart />
+        </Grid>
+        <Grid item xs={12} md={6} lg={4}>
+          <Option1 />
+        </Grid>
+
+        <Grid item xs={12} md={6} lg={4}>
+          <Option2 />
+        </Grid>
+        <Grid item xs={12} md={6} lg={4}>
+          <Option3 />
+        </Grid>
+
+        <Grid item xs={12} md={6} lg={4}>
+          <Option4 />
+        </Grid>
+        <Grid item xs={12} md={6} lg={3}>
+          <Box>
+            <Volume01 />
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={6} lg={3}>
+          <Box>
+            <Volume02 />
+          </Box>
+        </Grid>
+        <Grid item xs={12} md={6} lg={3}>
+          <Volume03 />
+        </Grid>
+        <Grid item xs={12} md={6} lg={3}>
+          <Box>
+            <Volume04 />
+          </Box>
         </Grid>
       </Grid>
     </Container>

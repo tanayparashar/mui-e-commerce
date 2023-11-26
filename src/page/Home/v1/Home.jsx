@@ -9,6 +9,7 @@ import ViewProductWithDeal from "../../../components/Product/v1/ViewProductWithD
 import ProductRowSection from "../../../components/Product/v1/ProductRowSection";
 import ViewProductWithSingle from "../../../components/Product/v1/ViewProductWithSingle";
 import ReuseableProductCarousel from "../../../components/Product/v1/ReuseableProductCarousel";
+import MarqueeProduct from "../../../components/Product/v1/MarqueeProduct";
 
 import LoadingLinearTop from "../../../components/Loading/LoadingLinearTop";
 import Loading from "../../../components/Loading/Loading";
@@ -45,6 +46,8 @@ function Home() {
           <Network />
 
           <Container>
+            <MarqueeProduct SectionTitle={"Most selling product"} />
+
             <ViewMobileResponsive />
             <ProductRowSection SectionTitle={"Trading product"} />
 

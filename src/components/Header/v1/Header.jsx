@@ -10,7 +10,7 @@ import ShowCartDrawer from "./ShowCartDrawer";
 import BottomHeader from "./BottomHeader";
 import UserAccount from "./UserAccount";
 import Notification from "./Notification";
-import UserSetting from "./UserSetting";
+// import UserSetting from "./UserSetting";
 import MenuDrawer from "../../Menu/v1/MenuDrawer";
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
@@ -58,7 +58,7 @@ export default function Header() {
               {/* </Box> */}
 
               <Box sx={{ display: { xs: "none", md: "flex", gap: 3 } }}>
-                <UserSetting />
+                {/* <UserSetting /> */}
                 <Notification />
                 <ShowCartDrawer />
                 <UserAccount />

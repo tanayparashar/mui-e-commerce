@@ -79,3 +79,9 @@ html {
   left: 0;
   height: 100px;
 }
+
+.lazy-load-image-background.blur.lazy-load-image-loaded > img {
+  opacity: 1;
+  transition: opacity 0.3s;
+  border-radius: 8px;
+}

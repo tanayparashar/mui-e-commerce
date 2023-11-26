@@ -104,12 +104,15 @@ function SlideShow({ products }) {
     >
       {products.map((singleItem) => (
         <Box
+          className="control-min-img"
           key={singleItem.id}
           sx={{
             display: "flex",
             flexDirection: "column",
-            gap: 2,
+            // gap: "16px",
             justifyContent: "center",
+            paddingRight: "10px",
+            borderRadius: 1,
           }}
         >
           <Link to="/lol" style={{ textDecoration: "none", color: "inherit" }}>
@@ -134,11 +137,12 @@ function SlideShow({ products }) {
                   display: "block",
                   height: "150px",
                   width: "95%",
-                  borderRadius: "4px",
                   objectFit: "cover",
+                  borderRadius: 1,
                 },
                 src: singleItem.image, // Replace with the image URL
               }}
+              style={{ borderRadius: "80px" }}
             />
 
             <Typography sx={{ textAlign: "center" }} component={"span"}>

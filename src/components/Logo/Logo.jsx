@@ -11,7 +11,7 @@ const LogoResponsive = styled("img")`
   }
 `;
 
-function Logo({ jc }) {
+function Logo({ jc, fs = "50px" }) {
   const theme = useTheme();
   return (
     <Typography
@@ -24,6 +24,7 @@ function Logo({ jc }) {
         alignItems: "center",
         justifyContent: { jc },
         textDecoration: "none",
+        fontSize: { fs },
       }}
     >
       <LogoResponsive

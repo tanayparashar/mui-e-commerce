@@ -19,7 +19,7 @@ import ErrorPage from "../page/BrokenPage/v1/ErrorPage.jsx";
 import TermsOfUse from "../page/Policy/TermsOfUse.jsx";
 import PrivacyPolicy from "../page/Policy/PrivacyPolicy.jsx";
 import Checkout from "../page/Checkout/v1/Checkout.jsx";
-import Dashboard from "../page/Dashboard/v1/Dashboard.jsx";
+// import Dashboard from "../page/Dashboard/v1/Dashboard.jsx";
 import Faq from "../page/Faq/Faq.jsx";
 import User from "../page/User/v1/User.jsx";
 import Order from "../page/User/v1/Order.jsx";
@@ -39,6 +39,8 @@ import Sorry from "../page/Sorry/Sorry.jsx";
 const Documentation = lazy(() => import("../Docs/page/Documentation.jsx"));
 import DocLayout from "../Docs/layout/DocLayout.jsx";
 import Setup from "../Docs/page/Setup.jsx";
+import DashboardLayout from "../page/Dashboard/v1/layout/DashboardLayout.jsx";
+import DashboardHome from "../page/Dashboard/v1/page/DashboardHome.jsx";
 
 export const router = createBrowserRouter([
   {
@@ -169,8 +171,14 @@ export const router = createBrowserRouter([
   },
 
   {
-    path: "/dashboard",
-    element: <Dashboard />,
+    path: "/",
+    element: <DashboardLayout />,
+    children: [
+      {
+        path: "/dashboard",
+        element: <DashboardHome />,
+      },
+    ],
   },
 
   {

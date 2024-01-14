@@ -3,7 +3,7 @@ import { styled } from "@mui/material/styles";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import Box from "@mui/material/Box";
-import { useTheme } from "@mui/material";
+import { Badge, useTheme } from "@mui/material";
 
 const StyledTabs = styled((props) => (
   <Tabs
@@ -17,9 +17,13 @@ const StyledTabs = styled((props) => (
     backgroundColor: "transparent",
   },
   "& .MuiTabs-indicatorSpan": {
-    maxWidth: 10,
+    maxWidth: 30,
     width: "100%",
-    backgroundColor: theme.palette.primary.main,
+    backgroundColor: theme.palette.error.main,
+  },
+  "& .MuiTabs-flexContainer": {
+    display: "flex",
+    justifyContent: "space-between",
   },
 }));
 
@@ -28,18 +32,16 @@ const StyledTab = styled((props) => <Tab disableRipple {...props} />)(
     textTransform: "none",
     fontWeight: theme.typography.fontWeightRegular,
     fontSize: theme.typography.pxToRem(15),
-    marginRight: theme.spacing(0.5),
     padding: 0,
-    minHeight: "40px",
-    color: "rgba(255, 255, 255, 0.7)",
+    color: theme.palette.common.black,
     "&.Mui-selected": {
-      color: "#fff",
+      color: theme.palette.common.white,
       backgroundColor: "rgba(255, 255, 255, 0.2)",
       borderRadius: "8px",
+      fontWeight: "bold",
+      maxHeight: "30px",
     },
-    "&.Mui-focusVisible": {
-      backgroundColor: theme.palette.primary,
-    },
+    "&.MuiButtonBase-root-MuiTab-root": {},
   })
 );
 
@@ -52,13 +54,14 @@ export default function CustomizedTabs() {
   };
 
   return (
-    <Box sx={{ p: 1 }}>
+    <Box>
       <Box
         sx={{
-          bgcolor: theme.palette.secondary.main,
+          bgcolor: theme.palette.warning.main,
           borderRadius: "8px",
-          p: 0.5,
-          height: "48px",
+          // p: 0.5,
+          // height: "48px",
+          justifyContent: "space-between",
         }}
       >
         <StyledTabs
@@ -67,8 +70,8 @@ export default function CustomizedTabs() {
           aria-label="styled tabs example"
         >
           <StyledTab label="All" />
+          <StyledTab label="Unread" />
           <StyledTab label="Datasets" />
-          {/* <StyledTab label="Connections" /> */}
         </StyledTabs>
       </Box>
     </Box>

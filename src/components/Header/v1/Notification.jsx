@@ -13,6 +13,8 @@ import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreHorizRoundedIcon from "@mui/icons-material/MoreHorizRounded";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import NotificationTab from "./Notification/NotificationTab";
+import { Link } from "react-router-dom";
+import { useTheme } from "@emotion/react";
 
 const notifications = [
   {
@@ -41,9 +43,10 @@ const notifications = [
   },
 ];
 
-console.log(notifications);
+// console.log(notifications);
 
 function UserSetting() {
+  const theme = useTheme();
   const [openNav, setOpenNav] = useState(false);
   const toggleNav = () => {
     setOpenNav((prevOpen) => !prevOpen);
@@ -103,14 +106,44 @@ function UserSetting() {
           </Box>
 
           <Divider />
-          <NotificationTab />
+          <Box sx={{ p: 1 }}>
+            <NotificationTab />
 
-          {/* {notifications.map((notice) => (
-            <Box key={notice.id}>
-              <Typography>{notice.message}</Typography>
-              <Divider />
-            </Box>
-          ))} */}
+            {notifications.map((notice) => (
+              <Box
+                key={notice.id}
+                sx={{
+                  "& :hover": {
+                    background: theme.palette.grey[200],
+                  },
+                }}
+              >
+                <Box
+                  component={Link}
+                  to={"/"}
+                  mt={1}
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 0.8,
+                    p: 0.5,
+                    borderRadius: 1,
+                    textDecoration: "none",
+                    color: "inherit",
+                  }}
+                >
+                  <img
+                    src="https://i.ibb.co/ngsTMpF/Pngtree-male-avatar-simple-cartoon-design-5230556.png"
+                    alt="Pngtree-male-avatar-simple-cartoon-design-5230556"
+                    border="0"
+                    style={{ height: "50px", borderRadius: "50px" }}
+                  />
+                  <Typography sx={{ py: 0.5 }}>{notice.message}</Typography>
+                  <Divider />
+                </Box>
+              </Box>
+            ))}
+          </Box>
         </>
       </Drawer>
     </Box>

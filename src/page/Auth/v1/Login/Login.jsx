@@ -10,12 +10,13 @@ import {
   IconButton,
   useTheme,
   Container,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 import styled from "@emotion/styled";
 import { Visibility, VisibilityOff, Google } from "@mui/icons-material";
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
-import Swal from "sweetalert2";
 import { AuthContext } from "../../../../contexts/AuthProvider";
 
 const NeedPadding = styled(Box)`
@@ -30,6 +31,9 @@ const NeedPadding = styled(Box)`
 
 function Login() {
   const [showPassword, setShowPassword] = useState(false);
+  const [openAlert, setOpenAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+  const [alertSeverity, setAlertSeverity] = useState("success");
   const { signIn } = useContext(AuthContext);
   const theme = useTheme();
 
@@ -42,6 +46,10 @@ function Login() {
     reset,
   } = useForm();
 
+  const handleCloseAlert = () => {
+    setOpenAlert(false);
+  };
+
   const from = location.state?.from?.pathname || "/";
 
   const onSubmit = (data) => {
@@ -49,31 +57,32 @@ function Login() {
 
     signIn(email, password)
       .then((result) => {
-        const user = result.user;
-        console.log(user);
-
-        Swal.fire({
-          title: "User Login Successful.",
-          showClass: {
-            popup: "animate__animated animate__fadeInDown",
-          },
-          hideClass: {
-            popup: "animate__animated animate__fadeOutUp",
-          },
-        });
-
-        reset(); // Reset the form after successful submission
-
+        // const user = result.user;
+        // console.log(user);
+        setOpenAlert(true);
+        setAlertSeverity("success");
+        setAlertMessage("User Login Successful.");
+        reset();
         // Navigate to the desired location
-        navigate(from, { replace: true });
+        setTimeout(() => {
+          navigate(from, { replace: true });
+        }, 200);
       })
       .catch((error) => {
+        let message = "";
+
         if (error.code === "auth/wrong-password") {
-          alert("Wrong password");
+          message = "Wrong password";
+        } else if (error.code === "auth/user-not-found") {
+          message = "User not found";
         } else {
           console.log("Firebase Error:", error.message);
-          // Display a generic error message or handle other Firebase errors
+          message = "An error occurred. Please try again later.";
         }
+
+        setOpenAlert(true);
+        setAlertSeverity("error");
+        setAlertMessage(message);
       });
   };
 
@@ -86,6 +95,22 @@ function Login() {
       <Helmet>
         <title> 👤 Login | Online Aid </title>
       </Helmet>
+
+      <Snackbar
+        open={openAlert}
+        autoHideDuration={6000}
+        onClose={handleCloseAlert}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
+        <Alert
+          elevation={6}
+          variant="filled"
+          onClose={handleCloseAlert}
+          severity={alertSeverity}
+        >
+          {alertMessage}
+        </Alert>
+      </Snackbar>
 
       <Container>
         <Grid

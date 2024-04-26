@@ -14,7 +14,7 @@ import "./index.css";
 import { HelmetProvider } from "react-helmet-async";
 import SettingsProvider from "./contexts/SettingsContext.jsx";
 import ThemeProvider from './theme/index.jsx'
-import ThemeSettings from './components/settings/index.jsx'
+// import ThemeSettings from './components/settings/index.jsx'
 import AuthProvider from "./contexts/AuthProvider.jsx";
 
 
@@ -23,11 +23,11 @@ ReactDOM.createRoot(document.getElementById("root")).render(
     <HelmetProvider>
       <SettingsProvider>
         <ThemeProvider>
-          <ThemeSettings>
-            <AuthProvider>
-              <RouterProvider router={router} />
-            </AuthProvider>
-          </ThemeSettings>
+          {/* <ThemeSettings> */}
+          <AuthProvider>
+            <RouterProvider router={router} />
+          </AuthProvider>
+          {/* </ThemeSettings> */}
         </ThemeProvider>
       </SettingsProvider>
     </HelmetProvider>

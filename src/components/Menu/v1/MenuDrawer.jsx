@@ -54,7 +54,7 @@ const lists = [
   { name: "Panties", path: "/panties" },
 ];
 
-const categories = [
+const PrimaryList = [
   { id: 1, name: "Electronics" },
   { id: 2, name: "Computers" },
   { id: 3, name: "Smart Home" },
@@ -113,7 +113,7 @@ export default function MenuDrawer() {
         PaperProps={{
           sx: {
             width: NAV_WIDTH,
-            bgcolor: "background.default",
+            // bgcolor: "background.default",
             borderRightStyle: "1px solid",
             overflowX: "hidden",
           },
@@ -126,7 +126,7 @@ export default function MenuDrawer() {
         </Typography>
         <Divider />
         <List sx={{ m: 0, pt: 0 }}>
-          {categories.map((category) => (
+          {PrimaryList.map((category) => (
             <ListItem
               button
               onClick={() => handleSectionClick(category.name)}

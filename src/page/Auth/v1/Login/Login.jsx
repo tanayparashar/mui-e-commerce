@@ -15,8 +15,8 @@ import styled from "@emotion/styled";
 import { Visibility, VisibilityOff, Google } from "@mui/icons-material";
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
-import { AuthContext } from "../../../../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../../../contexts/AuthProvider";
 
 const NeedPadding = styled(Box)`
   padding-left: 80px;

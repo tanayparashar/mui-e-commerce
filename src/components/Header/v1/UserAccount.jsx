@@ -19,8 +19,8 @@ import Settings from "@mui/icons-material/Settings";
 import Logout from "@mui/icons-material/Logout";
 import Login from "@mui/icons-material/Login";
 
-import { AuthContext } from "../../../provider/AuthProvider";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../contexts/AuthProvider";
 
 export default function UserAccount() {
   const [anchorEl, setAnchorEl] = useState(null);

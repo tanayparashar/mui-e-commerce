@@ -93,12 +93,14 @@ function Checkout() {
             </Grid>
 
             <Grid item my={5}>
-              <OrderSummary
-                titleMarginButton={3}
-                size="h4"
-                btnText="Proceed to checkout"
-                path="/thankyou"
-              />
+              <Paper elevation={3}>
+                <OrderSummary
+                  titleMarginButton={3}
+                  size="h4"
+                  btnText="Proceed to checkout"
+                  path="/thankyou"
+                />
+              </Paper>
             </Grid>
           </Grid>
         </Container>

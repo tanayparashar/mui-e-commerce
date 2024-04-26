@@ -15,7 +15,7 @@ import SocialNetwork from "./SocialNetwork";
 
 const AnchorControl = styled(Link)(({ theme }) => ({
   textDecoration: "none",
-  color: theme.palette.common.black,
+  color: theme.palette.mode === "dark" ? theme.palette.common.white : theme.palette.common.black,
   fontWeight: "500",
   padding: 5,
   display: "block",

@@ -10,7 +10,7 @@ const MenuIconButton = ({ onClick }) => {
       aria-label="menu"
       onClick={onClick}
     >
-      <MenuIcon sx={{ color: "white" }} />
+      <MenuIcon />
     </IconButton>
   );
 };

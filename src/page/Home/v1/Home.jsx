@@ -14,10 +14,11 @@ import MarqueeProduct from "../../../components/Product/v1/MarqueeProduct";
 import LoadingLinearTop from "../../../components/Loading/LoadingLinearTop";
 import Loading from "../../../components/Loading/Loading";
 
-import useFlashTitle from "../../../hook/useFlashTitle";
-import Network from "./Network";
+import useFlashTitle from "../../../hooks/useFlashTitle";
+import Network from "../../../components/Network";
 
 const Layout = lazy(() => import("../../../layout/GlobalLayout/Layout"));
+
 const BannerSlider = lazy(
   () =>
     new Promise((resolve) => {

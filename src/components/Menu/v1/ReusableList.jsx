@@ -1,45 +1,34 @@
-import { useEffect, useState } from "react";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import {
   Box,
-  Button,
   Divider,
   IconButton,
   List,
   ListItem,
-  ListItemIcon,
   ListItemText,
   Tooltip,
   Typography,
   Slide,
-  Popover,
+  useTheme,
 } from "@mui/material";
 import List01 from "./List/List01";
 import { Link } from "react-router-dom";
 
 const ReusableList = ({ title, lists, onClose, isOpening }) => {
-  console.log(lists);
-  // useEffect(() => {
-  //   if (!isOpening) {
-  //     const timeout = setTimeout(() => {
-  //       onClose();
-  //     }, 400);
-  //     return () => clearTimeout(timeout);
-  //   }
-  // }, []);
+
+  const theme = useTheme()
 
   return (
     <Slide direction="right" in={isOpening} mountOnEnter unmountOnExit>
       <Box
         sx={{
-          backgroundColor: "#f0f0f0",
+          backgroundColor: theme.palette.mode === "dark" ? theme.palette.grey[800] : theme.palette.common.white,
           height: "100%",
           flexGrow: 1,
           top: "0",
           width: "280px",
           position: "fixed",
           overflowY: "scroll",
-          // overflow: "hidden",
         }}
       >
         <Box
@@ -84,16 +73,13 @@ const ReusableList = ({ title, lists, onClose, isOpening }) => {
                 to={`list.path`}
                 primary={list.name}
                 primaryTypographyProps={{
-                  fontWeight: "medium",
+                  fontWeight: "normal",
                   variant: "body1",
                 }}
               />
             </ListItem>
           ))}
         </List>
-        {/* <Box sx={{ px: 2 }}>
-        <List01 />
-      </Box> */}
       </Box>
     </Slide>
   );

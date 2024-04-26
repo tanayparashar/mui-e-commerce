@@ -18,7 +18,7 @@ function ShowGridProduct({ productData }) {
     <>
       {productData.map((data) => (
         <Grid item xs={6} sm={6} md={3} lg={12 / 5} xl={2} key={data.id}>
-          <Paper sx={{ p: 0.5 }}>
+          <Paper sx={{ p: 0.5 }} elevation={3}>
             <Box
               sx={{ textDecoration: "none", color: "inherit" }}
               component={Link}

@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 
-import useScrollToTopOnMount from "../../hook/useScrollToTopOnMount";
+import useScrollToTopOnMount from "../../hooks/useScrollToTopOnMount";
 export default function Documentation() {
   const theme = useTheme();
   useScrollToTopOnMount();

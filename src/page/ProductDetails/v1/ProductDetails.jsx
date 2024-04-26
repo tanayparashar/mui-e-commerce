@@ -16,7 +16,7 @@ import {
   Button,
 } from "@mui/material";
 
-import useScrollToTopOnMount from "../../../hook/useScrollToTopOnMount";
+import useScrollToTopOnMount from "../../../hooks/useScrollToTopOnMount";
 
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 

@@ -4,7 +4,7 @@ import { Box, Container, Grid, Typography } from "@mui/material";
 import QuestionForm from "./QuestionForm";
 import Layout from "../../layout/GlobalLayout/Layout";
 import ServiceCard from "./ServiceCard";
-import useScrollToTopOnMount from "../../hook/useScrollToTopOnMount";
+import useScrollToTopOnMount from "../../hooks/useScrollToTopOnMount";
 
 const serviceCardsData = [
   {

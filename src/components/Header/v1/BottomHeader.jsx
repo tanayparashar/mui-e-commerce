@@ -1,4 +1,4 @@
-import { Box, useMediaQuery } from "@mui/material";
+import { Box, useMediaQuery, styled } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import MenuDrawer from "../../Menu/v1/MenuDrawer";
@@ -12,6 +12,14 @@ const menuItems = [
   { text: "Shop", link: "/v2/shop" },
 ];
 
+const AnchorControl = styled(Link)(({ theme }) => ({
+  textDecoration: "none",
+  color: theme.palette.mode === "dark" ? theme.palette.common.white : theme.palette.common.black,
+  fontWeight: "500",
+  padding: 5,
+  display: "block",
+}));
+
 export default function BottomHeader() {
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   // Calculate the total width of menu items
@@ -20,7 +28,6 @@ export default function BottomHeader() {
   return (
     <Box
       sx={{
-        background: "#2427d6",
         overflowX: totalWidth > window.innerWidth ? "scroll" : "hidden",
       }}
     >
@@ -37,12 +44,11 @@ export default function BottomHeader() {
       >
         {isMobile ? null : <MenuDrawer />}
         {menuItems.map((menuItem, index) => (
-          <Box
+          <AnchorControl
             key={index}
             component={Link}
             to={menuItem.link}
             sx={{
-              color: "white",
               textDecoration: "none",
               whiteSpace: "pre",
               "&:hover": {
@@ -51,7 +57,7 @@ export default function BottomHeader() {
             }}
           >
             {menuItem.text}
-          </Box>
+          </AnchorControl>
         ))}
       </Box>
     </Box>

@@ -14,12 +14,12 @@ import {
 
 import styled from "@emotion/styled";
 import { Visibility, VisibilityOff, Google } from "@mui/icons-material";
-import { AuthContext } from "../../../../provider/AuthProvider";
 
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
 import CustomDialog from "./CustomDialog";
 import CustomWarning from "./CustomWarning";
+import { AuthContext } from "../../../../contexts/AuthProvider";
 
 const NeedPadding = styled(Box)`
   padding-left: 80px;

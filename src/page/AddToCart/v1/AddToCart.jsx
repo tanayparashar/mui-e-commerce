@@ -432,7 +432,7 @@ function AddToCart() {
                 </Box>
               </Grid>
               <Grid item xs={12} md={4} mt={5}>
-                <Paper>
+                <Paper elevation={3}>
                   <OrderSummery
                     titleMarginButton={2}
                     size="h6"

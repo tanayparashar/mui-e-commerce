@@ -11,18 +11,26 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "./index.css";
 
 // Provider context
-import ThemeProvider from "./theme/index.jsx";
 import { HelmetProvider } from "react-helmet-async";
-import AuthProvider from "./provider/AuthProvider.jsx";
+import SettingsProvider from "./contexts/SettingsContext.jsx";
+import ThemeProvider from './theme/index.jsx'
+import ThemeSettings from './components/settings/index.jsx'
+import AuthProvider from "./contexts/AuthProvider.jsx";
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <HelmetProvider>
-      <ThemeProvider>
-        <AuthProvider>
-          <RouterProvider router={router} />
-        </AuthProvider>
-      </ThemeProvider>
+      <SettingsProvider>
+        <ThemeProvider>
+          <ThemeSettings>
+            <AuthProvider>
+              <RouterProvider router={router} />
+            </AuthProvider>
+          </ThemeSettings>
+        </ThemeProvider>
+      </SettingsProvider>
     </HelmetProvider>
   </React.StrictMode>
 );
+

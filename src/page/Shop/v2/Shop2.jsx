@@ -21,7 +21,7 @@ import GridView from "./components/layout/GridView";
 import ViewModuleIcon from "@mui/icons-material/ViewModule";
 import ViewListIcon from "@mui/icons-material/ViewList";
 import MenuOpenIcon from "@mui/icons-material/MenuOpen";
-import useScrollToTopOnMount from "../../../hook/useScrollToTopOnMount";
+import useScrollToTopOnMount from "../../../hooks/useScrollToTopOnMount";
 import WithProgressBar from "../../../components/Loading/WithProgressBar";
 
 const NAV_WIDTH = 280; // Set the width of the nav drawer

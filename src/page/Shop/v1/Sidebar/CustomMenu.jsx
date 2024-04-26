@@ -26,7 +26,7 @@ const CustomMenu = ({ title, isOpenOrNot, lists }) => {
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <Box>
-        <Paper sx={{ mb: 2 }}>
+        <Paper sx={{ mb: 2 }} elevation={3}>
           <Button
             onClick={handleButtonClick}
             sx={{

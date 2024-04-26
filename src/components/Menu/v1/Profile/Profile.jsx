@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { Avatar, Box, Chip, Divider } from "@mui/material";
-import { AuthContext } from "../../../../provider/AuthProvider";
+import { AuthContext } from "../../../../contexts/AuthProvider";
 
 export default function Profile() {
   const { user } = useContext(AuthContext);

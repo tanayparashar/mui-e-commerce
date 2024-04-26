@@ -27,7 +27,7 @@ import Sidebar from "./Sidebar";
 
 import productData from "./data";
 import ReuseableProductCarousel from "../../../components/Product/v1/ReuseableProductCarousel";
-import useScrollToTopOnMount from "../../../hook/useScrollToTopOnMount";
+import useScrollToTopOnMount from "../../../hooks/useScrollToTopOnMount";
 import WithProgressBar from "../../../components/Loading/WithProgressBar";
 
 const NAV_WIDTH = 240; // Set the width of the nav drawer
@@ -72,7 +72,7 @@ function Shop() {
               </Grid>
             )}
             <Grid item md={9} mt={5}>
-              <Paper>
+              <Paper elevation={3}>
                 <Box
                   sx={{
                     display: "flex",

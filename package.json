@@ -12,11 +12,13 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@iconify/react": "^4.1.1",
     "@mui/icons-material": "^5.11.16",
     "@mui/material": "^5.14.0",
     "@mui/x-charts": "^6.0.0-alpha.14",
     "@react-pdf/renderer": "^3.1.13",
     "firebase": "^9.23.0",
+    "framer-motion": "^11.1.7",
     "localforage": "^1.10.0",
     "lodash": "^4.17.21",
     "lodash.merge": "^4.6.2",
@@ -38,7 +40,9 @@
     "react-top-loading-bar": "^2.3.1",
     "react-use": "^17.4.0",
     "react-window": "^1.8.9",
+    "simplebar-react": "^3.2.4",
     "sort-by": "^0.0.2",
+    "stylis-plugin-rtl": "^2.1.1",
     "sweetalert2": "^11.6.13"
   },
   "devDependencies": {

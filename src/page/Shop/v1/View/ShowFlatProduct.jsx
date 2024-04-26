@@ -9,7 +9,7 @@ function ShowFlatProduct({ productData }) {
   return (
     <Stack spacing={2}>
       {productData.map((data) => (
-        <Paper key={data.id} sx={{ p: 0.5 }}>
+        <Paper key={data.id} sx={{ p: 0.5 }} elevation={3}>
           <Box
             sx={{
               textDecoration: "none",

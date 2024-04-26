@@ -42,7 +42,7 @@ import LogoutIcon from "@mui/icons-material/Logout";
 
 export default function Sidebar() {
   return (
-    <Paper>
+    <Paper elevation={3}>
       <Box sx={{ display: "flex", flexDirection: "column", p: 2 }}>
         <ListItemButton component={Link} to="/user" sx={{ borderRadius: 1 }}>
           <ListItemIcon>

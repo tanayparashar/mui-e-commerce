@@ -6,7 +6,7 @@ import AppAreaChart from "../../../components/Chart/v1/AppAreaChart";
 export default function User() {
   return (
     <Box>
-      <AppAreaChart
+      {/* <AppAreaChart
         title="Area Chart"
         subheader="Area chart subheader"
         chartLabels={[
@@ -33,7 +33,7 @@ export default function User() {
             values: [11, 32, 45, 32, 34, 52, 41, 35, 49, 52, 30, 10],
           },
         ]}
-      />
+      /> */}
     </Box>
   );
 }

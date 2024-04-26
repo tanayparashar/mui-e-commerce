@@ -1,30 +1,8 @@
-// ----------------------------------------------------------------------
-
-export function remToPx(value) {
-  return Math.round(parseFloat(value) * 16);
-}
-
-export function pxToRem(value) {
-  return `${value / 16}rem`;
-}
-
-export function responsiveFontSizes({ sm, md, lg }) {
-  return {
-    '@media (min-width:600px)': {
-      fontSize: pxToRem(sm),
-    },
-    '@media (min-width:900px)': {
-      fontSize: pxToRem(md),
-    },
-    '@media (min-width:1200px)': {
-      fontSize: pxToRem(lg),
-    },
-  };
-}
+import { pxToRem, responsiveFontSizes } from '../utils/getFontValue';
 
 // ----------------------------------------------------------------------
 
-const FONT_PRIMARY = 'Public Sans, sans-serif'; // Google Font
+const FONT_PRIMARY = 'Manrope, Public Sans, sans-serif'; // Google Font
 // const FONT_SECONDARY = 'CircularStd, sans-serif'; // Local Font
 
 const typography = {
@@ -33,13 +11,14 @@ const typography = {
   fontWeightMedium: 600,
   fontWeightBold: 700,
   h1: {
-    fontWeight: 800,
+    fontWeight: 700,
     lineHeight: 80 / 64,
     fontSize: pxToRem(40),
+    letterSpacing: 2,
     ...responsiveFontSizes({ sm: 52, md: 58, lg: 64 }),
   },
   h2: {
-    fontWeight: 800,
+    fontWeight: 700,
     lineHeight: 64 / 48,
     fontSize: pxToRem(32),
     ...responsiveFontSizes({ sm: 40, md: 44, lg: 48 }),
@@ -74,7 +53,7 @@ const typography = {
     fontSize: pxToRem(16),
   },
   subtitle2: {
-    fontWeight: 600,
+    fontWeight: 700,
     lineHeight: 22 / 14,
     fontSize: pxToRem(14),
   },
@@ -85,10 +64,12 @@ const typography = {
   body2: {
     lineHeight: 22 / 14,
     fontSize: pxToRem(14),
+    fontWeight: 600,
   },
   caption: {
     lineHeight: 1.5,
     fontSize: pxToRem(12),
+    fontWeight: 600,
   },
   overline: {
     fontWeight: 700,
@@ -102,6 +83,9 @@ const typography = {
     fontSize: pxToRem(14),
     textTransform: 'capitalize',
   },
+  article: {
+    fontWeight: 700,
+  }
 };
 
 export default typography;

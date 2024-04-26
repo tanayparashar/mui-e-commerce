@@ -10,8 +10,9 @@ import ShowCartDrawer from "./ShowCartDrawer";
 import BottomHeader from "./BottomHeader";
 import UserAccount from "./UserAccount";
 import Notification from "./Notification";
-// import UserSetting from "./UserSetting";
 import MenuDrawer from "../../Menu/v1/MenuDrawer";
+import ModeSwitch from '../../../components/settings/drawer/ModeSwitch';
+
 
 const StyledToolbar = styled(Toolbar)(({ theme }) => ({
   display: "flex",
@@ -56,18 +57,18 @@ export default function Header() {
               {isMobile ? <UserAccount /> : null}
               {/* </Box> */}
 
-              <Box sx={{ display: { xs: "none", md: "flex", gap: 3 } }}>
-                {/* <UserSetting /> */}
+              <Box sx={{ display: { xs: "none", md: "flex", gap: 3, alignItems: "center" } }}>
                 <Notification />
                 <ShowCartDrawer />
                 <UserAccount />
+                <ModeSwitch />
               </Box>
             </Box>
           </StyledToolbar>
         </AppBar>
       </Box>
 
-      {/* Bottom  */}
+      {/* Bottom Header  */}
       <BottomHeader />
     </>
   );
